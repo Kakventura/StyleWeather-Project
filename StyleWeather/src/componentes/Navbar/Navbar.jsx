@@ -1,19 +1,28 @@
-import React, { useContext } from 'react';
-import styles from './Navbar.module.css';
-import { AppContext } from '../../context/AppContext';
+import { Menu, X } from 'lucide-react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import helpImg from '../../assets/help.png';
+import { useAppContext } from '../../hooks/useAppContext';
+import styles from './Navbar.module.css';
 
 const Navbar = () => {
-  const { logo } = useContext(AppContext);
+  const { logo, menuOpen, toggleMenu } = useAppContext();
   const navigate = useNavigate();
 
   return (
     <nav className={styles.navbar}>
       <img src={logo} alt="Logo" className={styles.logo} onClick={() => navigate('/')} />
-      <div className={styles.buttons}>
-        <button onClick={() => navigate('/cadastro')} className={styles.btn}>Cadastro</button>
-        <button onClick={() => navigate('/ajuda')} className={styles.btn}>
-          <span className="material-icons">help_outline</span>
+
+      <div className={styles.menuIcon} onClick={toggleMenu}>
+        {menuOpen ? <X size={28} /> : <Menu size={28} />}
+      </div>
+
+      <div className={`${styles.buttons} ${menuOpen ? styles.showMenu : ''}`}>
+        <button onClick={() => navigate('/cadastro')} className={styles.customBtn}>
+          Cadastre-se
+        </button>
+        <button onClick={() => navigate('/ajuda')} className={styles.iconOnlyBtn}>
+          <img src={helpImg} alt="Ajuda" className={styles.icon} />
         </button>
       </div>
     </nav>
@@ -21,3 +30,4 @@ const Navbar = () => {
 };
 
 export { Navbar };
+
