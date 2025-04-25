@@ -1,7 +1,5 @@
 import React from 'react';
-// src/layout/LayoutPadrao/LayoutPadrao.jsx
 import { Navbar } from '../../componentes/Navbar';
-
 import styles from './LayoutPadrao.module.css';
 
 const LayoutPadrao = ({ children }) => {

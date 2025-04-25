@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import logoImg from '../assets/user.png'; // coloca sua logo aqui
+import logoImg from '../assets/logo.png';
 
 export const AppContext = createContext();
 
