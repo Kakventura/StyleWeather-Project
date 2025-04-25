@@ -1,5 +1,6 @@
 :root{
   --cinza: #EBEBEC;
+  --branco: #FFFFFF;
   --preto: #000000;
   --roxo_base: #6e4c97;
   --roxo_claro: #9b7cbb;
@@ -13,7 +14,7 @@
 }
 
 body{
-  background-color: var(--cinza);
+  background-color: var(--branco);
 }
 
 body, input, textarea, button{

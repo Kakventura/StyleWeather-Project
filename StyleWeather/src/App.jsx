@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import { LayoutPadrao } from './layout/LayoutPadrao/LayoutPadrao';
-import { Inicial } from './pages/Inicial/Inicial';
+import { Inicial, Ajuda, Cadastrar } from './pages';
 
 const App = () => {
   return (
@@ -11,6 +11,8 @@ const App = () => {
         <LayoutPadrao>
           <Routes>
             <Route path="/" element={<Inicial />} />
+            <Route path="/ajuda" element={<Ajuda />} />
+            <Route path="/cadastrar" element={<Cadastrar />} />
           </Routes>
         </LayoutPadrao>
       </Router>

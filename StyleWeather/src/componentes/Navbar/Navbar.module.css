@@ -55,7 +55,7 @@
   width: 100%;
   height: 100%;
   border-radius: 10rem;
-  background-color: var(--roxo_claro);
+  /* background-color: var(--roxo_claro); */
   z-index: -2;
 }
 

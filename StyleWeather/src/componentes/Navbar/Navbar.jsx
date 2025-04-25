@@ -18,7 +18,7 @@ const Navbar = () => {
       </div>
 
       <div className={`${styles.buttons} ${menuOpen ? styles.showMenu : ''}`}>
-        <button onClick={() => navigate('/cadastro')} className={styles.customBtn}>
+        <button onClick={() => navigate('/cadastrar')} className={styles.customBtn}>
           Cadastre-se
         </button>
         <button onClick={() => navigate('/ajuda')} className={styles.iconOnlyBtn}>
