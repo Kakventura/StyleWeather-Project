@@ -1,1 +1,1 @@
-export * from './LayoutCadastrado'/
+export * from './LayoutCadastrado';

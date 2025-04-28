@@ -8,13 +8,13 @@ const App = () => {
   return (
     <AppProvider>
       <Router>
-        <LayoutPadrao>
+        <LayoutCadastrado>
           <Routes>
-            <Route path="/" element={<Inicial />} />
+            <Route path="/" element={<EscolherLook/>} />
             <Route path="/ajuda" element={<Ajuda />} />
             <Route path="/cadastrar" element={<Cadastrar />} />
           </Routes>
-        </LayoutPadrao>
+        </LayoutCadastrado>
       </Router>
     </AppProvider>
   );
