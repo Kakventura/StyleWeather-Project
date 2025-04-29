@@ -1,23 +1,24 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';  
+import { LayoutCadastrado } from './layout/LayoutCadastrado/LayoutCadastrado';
 import { AppProvider } from './context/AppContext';
-import { LayoutPadrao } from './layout/LayoutPadrao/LayoutPadrao';
-import { Inicial, Ajuda, Cadastrar } from './pages';
+import { EditarPerfil, Inicial, Ajuda } from './pages';  
 
 const App = () => {
+  console.log("App is rendering");  // Adicionando o log para verificar se o componente é renderizado
   return (
     <AppProvider>
-      <Router>
+      <BrowserRouter>
         <LayoutCadastrado>
           <Routes>
-            <Route path="/" element={<EscolherLook/>} />
+            <Route path="/" element={<Inicial />} />
+            <Route path="/editar-perfil" element={<EditarPerfil />} />
             <Route path="/ajuda" element={<Ajuda />} />
-            <Route path="/cadastrar" element={<Cadastrar />} />
           </Routes>
         </LayoutCadastrado>
-      </Router>
+      </BrowserRouter>
     </AppProvider>
   );
-};
+}
 
 export { App };
