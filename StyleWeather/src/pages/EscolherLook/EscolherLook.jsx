@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AppContexto } from "../../context/AppContext";
+import "../../context/AppContext";
 import "./EscolherLook.module.css";
 
 const EscolherLook = () => {

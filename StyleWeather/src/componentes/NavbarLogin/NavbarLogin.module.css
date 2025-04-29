@@ -1,159 +1,219 @@
 .navbar {
-    width: 100%;
-    height: 70px;
-    background-color: var(--preto);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-    position: relative;
-    z-index: 10;
-  }
-  
-  .logo {
-    height: 50px;
-    cursor: pointer;
-  }
-  
-  .buttons {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-  }
-  
-  .customBtn {
-    padding: 0.75rem 1.25rem;
-    border-radius: 10rem;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 1rem;
-    letter-spacing: 0.15rem;
-    border: none;
-    background: transparent;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    transition: all 0.3s;
-  }
-  
-  .customBtn::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10rem;
-    z-index: -2;
-  }
-  
-  .customBtn::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background-color: var(--roxo_base);
-    transition: all 0.3s ease;
-    border-radius: 10rem;
-    z-index: -1;
-  }
-  
-  .customBtn:hover::before {
-    width: 100%;
-  }
-  
-  .iconOnlyBtn {
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-  
-  .icon {
-    height: 20px;
+  width: 100%;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.5rem;
+  position: relative;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s ease;
+}
+
+.logo {
+  height: 50px;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.buttons {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.customBtn {
+  padding: 0.85rem 1.75rem;
+  border-radius: 50px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 0.1rem;
+  border: none;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 500;
+}
+
+.customBtn::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--roxo_base), #8a2be2);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 50px;
+  z-index: -1;
+}
+
+.customBtn:hover {
+  letter-spacing: 0.15rem;
+}
+
+.customBtn:hover::before {
+  width: 100%;
+}
+
+.iconOnlyBtn {
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.iconOnlyBtn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+  height: 22px;
+  transition: transform 0.3s ease;
+}
+
+.iconOnlyBtn:hover .icon {
+  transform: scale(1.1);
+}
+
+.menuIcon {
+  display: none;
+  cursor: pointer;
+  color: var(--cinza);
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+.menuIcon:hover {
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.userSection {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.userIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease, transform 0.2s ease;
+}
+
+.userIcon:hover {
+  border-color: var(--roxo_base);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+}
+
+.userMenu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  z-index: 200;
+  transform-origin: top right;
+  transform: scale(0.95);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.userSection:hover .userMenu,
+.userMenu.show {
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.userMenuItem {
+  padding: 0.9rem 1.2rem;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #fff;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.userMenuItem:hover {
+  background-color: rgba(138, 43, 226, 0.2);
+  padding-left: 1.4rem;
+}
+
+.userMenuItem:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1.5rem;
+    height: 75px;
   }
   
   .menuIcon {
+    display: block;
+  }
+  
+  .buttons {
+    flex-direction: column;
+    position: absolute;
+    top: 75px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    width: 100%;
+    padding: 1.5rem;
+    gap: 1.2rem;
+    align-items: flex-end;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     display: none;
-    cursor: pointer;
-    color: var(--cinza);
+    animation: menuSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   
-  /* Área do usuário (após login) */
-  .userSection {
-    position: relative;
+  @keyframes menuSlideIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .showMenu {
     display: flex;
-    align-items: center;
-  }
-  
-  .userIcon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    cursor: pointer;
-    border: 2px solid var(--cinza);
   }
   
   .userMenu {
-    position: absolute;
-    top: 50px;
-    right: 0;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    min-width: 150px;
-    z-index: 20;
+    top: 65px;
+    right: 1.5rem;
+    background-color: rgba(20, 20, 20, 0.98);
   }
-  
-  .userMenuItem {
-    padding: 0.75rem 1rem;
-    background: none;
-    border: none;
-    text-align: left;
-    cursor: pointer;
-    font-size: 0.9rem;
-    color: var(--preto);
-    transition: background 0.2s;
-  }
-  
-  .userMenuItem:hover {
-    background-color: #f0f0f0;
-  }
-  
-  /* Responsividade */
-  @media (max-width: 768px) {
-    .menuIcon {
-      display: block;
-    }
-  
-    .buttons {
-      flex-direction: column;
-      position: absolute;
-      top: 70px;
-      right: 0;
-      background-color: var(--preto);
-      width: 100%;
-      padding: 1rem 2rem;
-      gap: 1rem;
-      align-items: flex-end;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      display: none; /* inicialmente fechado */
-    }
-  
-    .showMenu {
-      display: flex;
-    }
-  
-    /* Ajuste da posição do menu do usuário no mobile */
-    .userMenu {
-      top: 60px;
-      right: 2rem;
-    }
-  }
-  
+}
