@@ -4,12 +4,30 @@ import logoImg from '../assets/logo.png';
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuAberto, setMenuAberto] = useState(false);
+  const [tipoLook, setTipoLook] = useState("");
+  const [cidadeSelecionada, setCidadeSelecionada] = useState("");
+  const [lugarSelecionado, setLugarSelecionado] = useState("");
+  const [dadosClima, setDadosClima] = useState(null);
 
-  const toggleMenu = () => setMenuOpen(prev => !prev);
+  const alternarMenu = () => setMenuAberto(prev => !prev);
 
   return (
-    <AppContext.Provider value={{ logo: logoImg, menuOpen, toggleMenu }}>
+    <AppContext.Provider
+      value={{
+        logo: logoImg,
+        menuAberto,
+        alternarMenu,
+        tipoLook,
+        setTipoLook,
+        cidadeSelecionada,
+        setCidadeSelecionada,
+        lugarSelecionado,
+        setLugarSelecionado,
+        dadosClima,
+        setDadosClima, 
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

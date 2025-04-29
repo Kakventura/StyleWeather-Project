@@ -1,0 +1,1 @@
+export { default as FiltroLugar} from './FiltroLugar';

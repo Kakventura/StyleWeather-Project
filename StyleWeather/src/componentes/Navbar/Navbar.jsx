@@ -30,4 +30,3 @@ const Navbar = () => {
 };
 
 export { Navbar };
-
