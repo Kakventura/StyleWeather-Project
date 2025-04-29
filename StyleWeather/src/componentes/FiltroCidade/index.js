@@ -1,1 +1,1 @@
-export { default as FiltroCidade} from './FiltroCidade';
+export * from './FiltroCidade';

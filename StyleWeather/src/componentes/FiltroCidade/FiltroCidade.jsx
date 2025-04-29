@@ -43,4 +43,4 @@ const FiltroCidade = ({ cidadeSelecionada, setCidadeSelecionada }) => {
     );
 };
 
-export default FiltroCidade;
+export {FiltroCidade};

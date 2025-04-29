@@ -45,4 +45,4 @@ const EscolherLook = () => {
     );
 };
 
-export default EscolherLook;
+export {EscolherLook};

@@ -43,4 +43,4 @@ const CardClima = ({ clima }) => {
     );
 };
 
-export default CardClima;
+export {CardClima};

@@ -1,1 +1,1 @@
-export { default as EscolherLook } from './EscolherLook';
+export * from './EscolherLook';

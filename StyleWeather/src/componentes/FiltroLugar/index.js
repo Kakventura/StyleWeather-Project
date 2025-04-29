@@ -1,1 +1,1 @@
-export { default as FiltroLugar} from './FiltroLugar';
+export * from './FiltroLugar';

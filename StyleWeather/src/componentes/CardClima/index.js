@@ -1,1 +1,1 @@
-export { default as CardClima} from './CardClima';
+export * from './CardClima';

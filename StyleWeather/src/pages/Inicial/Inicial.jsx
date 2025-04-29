@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import { AppContext } from "../../AppContext";
-import CardClima from "../../CardClima";
-import FiltroCidade from "../../FiltroCidade";
-import FiltroLugar from "../../FiltroLugar";
+import { AppContext } from "../../context";
+import { FiltroCidade } from "../../FiltroCidade";
+import { FiltroLugar } from "../../FiltroLugar";
+import { CardClima } from "../../CardClima";
+import "./Inicial.module.css"; 
 
 const Inicial = () => {
   const {

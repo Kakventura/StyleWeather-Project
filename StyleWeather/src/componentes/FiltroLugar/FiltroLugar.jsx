@@ -19,4 +19,4 @@ const FiltroLugar = ({ lugarSelecionado, setLugarSelecionado }) => {
     );
 };
 
-export default FiltroLugar;
+export  {FiltroLugar};
