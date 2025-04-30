@@ -1,9 +1,10 @@
+// Esse componente permite ao usuário escolher entre diferentes estilos de roupa (femininas, masculinas ou neutras).
 import React, { useContext } from "react";
-import "../../context/AppContext";
-import "./EscolherLook.module.css";
+import { AppContext } from "../../context/AppContext";
+import styles from "./EscolherLook.module.css";
 
 const EscolherLook = () => {
-    const { tipoLook, setTipoLook } = useContext(AppContexto);
+    const { tipoLook, setTipoLook } = useContext(AppContext);
 
     const opcoesLook = [
         { id: "feminino", rotulo: "Roupas Femininas", emoji: "👩" },
@@ -21,22 +22,22 @@ const EscolherLook = () => {
     };
 
     return (
-        <div className="container-look">
-            <h2 className="titulo-look">Qual estilo de roupa você prefere?</h2>
+        <div className={styles["container-look"]}>
+            <h2 className={styles["titulo-look"]}>Qual estilo de roupa você prefere?</h2>
 
             {opcoesLook.map((opcao) => (
                 <div
                     key={opcao.id}
-                    className={`opcao-look ${tipoLook === opcao.id ? "selecionado" : ""}`}
+                    className={`${styles["opcao-look"]} ${tipoLook === opcao.id ? styles["selecionado"] : ""}`}
                     onClick={() => setTipoLook(opcao.id)}
                 >
-                    <span className="emoji-look">{opcao.emoji}</span>
+                    <span className={styles["emoji-look"]}>{opcao.emoji}</span>
                     {opcao.rotulo}
                 </div>
             ))}
 
             <button
-                className="botao-salvar"
+                className={styles["botao-salvar"]}
                 onClick={salvarEscolha}
             >
                 Salvar Escolha
@@ -45,4 +46,4 @@ const EscolherLook = () => {
     );
 };
 
-export {EscolherLook};
+export { EscolherLook };

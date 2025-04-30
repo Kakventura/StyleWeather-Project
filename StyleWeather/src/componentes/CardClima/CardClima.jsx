@@ -1,46 +1,61 @@
 import React, { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
-import "./CardClima.module.css";
+import styles from "./CardClima.module.css";
 
-const CardClima = ({ clima }) => {
-    const { cidadeSelecionada } = useContext(AppContext);
+const CardClima = () => {
+    const { cidadeSelecionada, dadosClima } = useContext(AppContext);
 
-    if (!clima) return null;
+    if (!dadosClima) return null;
 
     const {
         name: nomeCidade,
-        weather: listaClima,
-        main: dadosPrincipais,
-        wind: vento,
-        sys: sistema,
-        visibility: visibilidade,
-        clouds: nuvens,
-        coord: coordenadas
-    } = clima;
+        weather,
+        main,
+        wind,
+        sys,
+        visibility,
+        clouds,
+        coord
+    } = dadosClima;
 
-    const infoClima = listaClima[0];
-    const urlIcone = `https://openweathermap.org/img/wn/${infoClima.icon}@2x.png`;
+    const clima = weather[0];
+    const urlIcone = `https://openweathermap.org/img/wn/${clima.icon}@2x.png`;
+
+    if (cidadeSelecionada && nomeCidade !== cidadeSelecionada) {
+        return (
+            <div className={styles.loading}>
+                <h2>Carregando clima de {cidadeSelecionada}...</h2>
+            </div>
+        );
+    }
 
     return (
-        <div className="card-clima">
-        <h2>{nomeCidade} ({coordenadas.lat}, {coordenadas.lon})</h2>
+        <div className={styles.cardClima}>
+            <h2 className={styles.titulo}>
+                {nomeCidade} <span className={styles.coord}></span>
+            </h2>
 
-        <div className="info-clima">
-            <img src={urlIcone} alt={infoClima.description} />
-            <p><strong>{infoClima.main}:</strong> {infoClima.description}</p>
-        </div>
+            <div className={styles.topo}>
+                <img src={urlIcone} alt={clima.description} className={styles.icone} />
+                <div>
+                    <h3>{clima.main}</h3>
+                    <p className={styles.descricao}>{clima.description}</p>
+                </div>
+            </div>
 
-        <p><strong>Temperatura:</strong> {dadosPrincipais.temp}°C</p>
-        <p><strong>Sensação Térmica:</strong> {dadosPrincipais.feels_like}°C</p>
-        <p><strong>Mínima:</strong> {dadosPrincipais.temp_min}°C | <strong>Máxima:</strong> {dadosPrincipais.temp_max}°C</p>
-        <p><strong>Umidade:</strong> {dadosPrincipais.humidity}%</p>
-        <p><strong>Pressão:</strong> {dadosPrincipais.pressure} hPa</p>
-        <p><strong>Visibilidade:</strong> {(visibilidade / 1000).toFixed(1)} km</p>
-        <p><strong>Nuvens:</strong> {nuvens.all}%</p>
-        <p><strong>Vento:</strong> {vento.speed} m/s, direção {vento.deg}°</p>
-        <p><strong>País:</strong> {sistema.country}</p>
+            <div className={styles.dados}>
+                <p><strong>🌡️ Temperatura:</strong> {main.temp}°C</p>
+                <p><strong>🤒 Sensação:</strong> {main.feels_like}°C</p>
+                <p><strong>⬇️ Mín:</strong> {main.temp_min}°C | <strong>⬆️ Máx:</strong> {main.temp_max}°C</p>
+                <p><strong>💧 Umidade:</strong> {main.humidity}%</p>
+                <p><strong>📈 Pressão:</strong> {main.pressure} hPa</p>
+                <p><strong>👁️ Visibilidade:</strong> {(visibility / 1000).toFixed(1)} km</p>
+                <p><strong>☁️ Nuvens:</strong> {clouds.all}%</p>
+                <p><strong>💨 Vento:</strong> {wind.speed} m/s, direção {wind.deg}°</p>
+                <p><strong>🌍 País:</strong> {sys.country}</p>
+            </div>
         </div>
     );
 };
 
-export {CardClima};
+export { CardClima };

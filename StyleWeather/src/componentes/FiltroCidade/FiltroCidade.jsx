@@ -1,5 +1,7 @@
-import React from "react";
+// Esse componente é responsável por filtrar a cidade escolhida pelo usuário. Ele utiliza o componente CreatableSelect da biblioteca react-select para permitir que o usuário escolha uma cidade de uma lista pré-definida ou crie uma nova opção. O valor selecionado é armazenado no contexto do aplicativo.
+import React, { useContext } from "react";
 import CreatableSelect from "react-select/creatable";
+import { AppContext } from "../../context/AppContext";
 
 const cidades = [
     { label: "São Paulo", value: "São Paulo" },
@@ -24,7 +26,9 @@ const cidades = [
     { label: "Manaus", value: "Manaus" }
 ];
 
-const FiltroCidade = ({ cidadeSelecionada, setCidadeSelecionada }) => {
+const FiltroCidade = () => {
+    const { cidadeSelecionada, setCidadeSelecionada } = useContext(AppContext);
+
     const handleSelect = (opcaoSelecionada) => {
         setCidadeSelecionada(opcaoSelecionada ? opcaoSelecionada.value : "");
     };
@@ -43,4 +47,4 @@ const FiltroCidade = ({ cidadeSelecionada, setCidadeSelecionada }) => {
     );
 };
 
-export {FiltroCidade};
+export { FiltroCidade };
