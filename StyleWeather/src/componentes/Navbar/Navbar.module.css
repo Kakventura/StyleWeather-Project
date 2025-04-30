@@ -1,0 +1,109 @@
+.navbar {
+  width: 100%;
+  height: 70px;
+  background-color: var(--preto);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  height: 50px;
+  cursor: pointer;
+}
+
+.icon {
+  height: 20px;
+}
+
+.iconOnlyBtn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.customBtn {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: none;
+  background: transparent;
+}
+
+.customBtn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10rem;
+  /* background-color: var(--roxo_claro); */
+  z-index: -2;
+}
+
+.customBtn::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: var(--roxo_base);
+  transition: all 0.3s ease;
+  border-radius: 10rem;
+  z-index: -1;
+}
+
+.customBtn:hover::before {
+  width: 100%;
+}
+
+.menuIcon {
+  display: none;
+  cursor: pointer;
+  color: var(--cinza);
+}
+
+@media (max-width: 768px) {
+  .menuIcon {
+    display: block;
+  }
+
+  .buttons {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: var(--preto);
+    width: 100%; /* ocupa toda a largura da navbar */
+    display: none;
+    padding: 1rem 2rem;
+    gap: 1rem;
+    align-items: flex-end; /* alinha os botões à direita */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .showMenu {
+    display: flex;
+  }
+}
+
+

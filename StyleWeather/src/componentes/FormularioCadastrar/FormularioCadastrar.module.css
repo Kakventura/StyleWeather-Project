@@ -1,0 +1,120 @@
+/* src/pages/Cadastrar/Cadastrar.module.css */
+@import url('https://fonts.cdnfonts.com/css/winky-rough');
+
+.background {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Winky Rough', sans-serif;
+}
+
+.cardCadastro {
+  position: relative;
+  z-index: 1;
+  width: 800px;
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.inputs a {
+    text-decoration: none;
+    color: #6e4c97;
+}
+
+.inputs a:hover {
+        color: #39284e;
+        transition: 0.2s ease;
+        }
+
+        .man{
+            width: 220px;
+
+            }
+            
+
+.ladoEsquerdo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  gap: 30px;
+}
+
+.titulo {
+  font-size: 34px;
+  color: rgb(0, 0, 0);
+  text-align: left;
+  margin: 0 0 10px 0;
+  margin-left: 35px;
+  font-family: 'Winky Rough', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinha label à esquerda */
+}
+
+.label label {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Winky Rough', sans-serif;
+}
+
+.avatar {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  margin-top: 40px;
+  margin-left: 10px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  width: 50%;
+  padding-left: 20px;
+}
+
+.inputs input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid black;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Winky Rough', sans-serif;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
+
+.inputs button {
+  width: 80%;
+  padding: 12px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Winky Rough', sans-serif;
+  transition: background 0.3s;
+  margin-top: 20px;
+}
+
+.inputs button:hover {
+  background: #333;
+}
+
