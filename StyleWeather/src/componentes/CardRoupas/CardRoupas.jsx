@@ -1,7 +1,7 @@
 // Esse arquivo contém o componente CardRoupas, que gera recomendações de roupas com base na temperatura, lugar e tipo de look (masculinos, femininos ou neutros).
 import React from "react";
 
-// Importar todas as imagens necessárias
+// Importar todas as imagens necessárias para os looks
 // Masculino 
 // Academia - Frio
 import lookFrio1 from "../../assets/looks/frio/masculinas/academia/blusa_termica_preta.png";
