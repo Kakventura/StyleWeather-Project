@@ -118,3 +118,32 @@
   background: #333;
 }
 
+
+@media (max-width: 768px) {
+  .cardCadastro {
+    flex-direction: column; /* Alinha os itens em coluna */
+    width: 90%; /* Ajusta a largura para caber melhor na tela */
+    padding: 20px; /* Reduz o padding */
+  }
+
+  .ladoEsquerdo, 
+  .inputs {
+    width: 100%; /* Cada seção ocupa 100% da largura */
+    align-items: center; /* Centraliza os itens */
+    text-align: center; /* Centraliza o texto */
+  }
+
+  .titulo {
+    text-align: center; /* Centraliza o título */
+    margin-left: 0; /* Remove o deslocamento à esquerda */
+  }
+
+  .inputs button {
+    width: 100%; /* Botão ocupa toda a largura */
+  }
+
+  .avatar {
+    width: 150px; /* Reduz o tamanho do avatar */
+    height: 150px;
+  }
+}

@@ -1,0 +1,67 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .background {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Winky Rough', sans-serif;
+  }
+
+  .cardCadastro {
+  position: relative;
+  z-index: 1;
+  width: 600px;
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 30px 100px;
+}
+  
+  h2 {
+    margin-bottom: 30px;  
+    font-size: 30px;
+  }
+  
+  .opcao {
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    
+  }
+  
+  .opcao.selecionado {
+    border-color: #6e4c97;
+    background-color: #f0e6ff;
+  }
+  
+  .botaoCadastrar {
+    width: 60%;
+    padding: 12px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Winky Rough', sans-serif;
+    transition: background 0.3s;
+    margin-top: 30px;
+
+  }
+  
+  .botaoCadastrar:hover {
+    background: #333;
+}

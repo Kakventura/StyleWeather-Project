@@ -1,12 +1,7 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from 'react-router-dom';
 import style from './FormularioCadastrar.module.css';
-import { Link } from 'react-router-dom';
 import manequim from '../../assets/manequim.png';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
-import { criptografarSenha } from '../../services/Auth'; // Função para criptografar senha
-import { db } from '../../services/firebaseConfig';
-
 
 const FormularioCadastrar = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +9,8 @@ const FormularioCadastrar = () => {
     email: "",
     senha: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,69 +20,33 @@ const FormularioCadastrar = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleNext = (e) => {
     e.preventDefault();
 
     // Verifica se todos os campos estão preenchidos
     if (!formData.nome || !formData.email || formData.senha.length < 6) {
       alert("Por favor, preencha todos os campos e use uma senha com pelo menos 6 caracteres.");
       return;
-    };
-    
-    const auth = getAuth();
-
-    try {
-      // Cadastra o usuário no Firebase Authentication
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        formData.email,
-        formData.senha
-      );
-      console.log("Usuário criado:", userCredential.user);
-
-
-      const user = userCredential.user;
-
-      // Criptografa a senha antes de salvar no Firestore
-      const senhaCriptografada = await criptografarSenha(formData.senha);
-
-      // Salva os dados do usuário no Firestore
-      console.log("Preparando para salvar no Firestore...");
-        await setDoc(doc(db, "usuarios", user.uid), {
-          nome: formData.nome,
-          email: formData.email,
-          senha: senhaCriptografada,
-        });
-      console.log("Dados salvos no Firestore com sucesso!");
-
-      
-      setFormData({ nome: "", email: "", senha: "" });
-      alert("Usuário cadastrado com sucesso!");
-    } catch (error) {
-      if (error.code === "auth/email-already-in-use") {
-        alert("O email já está em uso. Por favor, use outro email.");
-      } else if (error.code === "auth/invalid-email") {
-        alert("O email fornecido é inválido.");
-      } else if (error.code === "auth/weak-password") {
-        alert("A senha é muito fraca. Use pelo menos 6 caracteres.");
-      } else {
-        alert("Erro ao cadastrar: " + error.message);
-      }
-      console.error("Erro ao cadastrar usuário:", error.message);
     }
+
+    // Salva os dados temporariamente no localStorage
+    localStorage.setItem("cadastroNome", formData.nome);
+    localStorage.setItem("cadastroEmail", formData.email);
+    localStorage.setItem("cadastroSenha", formData.senha);
+
+    // Redireciona para a página de escolha de gênero
+    navigate("/genero");
   };
 
   return (
     <div className={style.background}>
       <div className={style.cardCadastro}>
-        {/* Lado esquerdo */}
         <div className={style.ladoEsquerdo}>
           <h1 className={style.titulo}>CADASTRO</h1>
           <img src={manequim} alt="Ajuda" className={style.man} />
         </div>
 
-        {/* Formulário */}
-        <form onSubmit={handleSubmit} className={style.inputs}>
+        <form onSubmit={handleNext} className={style.inputs}>
           <label className={style.label}>Nome:</label>
           <input
             type="text"
@@ -117,7 +78,7 @@ const FormularioCadastrar = () => {
           />
           <p>Já possui cadastro? <Link to="/login">Entrar</Link></p>
 
-          <button type="submit">Cadastrar</button>
+          <button type="submit">Avançar</button>
         </form>
       </div>
     </div>
