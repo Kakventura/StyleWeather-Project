@@ -1,3 +1,4 @@
+// Componente para exibir as informações climáticas de uma cidade selecionada
 import React, { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 import styles from "./CardClima.module.css";

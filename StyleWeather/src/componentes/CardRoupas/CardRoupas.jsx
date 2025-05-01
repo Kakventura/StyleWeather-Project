@@ -1,5 +1,6 @@
 // Esse arquivo contém o componente CardRoupas, que gera recomendações de roupas com base na temperatura, lugar e tipo de look (masculinos, femininos ou neutros).
-import React from "react";
+import React, { useContext } from 'react';
+import { AppContext } from "../../context/AppContext";
 
 // Importar todas as imagens necessárias para os looks
 // Masculino 
@@ -87,7 +88,6 @@ import lookCalor22 from "../../assets/looks/calor/masculinas/praia/viseira_branc
 import lookCalor23 from "../../assets/looks/calor/masculinas/praia/garrafa_agua.png";
 import lookCalor24 from "../../assets/looks/calor/masculinas/praia/toalha_branca.png";
 import lookCalor25 from "../../assets/looks/calor/masculinas/praia/guarda_sol.png";
-
 // Restaurante - Frio
 import lookFrio19 from "../../assets/looks/frio/masculinas/restaurante/jaqueta_puffer_branca.png";
 import lookFrio20 from "../../assets/looks/frio/masculinas/restaurante/calca_cargo_preta.png";
@@ -117,7 +117,8 @@ import lookAmeno37 from "../../assets/looks/ameno/masculinas/shopping/corrente.p
 import lookCalor29 from "../../assets/looks/calor/masculinas/shopping/camisa_branca.png";
 import lookCalor30 from "../../assets/looks/calor/masculinas/shopping/short_preto.png";
 import lookCalor31 from "../../assets/looks/calor/masculinas/shopping/chinelo_preto.png";
-
+// Probabilidade de chuva
+import guarda_chuva from "../../assets/looks/frio/itens_necessarios/guarda_chuva.png";
 // Femininas
 // Neutras
 
@@ -166,7 +167,7 @@ const sugestoesDeRoupa = {
         masculino: {
             frio: {
                 texto: "Vá confortável e quentinho no frio, bons estudos!",
-                imagens: [lookFrio13, lookFrio14, lookFrio12],
+                imagens: [lookFrio10, lookFrio11, lookFrio12],
             },
             ameno: {
                 texto: "Leve uma blusa, mas fique confortável para aproveitar os estudos sob o clima ameno.",
@@ -255,13 +256,14 @@ const gerarRecomendacao = (temperatura, lugar, tipoLook) => {
 
     return dados;
 };
-
-// Componente de recomendação de roupas
 const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
+    const { dadosClima } = useContext(AppContext);
+    const temChuva = dadosClima?.temChuva;
+
     const recomendacao = gerarRecomendacao(temperatura, lugar, tipoLook);
 
     if (!recomendacao) return null;
-    
+
     return (
         <div style={{ marginTop: "20px" }}>
             <h3>Recomendação:</h3>
@@ -276,6 +278,17 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
                     />
                 ))}
             </div>
+
+            {temChuva && (
+                <div style={{ textAlign: "center", marginTop: "20px" }}>
+                    <img
+                        src={guarda_chuva}
+                        alt="Guarda-chuva"
+                        style={{ width: "80px", height: "auto" }}
+                    />
+                    <p>Não esqueça o guarda-chuva!</p>
+                </div>
+            )}
         </div>
     );
 };
