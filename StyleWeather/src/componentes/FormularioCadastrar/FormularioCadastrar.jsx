@@ -53,7 +53,7 @@ const FormularioCadastrar = () => {
       <div className={style.cardCadastro}>
         {/* Lado esquerdo */}
         <div className={style.ladoEsquerdo}>
-          <h1 className={style.titulo}>Crie sua conta</h1>
+          <h1 className={style.titulo}>CADASTRO</h1>
                     <img src={manequim} alt="Ajuda" className={style.man} />
           
         </div>
