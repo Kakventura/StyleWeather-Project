@@ -295,7 +295,7 @@ import LookAmeno46 from '../../assets/looks/ameno/neutras/balada/cuturno_preto.p
 // Escola - Ameno
 import LookAmeno47 from '../../assets/looks/ameno/neutras/escola/camisa_listrada.png';
 import LookAmeno48 from '../../assets/looks/ameno/neutras/escola/social_preta.png';
-import LookAmeno49 from '../../assets/looks/ameno/neutras/escola/calca_preta_larga.png';
+import LookAmeno49 from '../../assets/looks/ameno/neutras/escola/calça_preta_larga.png';
 import LookAmeno50 from '../../assets/looks/ameno/neutras/escola/calça_tactel.png';
 import LookAmeno51 from '../../assets/looks/ameno/neutras/escola/tenis_preto.png';
 // Parque - Ameno
