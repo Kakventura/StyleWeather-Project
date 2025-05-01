@@ -1,9 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { verificarSenha } from '../../services/Auth'; // Importa a função de verificação de senha
 import style from './FormularioLogin.module.css';
 import usuario from '../../assets/usuario.png';
-import { Inicial } from "../../pages";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { verificarSenha } from '../../services/Auth'; // Função para verificar senha
 
 const FormularioLogin = () => {
   const [email, setEmail] = useState("");
@@ -15,20 +16,46 @@ const FormularioLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    const auth = getAuth();
+    const db = getFirestore();
 
-    const usuarioValido = usuarios.find((usuario) => usuario.email === email);
+    try {
+      // Autentica o usuário no Firebase Authentication
+      const userCredential = await signInWithEmailAndPassword(auth, email, senha);
+      console.log("Usuário autenticado:", userCredential.user);
 
-    if (usuarioValido) {
-      const senhaCorreta = await verificarSenha(senha, usuarioValido.senha);
-      if (senhaCorreta) {
-        setMensagem("Login bem-sucedido!!");
-        navigate("/"); // redireciona
+      const user = userCredential.user;
+
+      // Recupera os dados do Firestore
+      const docRef = doc(db, "usuarios", user.uid);
+      const docSnap = await getDoc(docRef);
+
+      if (!email || !senha) {
+        setMensagem("Por favor, preencha todos os campos.");
         return;
+      };
+      
+      if (docSnap.exists()) {
+        const dadosUsuario = docSnap.data();
+        console.log("Dados do Firestore:", dadosUsuario);
+
+        // Verifica a senha criptografada
+        const senhaCorreta = await verificarSenha(senha, dadosUsuario.senha);
+        if (senhaCorreta) {
+          setMensagem("Login bem-sucedido!");
+          navigate("/"); // Redireciona para a página inicial
+          return;
+        } else {
+          setMensagem("Senha incorreta.");
+        }
+      } else {
+        setMensagem("Usuário não encontrado no banco de dados.");
       }
+    } catch (error) {
+      console.error("Erro no login:", error.message);
+      setMensagem("Email ou senha inválidos.");
     }
 
-    setMensagem("Email ou senha inválidos.");
     setEmail("");
     setSenha("");
   };
@@ -41,8 +68,8 @@ const FormularioLogin = () => {
           <img src={usuario} alt="Ajuda" className={style.user} />
         </div>
 
-        <form onSubmit={handleLogin} className = {style.inputs}>
-          <div className = {style.formGroup}>
+        <form onSubmit={handleLogin} className={style.inputs}>
+          <div className={style.formGroup}>
             <label>Email:</label>
             <input
               type="email"
@@ -52,7 +79,7 @@ const FormularioLogin = () => {
             />
           </div>
 
-          <div className = {style.formGroup}>
+          <div className={style.formGroup}>
             <label>Senha:</label>
             <input
               type="password"
