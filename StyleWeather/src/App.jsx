@@ -1,4 +1,5 @@
 import React from 'react';
+import VLibras from './componentes/Vlibras';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import { LayoutPrincipal } from './layout/LayoutPrincipal/LayoutPrincipal';
@@ -11,12 +12,14 @@ import { EditarPerfil } from './pages/EditarPerfil/EditarPerfil';
 function App() {
   return (
     <AppProvider>
+      <VLibras />
+      
       <Router>
         <LayoutPrincipal>
           <Routes>
             <Route path="/" element={<Inicial />} />
             <Route path="/cadastrar" element={<FormularioCadastrar />} />
-            <Route path="/login" element={<Login />}/>
+            <Route path="/login" element={<Login />} />
             <Route path="/genero" element={<Genero />} />
             <Route path="/editar-perfil" element={<EditarPerfil />} />
           </Routes>
