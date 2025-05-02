@@ -43,15 +43,14 @@ const FormularioLogin = () => {
         const dadosUsuario = docSnap.data();
         console.log("Dados do Firestore:", dadosUsuario);
 
-        // Atualiza o tipoLook no contexto e no localStorage
-        setTipoLook(dadosUsuario.tipoLook);
-        localStorage.setItem("tipoLook", dadosUsuario.tipoLook);
+  
 
         // Verifica a senha criptografada
         const senhaCorreta = await verificarSenha(senha, dadosUsuario.senha);
         if (senhaCorreta) {
           setMensagem("Login bem-sucedido!");
           navigate("/"); // Redireciona para a página inicial
+          window.location.reload(); // Atualiza a página automaticamente         
         } else {
           setMensagem("Senha incorreta.");
         }

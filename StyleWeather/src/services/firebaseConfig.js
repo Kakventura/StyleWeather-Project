@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -25,28 +26,16 @@ const auth = getAuth(app);
 
 const db = getFirestore(app);
 
-// Função para buscar o tipoLook
-const buscarTipoLook = async () => {
-  try {
-    const userId = localStorage.getItem("userId");
-    if (!userId) {
-      console.error("Erro: Usuário não autenticado.");
-      return null;
-    }
+export const fetchTipoLook = async (userId) => {
+  const db = getFirestore();
+  const docRef = doc(db, "usuarios", userId);
+  const docSnap = await getDoc(docRef);
 
-    const userDoc = doc(db, "usuarios", userId);
-    const docSnap = await getDoc(userDoc);
-
-    if (docSnap.exists()) {
-      return docSnap.data().tipoLook;
-    } else {
-      console.error("Documento do usuário não encontrado.");
-      return null;
-    }
-  } catch (error) {
-    console.error("Erro ao buscar tipoLook no Firestore:", error);
-    return null;
+  if (docSnap.exists()) {
+    return docSnap.data().tipoLook;
+  } else {
+    throw new Error("Usuário não encontrado no banco de dados.");
   }
 };
 
-export { app, auth, db, buscarTipoLook };
+export { app, auth, db };

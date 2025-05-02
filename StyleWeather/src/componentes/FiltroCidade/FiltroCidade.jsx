@@ -4,26 +4,26 @@ import CreatableSelect from "react-select/creatable";
 import { AppContext } from "../../context/AppContext";
 
 const cidades = [
-    { label: "São Paulo", value: "São Paulo" },
-    { label: "Rio de Janeiro", value: "Rio de Janeiro" },
-    { label: "Curitiba", value: "Curitiba" },
-    { label: "Recife", value: "Recife" },
-    { label: "Porto Alegre", value: "Porto Alegre" },
+    { label: "Aracaju", value: "Aracaju" },
     { label: "Belo Horizonte", value: "Belo Horizonte" },
-    { label: "Salvador", value: "Salvador" },
-    { label: "Fortaleza", value: "Fortaleza" },
+    { label: "Belém", value: "Belém" },
     { label: "Brasília", value: "Brasília" },
-    { label: "Natal", value: "Natal" },
+    { label: "Campinas", value: "Campinas" },
+    { label: "Curitiba", value: "Curitiba" },
+    { label: "Cuiabá", value: "Cuiabá" },
+    { label: "Fortaleza", value: "Fortaleza" },
+    { label: "Goiânia", value: "Goiânia" },
     { label: "João Pessoa", value: "João Pessoa" },
     { label: "Maceió", value: "Maceió" },
-    { label: "Teresina", value: "Teresina" },
-    { label: "Campinas", value: "Campinas" },
-    { label: "Goiânia", value: "Goiânia" },
+    { label: "Manaus", value: "Manaus" },
+    { label: "Natal", value: "Natal" },
+    { label: "Porto Alegre", value: "Porto Alegre" },
+    { label: "Recife", value: "Recife" },
+    { label: "Rio de Janeiro", value: "Rio de Janeiro" },
+    { label: "Salvador", value: "Salvador" },
     { label: "São Luís", value: "São Luís" },
-    { label: "Cuiabá", value: "Cuiabá" },
-    { label: "Aracaju", value: "Aracaju" },
-    { label: "Belém", value: "Belém" },
-    { label: "Manaus", value: "Manaus" }
+    { label: "São Paulo", value: "São Paulo" },
+    { label: "Teresina", value: "Teresina" }  
 ];
 
 const FiltroCidade = () => {
