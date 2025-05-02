@@ -1,7 +1,7 @@
 // Esse arquivo contém o componente CardRoupas, que gera recomendações de roupas com base na temperatura, lugar e tipo de look (masculinos, femininos ou neutros).
 import React, { useContext } from 'react';
 import { AppContext } from "../../context/AppContext";
-
+import styles from './CardRoupas.module.css';
 // Importar todas as imagens necessárias para os looks
 // Masculino 
 // Academia - Frio
@@ -698,17 +698,18 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
     if (!recomendacao) return null;
 
     return (
-        <div style={{ marginTop: "20px" }}>
-            <h3>Recomendação:</h3>
-            <p>{recomendacao.texto}</p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginTop: "10px" }}>
+        <div className={styles.container}>
+            <h3 className={styles.titulo}>Recomendações de Look</h3>
+            <p className={styles.descricao}>{recomendacao.texto}</p>
+            <div className={styles.gridRoupas}>
                 {recomendacao.imagens.map((img, index) => (
-                    <img
-                        key={index}
-                        src={img}
-                        alt={`Look ${index + 1}`}
-                        style={{ width: "120px", height: "auto", borderRadius: "8px" }}
-                    />
+                    <div key={index} className={styles.itemRoupa}>
+                        <img
+                            src={img}
+                            alt={`Peça de roupa ${index + 1}`}
+                            className={styles.imagemRoupa}
+                        />
+                    </div>
                 ))}
             </div>
 

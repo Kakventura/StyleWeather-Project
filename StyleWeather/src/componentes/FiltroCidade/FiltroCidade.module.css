@@ -1,6 +1,96 @@
-.filtro-cidade {
-    margin-bottom: 10px;
+/* Tema Visual */
+:root {
+    --roxo-principal: #6C5CE7;
+    --roxo-escuro: #4A3FCF;
+    --cinza-escuro: #2D3436;
+    --cinza-claro: #E8EBF0;
+    --branco-semi: rgba(255, 255, 255, 0.97);
 }
-.filtro-cidade label {
-    font-weight: bold;
+
+.filtroContainer {
+    display: flex;
+    flex-direction: column; /* Organiza os elementos na coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    width: 100%;
+    max-width: 330px;
+    margin: 20px auto; /* Centraliza horizontalmente */
+    padding: 1.5rem;
+    background: var(--branco-semi);
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    z-index: 1;
+    transition: all 0.3s ease;
+    text-align: center; /* Garante que o texto dentro de cada item fique centralizado */
+}
+
+.filtroContainer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.filtroLabel {
+    display: block;
+    margin-bottom: 0.85rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--cinza-escuro);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -0.1px;
+    position: relative;
+}
+
+.filtroLabel::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 28px;
+    height: 2px;
+    background: linear-gradient(to right, var(--roxo-principal), var(--roxo-escuro));
+    border-radius: 2px;
+}
+
+.selectContainer :global(.select__control) {
+    min-height: 48px;
+    border-radius: 10px;
+    border: 1px solid var(--cinza-claro);
+    font-size: 0.95rem;
+    background-color: var(--branco-semi);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.selectContainer :global(.select__control--is-focused) {
+    border-color: var(--roxo-principal);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15), 0 6px 20px rgba(108, 92, 231, 0.1);
+}
+
+.selectContainer :global(.select__menu) {
+    border-radius: 10px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    background-color: var(--branco-semi);
+    animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.selectContainer :global(.select__option--is-selected) {
+    background: linear-gradient(135deg, var(--roxo-principal), var(--roxo-escuro));
+}
+
+.selectContainer :global(.select__dropdown-indicator) {
+    color: var(--roxo-principal);
+    padding: 6px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .filtroContainer {
+        width: 90%;
+        max-width: 500px;
+        margin: 20px auto;
+    }
 }

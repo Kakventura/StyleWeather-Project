@@ -2,6 +2,7 @@
 import React, { useContext } from "react";
 import CreatableSelect from "react-select/creatable";
 import { AppContext } from "../../context/AppContext";
+import styles from './FiltroCidade.module.css';
 
 const cidades = [
     { label: "Aracaju", value: "Aracaju" },
@@ -34,15 +35,24 @@ const FiltroCidade = () => {
     };
 
     return (
-        <div>
-            <label htmlFor="cidade"><strong>Cidade:</strong></label>
+        <div className={styles.filtroContainer}>
+        <label className={styles.filtroLabel} htmlFor="cidade-select">
+            Cidade
+        </label>
+        <div className={styles.selectContainer}>
             <CreatableSelect
+                inputId="cidade-select"
                 options={cidades}
                 onChange={handleSelect}
                 value={cidadeSelecionada ? { label: cidadeSelecionada, value: cidadeSelecionada } : null}
                 placeholder="Escolha ou digite uma cidade"
                 isClearable
+                classNamePrefix="select"
+                menuPlacement="auto"
+                maxMenuHeight={200}
             />
+       
+            </div>
         </div>
     );
 };
