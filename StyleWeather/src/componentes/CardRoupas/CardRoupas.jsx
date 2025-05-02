@@ -699,7 +699,7 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
 
     return (
         <div className={styles.container}>
-            <h3 className={styles.titulo}>Recomendações de Look</h3>
+            <h3 className={styles.titulo}>Recomendações de Look:</h3>
             <p className={styles.descricao}>{recomendacao.texto}</p>
             <div className={styles.gridRoupas}>
                 {recomendacao.imagens.map((img, index) => (
