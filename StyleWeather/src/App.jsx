@@ -5,6 +5,7 @@ import { LayoutPrincipal } from './layout/LayoutPrincipal/LayoutPrincipal';
 import { Inicial } from './pages/Inicial';
 import { FormularioCadastrar, FormularioLogin } from './componentes';
 import { Genero } from './pages/Genero';
+import { Login } from './pages/Login/Login';
 
 function App() {
   return (
@@ -13,10 +14,9 @@ function App() {
         <LayoutPrincipal>
           <Routes>
             <Route path="/" element={<Inicial />} />
-            <Route path="/login" element={<FormularioLogin />} />
             <Route path="/cadastrar" element={<FormularioCadastrar />} />
-            // Adicione junto com suas outras rotas
-<Route path="/genero" element={<Genero />} />
+            <Route path="/login" element={<Login />}/>
+            <Route path="/genero" element={<Genero />} />
           </Routes>
         </LayoutPrincipal>
       </Router>

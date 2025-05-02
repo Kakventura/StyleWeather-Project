@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppContext } from "../../hooks/useAppContext"; 
+import { getAuth, signOut } from 'firebase/auth'; // <-- Importa o Firebase Auth
+import { useAppContext } from "../../hooks/useAppContext";
 import helpImg from "../../assets/help.png";
 import { Menu, X } from 'react-feather';
 import styles from "./NavbarLogin.module.css";
@@ -10,7 +11,7 @@ const NavbarLogin = () => {
     logo,
     menuOpen,
     toggleMenu,
-    setUsuarioLogado // <-- Adicionado aqui
+    setUsuarioLogado
   } = useAppContext();
 
   const navigate = useNavigate();
@@ -23,11 +24,19 @@ const NavbarLogin = () => {
     setUserMenuOpen(false);
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("userId");    // Remove o ID salvo
-    setUsuarioLogado(false);              // Atualiza o estado global
-    navigate('/');                        // Redireciona para página inicial
+  const handleLogout = async () => {
     setUserMenuOpen(false);
+    const auth = getAuth();
+
+    try {
+      await signOut(auth);                       // Desloga do Firebase
+      localStorage.removeItem("userId");         // Remove ID salvo
+      setUsuarioLogado(false);                   // Atualiza estado global
+      navigate('/');                             // Redireciona para a home
+    } catch (error) {
+      console.error("Erro ao sair:", error.message);
+      alert("Erro ao sair. Tente novamente.");
+    }
   };
 
   return (

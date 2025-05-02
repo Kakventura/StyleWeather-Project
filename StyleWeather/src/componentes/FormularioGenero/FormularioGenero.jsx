@@ -4,8 +4,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../services/firebaseConfig";
 import style from "./FormularioGenero.module.css";
-import { criptografarSenha } from "../../services/Auth"; // Importa a função de criptografia
-
+import { criptografarSenha } from "../../services/Auth";
 
 const FormularioGenero = () => {
   const [tipoLook, setTipoLook] = useState("");
@@ -30,14 +29,11 @@ const FormularioGenero = () => {
     try {
       const auth = getAuth();
 
-      // Cria o usuário no Firebase Authentication
       const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
       const user = userCredential.user;
 
-      // Criptografa a senha antes de salvar no Firestore
       const senhaCriptografada = await criptografarSenha(senha);
 
-      // Salva os dados no Firestore
       await setDoc(doc(db, "usuarios", user.uid), {
         nome,
         email,
@@ -46,10 +42,14 @@ const FormularioGenero = () => {
       });
 
       alert("Cadastro realizado com sucesso!");
-      navigate("/"); // Redireciona para a página inicial
+      navigate("/login"); // 🔁 Agora redireciona para a tela de login
     } catch (error) {
       console.error("Erro ao cadastrar:", error.message);
-      alert("Erro ao cadastrar. Tente novamente.");
+      if (error.code === "auth/email-already-in-use") {
+        alert("Este e-mail já está em uso.");
+      } else {
+        alert("Erro ao cadastrar. Tente novamente.");
+      }
     }
   };
 
