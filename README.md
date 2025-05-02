@@ -1,6 +1,7 @@
 <p align="center">
-  <img width="400px" src="https://github.com/user-attachments/assets/195c2dfa-ec99-45a6-b16f-e2ea012d08b4"/>
+  <img width="400px" src="https://github.com/user-attachments/assets/2e27a6a5-ae39-49f8-9878-59502284f87b"/>
 </p>
+
 
 ## ✨ Objetivo da Startup
 
