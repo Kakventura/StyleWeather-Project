@@ -4,7 +4,6 @@
     justify-content: center; /* Centraliza verticalmente */
     align-items: center; /* Centraliza horizontalmente */
     width: 100%;
-    max-width: 330px;
     margin: 20px auto; /* Centraliza horizontalmente */
     padding: 1.5rem;
     background: rgba(255, 255, 255, 0.97);
@@ -13,6 +12,7 @@
     vertical-align: top;
     text-align: center; /* Garante que o texto dentro de cada item fique centralizado */
     transition: all 0.3s ease;
+    width: 500px;
 }
 
 .filtroLugar:hover {

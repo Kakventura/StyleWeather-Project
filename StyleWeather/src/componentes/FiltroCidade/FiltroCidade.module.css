@@ -13,7 +13,7 @@
     justify-content: center; /* Centraliza verticalmente */
     align-items: center; /* Centraliza horizontalmente */
     width: 100%;
-    max-width: 330px;
+    width: 500px;
     margin: 20px auto; /* Centraliza horizontalmente */
     padding: 1.5rem;
     background: var(--branco-semi);
@@ -58,6 +58,7 @@
     font-size: 0.95rem;
     background-color: var(--branco-semi);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 400px;
 }
 
 .selectContainer :global(.select__control--is-focused) {

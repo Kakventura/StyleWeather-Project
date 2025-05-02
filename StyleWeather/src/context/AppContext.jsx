@@ -1,7 +1,7 @@
-// Esse arquivo contém o contexto do aplicativo, que gerencia o estado global e fornece funções para alternar o menu e atualizar as informações climáticas.
 import React, { createContext, useState, useEffect } from 'react';
-import { fetchTipoLook } from '../services/firebaseConfig'; // Certifique-se de importar corretamente
 import logoImg from '../assets/logo.png';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 export const AppContext = createContext();
 
@@ -11,29 +11,43 @@ export const AppProvider = ({ children }) => {
   const [cidadeSelecionada, setCidadeSelecionada] = useState("");
   const [lugarSelecionado, setLugarSelecionado] = useState("");
   const [dadosClima, setDadosClima] = useState(null);
-  const [usuarioLogado, setUsuarioLogado] = useState(false); // Novo estado para rastrear autenticação
+  const [usuarioLogado, setUsuarioLogado] = useState(false); // Estado para rastrear autenticação
+
+  const auth = getAuth();
+  const db = getFirestore();
 
   const alternarMenu = () => setMenuAberto(prev => !prev);
 
+  // Carrega os dados do usuário do Firebase
   useEffect(() => {
-    const carregarTipoLook = async () => {
-      try {
-        const userId = localStorage.getItem("userId"); // Obtém o userId do localStorage
-        if (userId) {
-          setUsuarioLogado(true); // Define como logado se userId existir
-          const look = await fetchTipoLook(userId); // Busca o tipoLook diretamente do Firebase
-          setTipoLook(look || ""); // Define "" se não encontrar o tipoLook
-        } else {
-          console.error("Usuário não autenticado. userId não encontrado.");
-          setUsuarioLogado(false); // Define como não logado
+    const carregarDadosUsuario = async (user) => {
+      if (user) {
+        try {
+          const docRef = doc(db, "usuarios", user.uid);
+          const docSnap = await getDoc(docRef);
+
+          if (docSnap.exists()) {
+            const userData = docSnap.data();
+            setTipoLook(userData.tipoLook || ""); // Define o tipoLook do Firestore
+            setUsuarioLogado(true); // Define como logado
+          } else {
+            console.error("Documento do usuário não encontrado no Firestore.");
+          }
+        } catch (error) {
+          console.error("Erro ao carregar dados do usuário:", error.message);
         }
-      } catch (error) {
-        console.error("Erro ao carregar tipoLook:", error.message);
+      } else {
+        setUsuarioLogado(false); // Define como não logado
       }
     };
 
-    carregarTipoLook();
-  }, []);
+    // Observa mudanças no estado de autenticação
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      carregarDadosUsuario(user);
+    });
+
+    return () => unsubscribe(); // Limpa o observador ao desmontar o componente
+  }, [auth, db]);
 
   return (
     <AppContext.Provider
@@ -49,7 +63,7 @@ export const AppProvider = ({ children }) => {
         setLugarSelecionado,
         dadosClima,
         setDadosClima,
-        usuarioLogado, 
+        usuarioLogado,
         setUsuarioLogado,
       }}
     >

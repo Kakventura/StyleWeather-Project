@@ -1,10 +1,12 @@
+import React from "react";
+import { FormularioPerfil } from "../../componentes/FormularioPerfil/FormularioPerfil";
+
 const EditarPerfil = () => {
   return (
     <div>
-      <h1>Editar Perfil</h1>
-      <p>Esta é a página de edição de perfil.</p>
+      <FormularioPerfil />
     </div>
   );
-}
+};
 
 export { EditarPerfil };

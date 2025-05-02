@@ -1,0 +1,174 @@
+@import url('https://fonts.cdnfonts.com/css/winky-rough');
+
+.background {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Winky Rough', sans-serif;
+}
+
+.cardPerfil {
+  position: relative;
+  z-index: 1;
+  width: 800px;
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+.label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha label à esquerda */
+  }
+  
+  .label label {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Winky Rough', sans-serif;
+  }
+
+
+.ladoEsquerdo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  gap: 30px;
+}
+
+.titulo h1 {
+  font-size: 40px;
+  color: rgb(0, 0, 0);
+  text-align: left;
+  margin: 0 0 10px 0;
+  margin-left: 35px;
+  font-family: 'Winky Rough', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+
+}
+
+.fotoPerfil {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid black;
+    margin-bottom: 15px; /* Espaço entre a foto e o botão */
+    display: flex;
+}
+
+  .uploadButton {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Winky Rough', sans-serif;
+    transition: background 0.3s;
+  }
+  
+  .uploadButton:hover {
+    background-color: #333;
+  }
+  
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.inputs input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid black;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Winky Rough', sans-serif;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
+  
+
+
+.inputs select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Winky Rough', sans-serif;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+  }
+
+.inputs button {
+  width: 80%;
+  padding: 12px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Winky Rough', sans-serif;
+  transition: background 0.3s;
+  margin-top: 20px;
+}
+
+.inputs button:hover {
+  background: #333;
+}
+
+.fotoPreview {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .cardPerfil {
+    flex-direction: column; /* Alinha os itens em coluna */
+    width: 90%; /* Ajusta a largura para caber melhor na tela */
+    padding: 20px; /* Reduz o padding */
+  }
+
+  .ladoEsquerdo, 
+  .inputs {
+    width: 100%; /* Cada seção ocupa 100% da largura */
+    align-items: center; /* Centraliza os itens */
+    text-align: center; /* Centraliza o texto */
+  }
+
+  .titulo {
+    text-align: center; /* Centraliza o título */
+    margin-left: 0; /* Remove o deslocamento à esquerda */
+  }
+
+  .inputs button {
+    width: 100%; /* Botão ocupa toda a largura */
+  }
+
+  .fotoPerfil {
+    width: 150px; /* Reduz o tamanho da foto de perfil */
+    height: 150px;
+  }
+}
