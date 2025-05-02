@@ -1,55 +1,75 @@
 .container-look {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    max-width: 400px;
-    margin: auto;
-    
-}
-
-.titulo-look {
+    align-items: center;
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .titulo-look {
     text-align: center;
     font-family: 'Archivo Black', sans-serif;
     font-size: 35px;
-}
-
-.opcao-look {
+  }
+  
+  /* Cards em linha */
+  .container-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Card individual */
+  .opcao-look {
     border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 16px;
+    border-radius: 16px;
+    padding: 24px;
     text-align: center;
     cursor: pointer;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-}
-
-.opcao-look:hover {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+  }
+  
+  .opcao-look:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.opcao-look.selecionado {
-    border: 2px solid #007bff;
-    background-color: #e6f0ff;
-}
-
-.emoji-look {
-    font-size: 1.5rem;
-    margin-right: 8px;
-}
-
-.botao-salvar {
+  }
+  
+  .opcao-look.selecionado {
+    border: 2px solid var(--roxo_base);
+    background-color: var(--roxo_clarissimo);
+  }
+  
+  .emoji-look {
+    font-size: 2.5rem;
+    margin-top: 12px;
+  }
+  
+  .botao-salvar {
     padding: 12px;
-    background-color: #007bff;
+    background-color: var(--roxo_base);
     color: #fff;
     border: none;
     border-radius: 8px;
+    font-family: 'Bol', sans-serif;
     font-weight: bold;
     cursor: pointer;
     margin-top: 20px;
     transition: background-color 0.3s ease;
-}
-
-.botao-salvar:hover {
-    background-color: #0056b3;
-}
+  }
+  
+  .botao-salvar:hover {
+    background-color: var(--roxo_claro);
+  }
+  
