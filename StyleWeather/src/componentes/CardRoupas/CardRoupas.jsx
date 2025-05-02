@@ -361,7 +361,7 @@ import LookCalor67 from '../../assets/looks/calor/neutras/shopping/tenis_preto.p
 // Função para classificar temperatura
 const classificarTemperatura = (temperatura) => {
     if (temperatura < 15) return "frio";
-    if (temperatura < 20) return "ameno";
+    if (temperatura < 25) return "ameno";
     return "calor";
 };
 

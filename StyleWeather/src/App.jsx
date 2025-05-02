@@ -7,7 +7,6 @@ import { EditarPerfil, Inicial, Ajuda } from './pages';
 import { LayoutPadrao } from './layout/LayoutPadrao/LayoutPadrao';
 import { Cadastrar } from './pages/Cadastrar';
 import { Login } from './pages/Login';
-import { Genero} from './pages/Genero';
 
 const App = () => {
   return (
@@ -22,8 +21,8 @@ const App = () => {
             </LayoutCadastrado>
             <LayoutPadrao>
               <Routes>
+                <Route path="/" element={<Inicial />} />
                 <Route path="/cadastrar" element={<Cadastrar />} />
-                <Route path="/genero" element={<Genero />} />
                 <Route path="/login" element={<Login />} />
               </Routes>
             </LayoutPadrao>
