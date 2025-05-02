@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import style from './FormularioCadastrar.module.css';
 import manequim from '../../assets/manequim.png';
+import { Genero } from '/src/pages/Genero/index.js';
 
 const FormularioCadastrar = () => {
   const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ const FormularioCadastrar = () => {
     localStorage.setItem("cadastroSenha", formData.senha);
 
     // Redireciona para a página de escolha de gênero
-    navigate("/genero");
+    navigate("/Genero");
   };
 
   return (

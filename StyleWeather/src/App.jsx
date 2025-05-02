@@ -4,6 +4,7 @@ import { AppProvider } from './context/AppContext';
 import { LayoutPrincipal } from './layout/LayoutPrincipal/LayoutPrincipal';
 import { Inicial } from './pages/Inicial';
 import { FormularioCadastrar, FormularioLogin } from './componentes';
+import { Genero } from './pages/Genero';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
             <Route path="/" element={<Inicial />} />
             <Route path="/login" element={<FormularioLogin />} />
             <Route path="/cadastrar" element={<FormularioCadastrar />} />
+            // Adicione junto com suas outras rotas
+<Route path="/genero" element={<Genero />} />
           </Routes>
         </LayoutPrincipal>
       </Router>
