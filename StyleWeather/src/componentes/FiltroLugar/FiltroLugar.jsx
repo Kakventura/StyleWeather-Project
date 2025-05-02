@@ -2,6 +2,7 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 import { buscarClimaPorCidade } from "../../services/weatherApi";
+import { useNavigate } from "react-router-dom"; // Importa o hook useNavigate
 import styles from "./FiltroLugar.module.css";
 import { CardClima } from "../CardClima/CardClima";
 
@@ -11,15 +12,27 @@ const FiltroLugar = () => {
         setLugarSelecionado,
         cidadeSelecionada,
         setDadosClima,
-        dadosClima
+        dadosClima,
+        usuarioLogado // Obtém o estado de login
     } = useContext(AppContext);
 
     const [mostrarCards, setMostrarCards] = useState(false);
     const isReadyToFetch = cidadeSelecionada && lugarSelecionado;
+    const navigate = useNavigate(); // Instancia o useNavigate
+
+    const handleEscolherLook = () => {
+        alert("Você não tem um cadastro no site! Por favor, cadastre-se.");
+        navigate("/cadastrar"); // Redireciona para a página de cadastro
+    };
 
     const handleButtonClick = async () => {
+        if (!usuarioLogado) {
+            handleEscolherLook(); // Chama a função handleEscolherLook se o usuário não estiver logado
+            return;
+        }
+
         setMostrarCards(false);
-        console.log("Look escolhido!");
+        console.log("Carregando clima...");
 
         try {
             const clima = await buscarClimaPorCidade(cidadeSelecionada);
@@ -29,7 +42,6 @@ const FiltroLugar = () => {
                 w.main.toLowerCase().includes("rain") ||
                 w.description.toLowerCase().includes("rain")
             ) || clima?.rain !== undefined;
-
 
             // Insere a informação de chuva no objeto de clima
             const climaComChuva = { ...clima, temChuva };
@@ -63,10 +75,10 @@ const FiltroLugar = () => {
 
             {isReadyToFetch && (
                 <button
-                    onClick={handleButtonClick}
+                    onClick={handleButtonClick} // Verifica login antes de atualizar o clima
                     className={styles.btnEscolherLook}
                 >
-                    Escolher Look
+                    Escolher look
                 </button>
             )}
 
