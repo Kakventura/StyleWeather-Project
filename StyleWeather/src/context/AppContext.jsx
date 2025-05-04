@@ -12,6 +12,7 @@ export const AppProvider = ({ children }) => {
   const [lugarSelecionado, setLugarSelecionado] = useState("");
   const [dadosClima, setDadosClima] = useState(null);
   const [usuarioLogado, setUsuarioLogado] = useState(false); // Estado para rastrear autenticação
+  const [profileImage, setProfileImage] = useState(logoImg); // Estado para a foto de perfil
 
   const auth = getAuth();
   const db = getFirestore();
@@ -29,6 +30,7 @@ export const AppProvider = ({ children }) => {
           if (docSnap.exists()) {
             const userData = docSnap.data();
             setTipoLook(userData.tipoLook || ""); // Define o tipoLook do Firestore
+            setProfileImage(userData.profileImage || logoImg); // Define a foto de perfil
             setUsuarioLogado(true); // Define como logado
           } else {
             console.error("Documento do usuário não encontrado no Firestore.");
@@ -38,6 +40,7 @@ export const AppProvider = ({ children }) => {
         }
       } else {
         setUsuarioLogado(false); // Define como não logado
+        setProfileImage(logoImg); // Reseta para a imagem padrão
       }
     };
 
@@ -65,6 +68,8 @@ export const AppProvider = ({ children }) => {
         setDadosClima,
         usuarioLogado,
         setUsuarioLogado,
+        profileImage,
+        setProfileImage, // Adicionado para atualizar a foto de perfil
       }}
     >
       {children}

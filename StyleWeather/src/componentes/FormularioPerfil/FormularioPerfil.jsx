@@ -3,12 +3,15 @@ import { getAuth } from "firebase/auth";
 import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
 import style from "./FormularioPerfil.module.css";
 
+
 const FormularioPerfil = () => {
   const [userData, setUserData] = useState({
     nome: "",
     email: "",
     tipoLook: "",
   });
+
+  const [profileImage, setProfileImage] = useState(''); // Estado para a imagem de perfil
 
   const auth = getAuth();
   const db = getFirestore();
@@ -25,7 +28,9 @@ const FormularioPerfil = () => {
             nome: docSnap.data().nome,
             email: user.email,
             tipoLook: docSnap.data().tipoLook || "",
+            profileImage: docSnap.data().fotoPerfil || "", // Adiciona a imagem de perfil
           });
+
         }
       }
     };
@@ -39,6 +44,17 @@ const FormularioPerfil = () => {
       ...prevData,
       [name]: value,
     }));
+  };
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfileImage(reader.result); // Armazena a imagem codificada em Base64
+      };
+      reader.readAsDataURL(file); // Converte a imagem para Base64
+    }
   };
 
   const handleAtualizar = async () => {
@@ -56,6 +72,10 @@ const FormularioPerfil = () => {
 
       if (userData.tipoLook) {
         updatedData.tipoLook = userData.tipoLook;
+      }
+
+      if (profileImage) {
+        updatedData.profileImage = profileImage; // Adiciona a imagem ao objeto de atualização
       }
 
       // Atualiza o Firestore se houver dados para atualizar
@@ -76,6 +96,30 @@ const FormularioPerfil = () => {
       <div className={style.cardPerfil}>
         <div className={style.ladoEsquerdo}>
           <h1 className={style.titulo}>PERFIL</h1>
+                
+          <div className={style.imagemPerfilContainer}>
+          <img
+            src={profileImage || "/default-profile.png"} // imagem genérica ou base64 da imagem escolhida
+            alt=""
+            className={style.imagemPerfil}
+          />
+
+          <label htmlFor="fileUpload" className={style.uploadButton}>
+            Escolher imagem
+          </label>
+
+          <input
+            type="file"
+            id="fileUpload"
+            name="profileImage"
+            accept="image/*"
+            onChange={handleImageUpload}
+            className={style.uploadInput}
+          />
+
+       
+      </div>
+      
         </div>
 
         <div className={style.inputs}>

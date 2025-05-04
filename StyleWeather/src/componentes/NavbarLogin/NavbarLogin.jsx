@@ -5,6 +5,9 @@ import { useAppContext } from "../../hooks/useAppContext";
 import helpImg from "../../assets/help.png";
 import { Menu, X } from 'react-feather';
 import styles from "./NavbarLogin.module.css";
+import logoImg from '../../assets/logo.png'; // Importe a imagem do logo
+import logoResponsiva from '../../assets/logo_responsiva.png';
+
 
 const NavbarLogin = () => {
   const {
@@ -21,6 +24,11 @@ const NavbarLogin = () => {
 
   const handleEditProfile = () => {
     navigate('/editar-perfil');
+    setUserMenuOpen(false);
+  };
+
+  const handleSobreNos = () => {
+    navigate('/sobre-nos');
     setUserMenuOpen(false);
   };
 
@@ -67,8 +75,8 @@ const NavbarLogin = () => {
           )}
         </div>
 
-        <button onClick={() => navigate('/ajuda')} className={styles.iconOnlyBtn}>
-          <img src={helpImg} alt="Ajuda" className={styles.icon} />
+        <button onClick={() => navigate('/sobre-nos')} className={styles.iconOnlyBtn}>
+          <img src={helpImg} alt="SobreNos" className={styles.icon} />
         </button>
       </div>
     </nav>

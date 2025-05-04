@@ -4,5 +4,5 @@ export * from './Inicial';
 export * from './EscolherLook'
 export * from './EditarPerfil';
 export * from './Login';
-
+export * from './SobreNos';
 

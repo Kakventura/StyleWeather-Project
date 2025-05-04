@@ -21,8 +21,8 @@ const Navbar = () => {
         <button onClick={() => navigate('/cadastrar')} className={styles.customBtn}>
           Cadastre-se
         </button>
-        <button onClick={() => navigate('/ajuda')} className={styles.iconOnlyBtn}>
-          <img src={helpImg} alt="Ajuda" className={styles.icon} />
+        <button onClick={() => navigate('/sobre-nos')} className={styles.iconOnlyBtn}>
+          <img src={helpImg} alt="SobreNos" className={styles.icon} />
         </button>
       </div>
     </nav>
