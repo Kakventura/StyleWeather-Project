@@ -21,7 +21,6 @@ const cidades = [
     { label: "Porto Alegre", value: "Porto Alegre" },
     { label: "Recife", value: "Recife" },
     { label: "Rio de Janeiro", value: "Rio de Janeiro" },
-    { label: "Salvador", value: "Salvador" },
     { label: "São Luís", value: "São Luís" },
     { label: "São Paulo", value: "São Paulo" },
     { label: "Teresina", value: "Teresina" }  

@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom'; // Importa o Link do react-router-dom
 import style from './SobreNos.module.css'; // Importa o CSS como módulo
 import logoImg from '../../assets/logo.png'; // Importe a imagem do logo
 import logoResponsiva from '../../assets/logo_responsiva.png';
+import { AppContext } from '../../context/AppContext'; // Importa o contexto global
 
 function SobreNos() {
+  const { usuarioLogado } = useContext(AppContext); // Obtém o estado de autenticação do contexto
+
   return (
     <div className={style.container}>
       <div className={style.leftPanel}>
@@ -35,7 +38,11 @@ function SobreNos() {
 
           <div className={style.signup}>
             <p>Ainda não tem cadastro?</p>
-            <Link to="../cadastrar" className={style.signupButton}>Cadastre-se</Link>
+            {usuarioLogado ? (
+              <Link to="../editar-perfil" className={style.signupButton}>Perfil</Link>
+            ) : (
+              <Link to="../cadastrar" className={style.signupButton}>Cadastre-se</Link>
+            )}
           </div>
         </div>
       </div>
@@ -43,4 +50,4 @@ function SobreNos() {
   );
 }
 
-export {SobreNos};
+export { SobreNos };
