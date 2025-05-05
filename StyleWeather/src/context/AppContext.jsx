@@ -30,7 +30,7 @@ export const AppProvider = ({ children }) => {
           if (docSnap.exists()) {
             const userData = docSnap.data();
             setTipoLook(userData.tipoLook || ""); // Define o tipoLook do Firestore
-            setProfileImage(userData.profileImage || logoImg); // Define a foto de perfil
+            setProfileImage(userData.profileImage || logoImg); // Define a imagem de perfil ou a padrão
             setUsuarioLogado(true); // Define como logado
           } else {
             console.error("Documento do usuário não encontrado no Firestore.");

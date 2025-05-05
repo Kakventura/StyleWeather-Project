@@ -5,16 +5,14 @@ import { useAppContext } from "../../hooks/useAppContext";
 import helpImg from "../../assets/help.png";
 import { Menu, X } from 'react-feather';
 import styles from "./NavbarLogin.module.css";
-import logoImg from '../../assets/logo.png'; // Importe a imagem do logo
-import logoResponsiva from '../../assets/logo_responsiva.png';
-
 
 const NavbarLogin = () => {
   const {
     logo,
     menuOpen,
     toggleMenu,
-    setUsuarioLogado
+    setUsuarioLogado,
+    profileImage
   } = useAppContext();
 
   const navigate = useNavigate();
@@ -24,11 +22,6 @@ const NavbarLogin = () => {
 
   const handleEditProfile = () => {
     navigate('/editar-perfil');
-    setUserMenuOpen(false);
-  };
-
-  const handleSobreNos = () => {
-    navigate('/sobre-nos');
     setUserMenuOpen(false);
   };
 
@@ -57,9 +50,9 @@ const NavbarLogin = () => {
 
       <div className={`${styles.buttons} ${menuOpen ? styles.showMenu : ''}`}>
         <div className={styles.userSection}>
-          <img
-            src="./assets/logo.jpg"
-            alt="User"
+            <img
+            src={profileImage} // Exibe a imagem de perfil do estado global
+            alt="Foto de Perfil"
             className={styles.userIcon}
             onClick={handleUserMenuToggle}
           />

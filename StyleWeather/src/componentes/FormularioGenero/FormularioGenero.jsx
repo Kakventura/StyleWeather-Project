@@ -42,7 +42,7 @@ const FormularioGenero = () => {
       });
 
       alert("Cadastro realizado com sucesso!");
-      navigate("/login"); // 🔁 Agora redireciona para a tela de login
+      navigate("/editar-perfil"); // 🔁 Agora redireciona para a tela de login
     } catch (error) {
       console.error("Erro ao cadastrar:", error.message);
       if (error.code === "auth/email-already-in-use") {

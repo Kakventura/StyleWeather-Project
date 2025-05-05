@@ -3,7 +3,6 @@ import { getAuth } from "firebase/auth";
 import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
 import style from "./FormularioPerfil.module.css";
 
-
 const FormularioPerfil = () => {
   const [userData, setUserData] = useState({
     nome: "",
@@ -28,8 +27,9 @@ const FormularioPerfil = () => {
             nome: docSnap.data().nome,
             email: user.email,
             tipoLook: docSnap.data().tipoLook || "",
-            profileImage: docSnap.data().fotoPerfil || "", // Adiciona a imagem de perfil
+            profileImage: docSnap.data().profileImage || "", // Adiciona a imagem de perfil
           });
+          setProfileImage(docSnap.data().profileImage || ""); // Carrega a imagem do Firestore
 
         }
       }
@@ -46,6 +46,19 @@ const FormularioPerfil = () => {
     }));
   };
 
+
+  // Lida com a seleção de uma nova imagem
+  const handleFotoChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfileImage(reader.result); // Converte a imagem para Base64 e armazena no estado
+      };
+      reader.readAsDataURL(file); // Converte o arquivo para Base64
+    }
+  };
+  
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -99,7 +112,7 @@ const FormularioPerfil = () => {
                 
           <div className={style.imagemPerfilContainer}>
           <img
-            src={profileImage || "/default-profile.png"} // imagem genérica ou base64 da imagem escolhida
+            src={profileImage || "/logo.png"} // imagem genérica ou base64 da imagem escolhida
             alt=""
             className={style.imagemPerfil}
           />
@@ -113,7 +126,7 @@ const FormularioPerfil = () => {
             id="fileUpload"
             name="profileImage"
             accept="image/*"
-            onChange={handleImageUpload}
+            onChange={handleFotoChange}
             className={style.uploadInput}
           />
 
