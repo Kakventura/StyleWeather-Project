@@ -58,17 +58,6 @@ const FormularioPerfil = () => {
       reader.readAsDataURL(file); // Converte o arquivo para Base64
     }
   };
-  
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setProfileImage(reader.result); // Armazena a imagem codificada em Base64
-      };
-      reader.readAsDataURL(file); // Converte a imagem para Base64
-    }
-  };
 
   const handleAtualizar = async () => {
     try {
