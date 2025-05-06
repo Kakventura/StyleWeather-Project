@@ -5,6 +5,7 @@ import usuario from '../../assets/usuario.png';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { verificarSenha } from '../../services/Auth'; // Função para verificar senha
+import { SwitchAlert } from "../SwitchAlert"; // Importa o SwitchAlert
 import { AppContext } from "../../context/AppContext"; // Importa o contexto global
 
 const FormularioLogin = () => {
@@ -43,23 +44,30 @@ const FormularioLogin = () => {
         const dadosUsuario = docSnap.data();
         console.log("Dados do Firestore:", dadosUsuario);
 
-  
-
         // Verifica a senha criptografada
         const senhaCorreta = await verificarSenha(senha, dadosUsuario.senha);
         if (senhaCorreta) {
           setMensagem("Login bem-sucedido!");
-          navigate("/"); // Redireciona para a página inicial
-          window.location.reload(); // Atualiza a página automaticamente         
+          SwitchAlert.success("Login bem-sucedido!", { duration: 3000 }); // Aumenta a duração para 5 segundos
+
+          // Atraso no redirecionamento
+          setTimeout(() => {
+            navigate("/"); // Redireciona para a página inicial
+            window.location.reload(); // Atualiza a página automaticamente
+          }, 2000); // Espera 5 segundos antes de redirecionar
+          
         } else {
           setMensagem("Senha incorreta.");
+          SwitchAlert.error("Senha incorreta.", { duration: 5000 }); // 5 segundos para o erro
         }
       } else {
         setMensagem("Usuário não encontrado no banco de dados.");
+        SwitchAlert.error("Usuário não encontrado no banco de dados.", { duration: 5000 }); // 5 segundos para o erro
       }
     } catch (error) {
       console.error("Erro no login:", error.message);
       setMensagem("Email ou senha inválidos.");
+      SwitchAlert.error("Email ou senha inválidos.", { duration: 5000 }); // 5 segundos para o erro
     }
 
     // Limpa os campos de email e senha

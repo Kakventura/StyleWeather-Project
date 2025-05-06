@@ -1,0 +1,128 @@
+/* Importar a fonte Montserrat do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+/* Popup */
+.swalPopup {
+  background: #fff !important; /* Fundo branco */
+  border-radius: 12px !important; /* Bordas arredondadas mais suaves */
+  padding: 15px 25px !important; /* Diminui o padding para reduzir altura */
+  width: 450px !important; /* Largura mais ampla */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2) !important; /* Sombra mais forte */
+  transition: all 0.3s ease-in-out !important; /* Transição suave */
+  font-family: 'Montserrat', sans-serif !important; /* Fonte moderna Montserrat */
+}
+
+/* Título */
+.swalTitle {
+  color: #222 !important; /* Cor bem escura para o título */
+  font-size: 1.4rem !important; /* Aumento no tamanho do título */
+  font-weight: 700 !important; /* Peso mais forte, negrito */
+  margin-bottom: 10px !important; /* Reduzir o espaçamento abaixo */
+  text-align: center; /* Centralizado */
+  letter-spacing: 1px; /* Espaçamento entre as letras */
+}
+
+/* Conteúdo do texto */
+.swalContent {
+  color: #333 !important; /* Cor do texto mais escura */
+  font-size: 1rem !important; /* Aumento do tamanho da fonte */
+  line-height: 1.4 !important; /* Menor espaçamento entre as linhas */
+  text-align: center !important; /* Texto centralizado */
+  letter-spacing: 0.5px; /* Espaçamento leve entre as letras */
+  margin-bottom: 15px !important; /* Menos espaço abaixo */
+  font-weight: 600 !important; /* Peso forte no conteúdo */
+}
+
+/* Botão */
+.swalButton {
+  background-color: #000 !important; /* Botão preto */
+  color: #fff !important; /* Texto branco */
+  border: none !important;
+  border-radius: 30px !important; /* Bordas arredondadas */
+  padding: 8px 22px !important; /* Diminui o padding para reduzir altura */
+  font-size: 1.1rem !important; /* Aumento no tamanho da fonte */
+  font-weight: 700 !important; /* Negrito */
+  margin-top: 15px !important;
+  cursor: pointer;
+  transition: all 0.3s ease !important; /* Transição suave */
+}
+
+.swalButton:hover {
+  background-color: #333 !important; /* Cor mais escura ao passar o mouse */
+  transform: translateY(-2px) !important; /* Efeito suave de movimento */
+}
+
+.swalButton:active {
+  background-color: #555 !important; /* Cor mais escura ao pressionar */
+  transform: translateY(0) !important; /* Volta ao estado normal */
+}
+
+/* Ícone */
+.swalIcon {
+  color: #9b7cbb !important; /* Ícone roxo */
+  border-color: #9b7cbb !important; /* Borda roxa */
+  font-size: 28px !important; /* Diminui o tamanho do ícone */
+}
+
+/* Suavizar o ícone de sucesso */
+.swal2-success-circular-line-left,
+.swal2-success-circular-line-right,
+.swal2-success-fix {
+  background-color: transparent !important;
+}
+
+/* Estilos específicos para mensagens de sucesso e erro */
+.swal2-icon.swal2-success {
+  color: #fff !important;
+  background-color: #9b7cbb !important; /* Fundo roxo para sucesso */
+}
+
+.swal2-icon.swal2-error {
+  color: #fff !important;
+  background-color: #f27474 !important; /* Fundo vermelho para erro */
+}
+
+/* Responsividade */
+@media (max-width: 576px) {
+  .swalPopup {
+    width: 90% !important; /* Reduz largura para telas pequenas */
+    padding: 15px 20px !important; /* Reduz o padding para ajustar */
+  }
+
+  .swalTitle {
+    font-size: 1.2rem !important; /* Ajuste no tamanho da fonte do título */
+  }
+
+  .swalContent {
+    font-size: 0.9rem !important; /* Ajuste no tamanho da fonte do conteúdo */
+    margin-bottom: 12px !important; /* Menos espaço abaixo do conteúdo */
+  }
+
+  .swalButton {
+    font-size: 1rem !important; /* Ajuste no tamanho da fonte do botão */
+    padding: 8px 18px !important; /* Ajuste no tamanho do botão */
+  }
+
+  .swalIcon {
+    font-size: 24px !important; /* Ajuste no tamanho do ícone */
+  }
+}
+
+@media (max-width: 768px) {
+  .swalPopup {
+    width: 80% !important; /* Ajuste a largura em telas médias */
+    padding: 20px 25px !important;
+  }
+
+  .swalTitle {
+    font-size: 1.3rem !important;
+  }
+
+  .swalContent {
+    font-size: 1rem !important;
+  }
+
+  .swalButton {
+    font-size: 1.05rem !important;
+  }
+}

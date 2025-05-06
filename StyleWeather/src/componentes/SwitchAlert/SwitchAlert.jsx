@@ -1,0 +1,48 @@
+import Swal from 'sweetalert2';
+import style from './SwitchAlert.module.css';
+
+const SwitchAlert = {
+  error: (messages) => {
+    const formattedMessages = Array.isArray(messages) 
+      ? messages.join('<br>') 
+      : messages;
+
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      html: `<div class="${style.swalContent}">${formattedMessages}</div>`,
+      confirmButtonText: 'Entendi',
+      iconColor: '#9b7cbb', // FORÇA cor roxa
+      customClass: {
+        popup: style.swalPopup,
+        title: style.swalTitle,
+        htmlContainer: style.swalContent,
+        confirmButton: style.swalButton,
+        icon: style.swalIcon
+      },
+      buttonsStyling: false,
+      background: '#fff'
+    });
+  },
+
+  success: (message) => {
+    Swal.fire({
+      icon: 'success',
+      title: 'Sucesso!',
+      html: `<div class="${style.swalContent}">${message}</div>`,
+      confirmButtonText: 'OK',
+      iconColor: '#9b7cbb', // FORÇA cor roxa
+      customClass: {
+        popup: style.swalPopup,
+        title: style.swalTitle,
+        htmlContainer: style.swalContent,
+        confirmButton: style.swalButton,
+        icon: style.swalIcon
+      },
+      buttonsStyling: false,
+      background: '#fff'
+    });
+  }
+};
+
+export { SwitchAlert };

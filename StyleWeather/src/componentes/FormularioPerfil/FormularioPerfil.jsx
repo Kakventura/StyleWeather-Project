@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getAuth } from "firebase/auth";
 import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
+import { SwitchAlert } from "../SwitchAlert"; // Importando o SwitchAlert
 import style from "./FormularioPerfil.module.css";
 
 const FormularioPerfil = () => {
@@ -8,10 +9,13 @@ const FormularioPerfil = () => {
     nome: "",
     email: "",
     tipoLook: "",
+    profileImage: "",
+    originalNome: "",
+    originalTipoLook: "",
+    originalProfileImage: ""
   });
 
-  const [profileImage, setProfileImage] = useState(''); // Estado para a imagem de perfil
-
+  const [profileImage, setProfileImage] = useState('');
   const auth = getAuth();
   const db = getFirestore();
 
@@ -23,14 +27,17 @@ const FormularioPerfil = () => {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
+          const userData = docSnap.data();
           setUserData({
-            nome: docSnap.data().nome,
+            nome: userData.nome,
             email: user.email,
-            tipoLook: docSnap.data().tipoLook || "",
-            profileImage: docSnap.data().profileImage || "", // Adiciona a imagem de perfil
+            tipoLook: userData.tipoLook || "",
+            profileImage: userData.profileImage || "",
+            originalNome: userData.nome,
+            originalTipoLook: userData.tipoLook || "",
+            originalProfileImage: userData.profileImage || ""
           });
-          setProfileImage(docSnap.data().profileImage || ""); // Carrega a imagem do Firestore
-
+          setProfileImage(userData.profileImage || "");
         }
       }
     };
@@ -46,16 +53,14 @@ const FormularioPerfil = () => {
     }));
   };
 
-
-  // Lida com a seleção de uma nova imagem
   const handleFotoChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setProfileImage(reader.result); // Converte a imagem para Base64 e armazena no estado
+        setProfileImage(reader.result);
       };
-      reader.readAsDataURL(file); // Converte o arquivo para Base64
+      reader.readAsDataURL(file);
     }
   };
 
@@ -64,32 +69,23 @@ const FormularioPerfil = () => {
       const user = auth.currentUser;
       const docRef = doc(db, "usuarios", user.uid);
 
-      // Dados a serem atualizados
+      // Verificar se houve alterações nos dados
       const updatedData = {};
 
-      // Verifica se há alterações no nome e tipoLook e adiciona ao updatedData
-      if (userData.nome) {
-        updatedData.nome = userData.nome;
-      }
+      if (userData.nome !== userData.originalNome) updatedData.nome = userData.nome;
+      if (userData.tipoLook !== userData.originalTipoLook) updatedData.tipoLook = userData.tipoLook;
+      if (profileImage !== userData.originalProfileImage) updatedData.profileImage = profileImage;
 
-      if (userData.tipoLook) {
-        updatedData.tipoLook = userData.tipoLook;
-      }
-
-      if (profileImage) {
-        updatedData.profileImage = profileImage; // Adiciona a imagem ao objeto de atualização
-      }
-
-      // Atualiza o Firestore se houver dados para atualizar
+      // Se houver alterações, realizar a atualização
       if (Object.keys(updatedData).length > 0) {
         await updateDoc(docRef, updatedData);
-        alert("Perfil atualizado com sucesso!");
+        SwitchAlert.success("Perfil atualizado com sucesso!");
       } else {
-        alert("Nenhuma alteração foi feita.");
+        SwitchAlert.error("Nenhuma alteração foi feita.");
       }
     } catch (error) {
       console.error("Erro ao atualizar o perfil:", error.message);
-      alert("Erro ao atualizar o perfil.");
+      SwitchAlert.error("Erro ao atualizar o perfil.");
     }
   };
 
@@ -98,30 +94,25 @@ const FormularioPerfil = () => {
       <div className={style.cardPerfil}>
         <div className={style.ladoEsquerdo}>
           <h1 className={style.titulo}>PERFIL</h1>
-                
+
           <div className={style.imagemPerfilContainer}>
-          <img
-            src={profileImage || "/logo.png"} // imagem genérica ou base64 da imagem escolhida
-            alt=""
-            className={style.imagemPerfil}
-          />
-
-          <label htmlFor="fileUpload" className={style.uploadButton}>
-            Escolher imagem
-          </label>
-
-          <input
-            type="file"
-            id="fileUpload"
-            name="profileImage"
-            accept="image/*"
-            onChange={handleFotoChange}
-            className={style.uploadInput}
-          />
-
-       
-      </div>
-      
+            <img
+              src={profileImage || "/logo.png"}
+              alt=""
+              className={style.imagemPerfil}
+            />
+            <label htmlFor="fileUpload" className={style.uploadButton}>
+              Escolher imagem
+            </label>
+            <input
+              type="file"
+              id="fileUpload"
+              name="profileImage"
+              accept="image/*"
+              onChange={handleFotoChange}
+              className={style.uploadInput}
+            />
+          </div>
         </div>
 
         <div className={style.inputs}>
@@ -131,9 +122,9 @@ const FormularioPerfil = () => {
             type="email"
             name="email"
             value={userData.email}
-            disabled // Campo somente leitura
+            disabled
           />
-
+          
           <label className={style.label}>Nome:</label>
           <input
             type="text"

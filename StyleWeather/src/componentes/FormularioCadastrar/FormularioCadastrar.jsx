@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import style from './FormularioCadastrar.module.css';
 import manequim from '../../assets/manequim.png';
-import { Genero } from '/src/pages/Genero/index.js';
+import { SwitchAlert } from '../../componentes/SwitchAlert';
 
 const FormularioCadastrar = () => {
   const [formData, setFormData] = useState({
@@ -15,30 +15,60 @@ const FormularioCadastrar = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const validateEmail = (email) => {
+    if (!email) return { isValid: false, message: "• Por favor, insira seu <b>Email</b>" };
+    if (!email.includes('@')) return { isValid: false, message: "• Email inválido: <b>Falta o @</b> (ex: nome@dominio.com)" };
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return { isValid: false, message: "• Formato inválido: <b>Use exemplo@dominio.com</b>" };
+    return { isValid: true };
   };
 
   const handleNext = (e) => {
     e.preventDefault();
-
-    // Verifica se todos os campos estão preenchidos
-    if (!formData.nome || !formData.email || formData.senha.length < 6) {
-      alert("Por favor, preencha todos os campos e use uma senha com pelo menos 6 caracteres.");
+    
+    // Validação
+    const errors = [];
+    
+    if (!formData.nome.trim()) {
+      errors.push("• Por favor, insira seu <b>Nome</b>");
+    }
+    
+    const emailValidation = validateEmail(formData.email);
+    if (!emailValidation.isValid) {
+      errors.push(emailValidation.message);
+    }
+    
+    if (!formData.senha) {
+      errors.push("• Por favor, insira sua <b>Senha</b>");
+    } else {
+      // Verifica se tem pelo menos 6 caracteres
+      if (formData.senha.length < 6) {
+        errors.push("• A <b>Senha</b> deve ter 6+ caracteres");
+      }
+      
+      // Verifica se tem letra e número
+      const temLetra = /[a-zA-Z]/.test(formData.senha);
+      const temNumero = /[0-9]/.test(formData.senha);
+      
+      if (!temLetra || !temNumero) {
+        errors.push("• A <b>Senha</b> deve conter letras e números");
+      }
+    }
+    
+    if (errors.length > 0) {
+      SwitchAlert.error(errors);
       return;
     }
-
-    // Salva os dados temporariamente no localStorage
+  
+    // Se válido, prossegue
     localStorage.setItem("cadastroNome", formData.nome);
     localStorage.setItem("cadastroEmail", formData.email);
     localStorage.setItem("cadastroSenha", formData.senha);
-
-    // Redireciona para a página de escolha de gênero
     navigate("/Genero");
   };
-
+  
   return (
     <div className={style.background}>
       <div className={style.cardCadastro}>
@@ -47,38 +77,35 @@ const FormularioCadastrar = () => {
           <img src={manequim} alt="Ajuda" className={style.man} />
         </div>
 
-        <form onSubmit={handleNext} className={style.inputs}>
-          <label className={style.label}>Nome:</label>
+        <form onSubmit={handleNext} className={style.inputs} noValidate>
+        <label className={style.label}>Nome:</label>
           <input
             type="text"
             name="nome"
-            placeholder="Nome"
+            placeholder="Seu nome completo"
             value={formData.nome}
             onChange={handleChange}
-            required
           />
 
           <label className={style.label}>Email:</label>
           <input
             type="email"
             name="email"
-            placeholder="E-mail"
+            placeholder="exemplo@dominio.com"
             value={formData.email}
             onChange={handleChange}
-            required
           />
 
           <label className={style.label}>Senha:</label>
           <input
             type="password"
             name="senha"
-            placeholder="Senha"
+            placeholder="Mínimo 6 caracteres"
             value={formData.senha}
             onChange={handleChange}
-            required
           />
+          
           <p>Já possui cadastro? <Link to="/login">Entrar</Link></p>
-
           <button type="submit">Avançar</button>
         </form>
       </div>

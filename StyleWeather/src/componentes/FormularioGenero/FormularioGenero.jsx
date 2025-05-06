@@ -5,6 +5,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../services/firebaseConfig";
 import style from "./FormularioGenero.module.css";
 import { criptografarSenha } from "../../services/Auth";
+import { SwitchAlert } from "../../componentes/SwitchAlert";
 
 const FormularioGenero = () => {
   const [tipoLook, setTipoLook] = useState("");
@@ -22,13 +23,14 @@ const FormularioGenero = () => {
     const senha = localStorage.getItem("cadastroSenha");
 
     if (!tipoLook) {
-      alert("Por favor, selecione um estilo de roupa.");
+      SwitchAlert.error("Por favor, selecione um estilo de roupa.", {
+        iconColor: '#800080'
+      });
       return;
     }
 
     try {
       const auth = getAuth();
-
       const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
       const user = userCredential.user;
 
@@ -41,14 +43,20 @@ const FormularioGenero = () => {
         tipoLook,
       });
 
-      alert("Cadastro realizado com sucesso!");
-      navigate("/editar-perfil"); // 🔁 Agora redireciona para a tela de login
+      SwitchAlert.success("Cadastro realizado com sucesso!", {
+        iconColor: '#800080'
+      });
+      navigate("/editar-perfil");
     } catch (error) {
       console.error("Erro ao cadastrar:", error.message);
       if (error.code === "auth/email-already-in-use") {
-        alert("Este e-mail já está em uso.");
+        SwitchAlert.error("Este e-mail já está em uso. Por favor, use outro e-mail.", {
+          iconColor: '#800080'
+        });
       } else {
-        alert("Erro ao cadastrar. Tente novamente.");
+        SwitchAlert.error(`Erro ao cadastrar: ${error.message}`, {
+          iconColor: '#800080'
+        });
       }
     }
   };
