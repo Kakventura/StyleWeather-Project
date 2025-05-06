@@ -80,7 +80,7 @@ const FormularioPerfil = () => {
       // Se houver alterações, realizar a atualização
       if (Object.keys(updatedData).length > 0) {
         await updateDoc(docRef, updatedData);
-        SwitchAlert.success("Perfil atualizado com sucesso!");
+        SwitchAlert.success("Perfil atualizado com sucesso!"); 
       } else {
         SwitchAlert.error("Nenhuma alteração foi feita.");
       }

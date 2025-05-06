@@ -48,14 +48,9 @@ const FormularioLogin = () => {
         const senhaCorreta = await verificarSenha(senha, dadosUsuario.senha);
         if (senhaCorreta) {
           setMensagem("Login bem-sucedido!");
-          SwitchAlert.success("Login bem-sucedido!", { duration: 3000 }); // Aumenta a duração para 5 segundos
-
-          // Atraso no redirecionamento
-          setTimeout(() => {
-            navigate("/"); // Redireciona para a página inicial
-            window.location.reload(); // Atualiza a página automaticamente
-          }, 2000); // Espera 5 segundos antes de redirecionar
-          
+          SwitchAlert.successPerfil("Login bem-sucedido!"); // Aumenta a duração para 5 segundos
+      
+       
         } else {
           setMensagem("Senha incorreta.");
           SwitchAlert.error("Senha incorreta.", { duration: 5000 }); // 5 segundos para o erro

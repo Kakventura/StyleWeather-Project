@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <nav className={`${styles.navbar} ${menuAberto ? styles.openMenu : ''}`}>
-      <img src={logo} alt="Logo" className={styles.logo} onClick={() => navigate('/')} />
+      <img src={logo} alt="Logo" className={styles.logo} onClick={() => {navigate('/');  window.location.reload()}} />
 
       <div className={styles.menuIcon} onClick={alternarMenu}>
         {menuAberto ? <X size={28} /> : <Menu size={28} />}

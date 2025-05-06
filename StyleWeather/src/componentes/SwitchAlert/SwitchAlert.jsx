@@ -7,6 +7,7 @@ const SwitchAlert = {
       ? messages.join('<br>') 
       : messages;
 
+      
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
@@ -40,9 +41,43 @@ const SwitchAlert = {
         icon: style.swalIcon
       },
       buttonsStyling: false,
-      background: '#fff'
+      background: '#fff',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Quando o botão OK for pressionado, a página será recarregada
+        window.location.reload(); // Atualiza a página
+      }
     });
-  }
+  },
+
+
+successPerfil: (messagePerfil) => {
+  Swal.fire({
+    icon: 'success',
+    title: 'Sucesso!',
+    html: `<div class="${style.swalContent}">${messagePerfil}</div>`,
+    confirmButtonText: 'OK',
+    iconColor: '#9b7cbb', // FORÇA cor roxa
+    customClass: {
+      popup: style.swalPopup,
+      title: style.swalTitle,
+      htmlContainer: style.swalContent,
+      confirmButton: style.swalButton,
+      icon: style.swalIcon
+    },
+    buttonsStyling: false,
+    background: '#fff',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Quando o botão OK for pressionado, a página será recarregada
+      window.location.href = '/editar-perfil';
+
+    }
+  });
+
+}
+
 };
+
 
 export { SwitchAlert };
