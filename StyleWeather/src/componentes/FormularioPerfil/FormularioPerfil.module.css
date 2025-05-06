@@ -1,89 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
-:root {
-  --roxo-base: #6e4c97;
-  --roxo-claro: #9b7cbb;
-  --roxo-escuro: #2e1647;
-  --branco: #ffffff;
-  --cinza-texto: #4a4a4a;
-  --cinza-borda: #e0e0e0;
-  --cinza-claro: #f5f5f5;
-  --sombra-hover: rgba(110, 76, 151, 0.15);
-}
-
 .background {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Poppins', sans-serif;
   background-color: #f9f6ff;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .cardPerfil {
-  position: relative;
-  width: 800px;
   background: var(--branco);
-  padding: 40px 30px;
+  border: 2px solid var(--roxo-claro);
   border-radius: 15px;
   box-shadow: 0 10px 25px var(--sombra-hover);
   display: flex;
-  justify-content: space-between;
-  text-align: left;
-  border: 2px solid var(--roxo-claro);
-  font-family: 'Poppins', sans-serif;
-}
-
-.label {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.label label {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--cinza-texto);
-}
-
-.ladoEsquerdo {
-  display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  width: 45%;
+  align-items: flex-start;
+  padding: 40px 30px;
+  max-width: 800px;
+  width: 100%;
   gap: 30px;
+  box-sizing: border-box;
+}
+
+
+.ladoEsquerdo, .inputs {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputs {
+  align-items: stretch;
 }
 
 .titulo {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  position: relative;
-  display: inline-block;
   color: var(--roxo-base);
   font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .titulo::after {
   content: '';
-  position: absolute;
+  display: block;
   width: 100%;
   height: 4px;
-  bottom: -8px;
-  left: 0;
+  margin-top: 6px;
   background: linear-gradient(90deg, var(--roxo-claro), var(--roxo-escuro), var(--roxo-claro));
   border-radius: 4px;
-  transform: scaleX(0.9);
-  transform-origin: center;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   opacity: 0.8;
-}
-
-.titulo:hover::after {
-  transform: scaleX(1);
-  opacity: 1;
-  height: 5px;
 }
 
 .imagemPerfil {
@@ -93,12 +65,9 @@
   object-fit: cover;
   border: 3px solid var(--roxo-base);
   margin-bottom: 15px;
-  margin-top: 2px;
-  display: flex;
 }
 
 .uploadButton {
-  font-family: 'Poppins', sans-serif;
   width: 200px;
   padding: 10px 15px;
   background: linear-gradient(to right, var(--roxo-base), var(--roxo-escuro));
@@ -108,10 +77,9 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 8px;
 }
 
@@ -125,43 +93,20 @@
   display: none;
 }
 
-.inputs {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-}
-
 .inputs input,
 .inputs select {
   width: 100%;
   padding: 12px;
-  margin: 10px 0;
+  margin-bottom: 12px;
   border: 2px solid var(--cinza-borda);
   border-radius: 8px;
   font-size: 16px;
   font-family: 'Poppins', sans-serif;
   background-color: var(--branco);
   color: var(--cinza-texto);
-  transition: all 0.3s ease;
-}
-
-.inputs input:focus,
-.inputs select:focus {
-  outline: none;
-  border-color: var(--roxo-claro);
-  box-shadow: 0 0 0 3px rgba(110, 76, 151, 0.1);
-}
-
-.email:disabled {
-  background-color: var(--cinza-claro);
-  color: var(--cinza-texto);
-  cursor: not-allowed;
 }
 
 .inputs button {
-  width: 80%;
   padding: 12px;
   background: var(--roxo-claro);
   color: var(--branco);
@@ -170,8 +115,6 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  transition: all 0.3s ease;
   margin-top: 20px;
 }
 
@@ -180,32 +123,39 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(110, 76, 151, 0.25);
 }
-
 @media (max-width: 768px) {
   .cardPerfil {
     flex-direction: column;
-    width: 90%;
+    align-items: center;
     padding: 30px 20px;
   }
 
-  .ladoEsquerdo, 
+  .ladoEsquerdo,
   .inputs {
     width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputs label {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--cinza-texto);
+    text-align: left;
+    width: 100%;
+  }
+
+  .inputs input,
+  .inputs select,
+  .inputs button {
+    width: 100%;
+    max-width: 500px;
   }
 
   .titulo {
     font-size: 1.8rem;
-    text-align: center;
-  }
-
-  .titulo::after {
-    left: 50%;
-    transform: translateX(-50%) scaleX(0.9);
-    width: 80%;
-  }
-
-  .titulo:hover::after {
-    transform: translateX(-50%) scaleX(1);
   }
 
   .imagemPerfil {
@@ -213,70 +163,31 @@
     height: 180px;
   }
 
-  .inputs button {
-    width: 100%;
+  .uploadButton {
+    width: 180px;
   }
 }
 
-@media (max-width: 768px) {
-  .background {
-    padding: 20px;
-  }
 
-  .cardPerfil {
-    flex-direction: column;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-}
- 
 @media (max-width: 480px) {
-  .cardPerfil {
-    padding: 25px 15px;
-  }
-
   .titulo {
     font-size: 1.6rem;
   }
 
   .imagemPerfil {
-    width: 160px;
-    height: 160px;
-  }
-}
-@media (max-width: 360px) {
-  .cardPerfil {
-    width: 95%;
-    padding: 20px 10px;
-    border-radius: 10px;
-  }
-
-  .titulo {
-    font-size: 1.4rem;
-  }
-
-  .imagemPerfil {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
   }
 
   .uploadButton {
     width: 160px;
     font-size: 13px;
-    padding: 8px 12px;
   }
 
   .inputs input,
-  .inputs select {
-    font-size: 14px;
-    padding: 10px;
-  }
-
+  .inputs select,
   .inputs button {
     font-size: 14px;
     padding: 10px;
   }
 }
-
-
