@@ -136,7 +136,6 @@
     width: 100%;
     color: var(--cinza-texto);
 }
-/* Ícones coloridos */
 .dados .umidade .faDroplet, .dados .pressao .faGaugeHigh, .dados .visibilidade .faEye, .dados .vento .faWind {
     color: var(--azul-claro);
 }
@@ -150,7 +149,8 @@
         padding: 20px;
         max-width: 90%;
         min-width: 350px !important;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
+        box-shadow: var(--branco);
+        margin: 35px auto;
    }
     .titulo {
         font-size: 22px;
@@ -176,8 +176,10 @@
 }
 @media (max-width: 480px) {
     .cardClima {
-        padding: 16px;
-        max-width: 100%;
+        max-width: 70%;
+        min-width: 300px !important;
+        box-shadow: var(--branco);
+        margin: 35px auto;
    }
     .titulo {
         font-size: 20px;
