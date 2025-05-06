@@ -4,15 +4,20 @@
     justify-content: center; /* Centraliza verticalmente */
     align-items: center; /* Centraliza horizontalmente */
     width: 100%;
-    max-width: 500px;
     margin: 20px auto; /* Centraliza horizontalmente */
     padding: 1.5rem;
-    background: var(--branco); /* Ajustado para usar a cor branca */
+    background: rgba(255, 255, 255, 0.97);
     border-radius: 14px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    z-index: 1;
-    transition: all 0.3s ease;
+    vertical-align: top;
     text-align: center; /* Garante que o texto dentro de cada item fique centralizado */
+    transition: all 0.3s ease;
+    max-width: 500px; /* Definido para ser responsivo */
+    position: static; /* Removido o position relative */
+    z-index: 9999; /* Garante que o filtro fique sobre os outros elementos */
+    position: relative; /* Permite que o z-index funcione corretamente */
+    transition: all 0.3s ease;
+    text-align: center;
 }
 
 .filtroContainer:hover {
@@ -25,7 +30,7 @@
     margin-bottom: 0.85rem;
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--cinza-escuro); /* Mantido como estava */
+    color: var(--cinza-escuro);
     font-family: 'Poppins', sans-serif;
     letter-spacing: -0.1px;
     position: relative;
@@ -38,44 +43,74 @@
     left: 0;
     width: 28px;
     height: 2px;
-    background: linear-gradient(to right, var(--roxo-base), var(--roxo-claro)); /* Usando roxo-base e roxo-claro */
+    background: linear-gradient(to right, var(--roxo-base), var(--roxo-claro));
     border-radius: 2px;
 }
-
+/* Estilo do select sem alteração do z-index */
+.selectContainer {
+    width: 100%; /* Garante que o select ocupe toda a largura disponível */
+}
 .selectContainer :global(.select__control) {
     min-height: 48px;
     border-radius: 10px;
-    border: 1px solid var(--cinza-claro); /* Usando cinza-claro para a borda */
+    border: 1px solid var(--cinza-claro);
     font-size: 0.95rem;
-    background-color: var(--branco); /* Alterado para usar a cor branca */
+    background-color: var(--branco);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha o conteúdo ao início */
+    z-index: 1; /* Garantir que o select fique abaixo do filtro */
+}
+
+.selectContainer :global(.select__single-value) {
+    align-self: flex-start;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: left; /* Garante o alinhamento do texto */
+    width: 100%;
 }
 
 .selectContainer :global(.select__control--is-focused) {
-    border-color: var(--roxo-base); /* Cor da borda ajustada para roxo-base */
+    border-color: var(--roxo-base);
     box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15), 0 6px 20px rgba(108, 92, 231, 0.1);
 }
 
 .selectContainer :global(.select__menu) {
     border-radius: 10px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-    background-color: var(--branco); /* Cor de fundo ajustada para branco */
+    background-color: var(--branco);
     animation: fadeIn 0.25s ease-out;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .selectContainer :global(.select__option--is-selected) {
-    background: linear-gradient(135deg, var(--roxo-base), var(--roxo-claro)); /* Gradiente para as opções selecionadas */
+    background: linear-gradient(135deg, var(--roxo-base), var(--roxo-claro));
 }
 
 .selectContainer :global(.select__dropdown-indicator) {
-    color: var(--roxo-base); /* Cor do ícone de dropdown ajustada para roxo-base */
+    color: var(--roxo-base);
     padding: 6px;
+}
+
+.selectContainer :global(.select__placeholder) {
+    text-align: left;
+    width: 100%;
+    color: var(--cinza-claro); /* Ou outra cor que combine */
+    font-size: 0.95rem;
+    align-self: flex-start;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 /* Responsividade */
@@ -84,5 +119,9 @@
         width: 90%;
         max-width: 500px;
         margin: 20px auto;
+    }
+
+    .selectContainer :global(.select__control) {
+        width: 100%; /* Torna o select responsivo */
     }
 }

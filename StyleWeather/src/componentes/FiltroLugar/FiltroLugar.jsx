@@ -2,9 +2,10 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 import { buscarClimaPorCidade } from "../../services/weatherApi";
-import { useNavigate } from "react-router-dom"; // Importa o hook useNavigate
+import { useNavigate } from "react-router-dom";
 import styles from "./FiltroLugar.module.css";
 import { CardClima } from "../CardClima/CardClima";
+import Select from "react-select";
 
 const FiltroLugar = () => {
     const {
@@ -13,69 +14,70 @@ const FiltroLugar = () => {
         cidadeSelecionada,
         setDadosClima,
         dadosClima,
-        usuarioLogado // Obtém o estado de login
+        usuarioLogado
     } = useContext(AppContext);
 
     const [mostrarCards, setMostrarCards] = useState(false);
     const isReadyToFetch = cidadeSelecionada && lugarSelecionado;
-    const navigate = useNavigate(); // Instancia o useNavigate
+    const navigate = useNavigate();
 
     const handleEscolherLook = () => {
         alert("Você não tem um cadastro no site! Por favor, cadastre-se.");
-        navigate("/cadastrar"); // Redireciona para a página de cadastro
+        navigate("/cadastrar");
     };
 
     const handleButtonClick = async () => {
         if (!usuarioLogado) {
-            handleEscolherLook(); // Chama a função handleEscolherLook se o usuário não estiver logado
+            handleEscolherLook();
             return;
         }
 
         setMostrarCards(false);
-        console.log("Carregando clima...");
 
         try {
             const clima = await buscarClimaPorCidade(cidadeSelecionada);
+            const temChuva =
+                clima?.weather?.some(w =>
+                    w.main.toLowerCase().includes("rain") ||
+                    w.description.toLowerCase().includes("rain")
+                ) || clima?.rain !== undefined;
 
-            // Verifica se há chuva com base nos dados retornados
-            const temChuva = clima?.weather?.some(w =>
-                w.main.toLowerCase().includes("rain") ||
-                w.description.toLowerCase().includes("rain")
-            ) || clima?.rain !== undefined;
-
-            // Insere a informação de chuva no objeto de clima
             const climaComChuva = { ...clima, temChuva };
-
-            setDadosClima(climaComChuva); // Atualiza o estado com temChuva
+            setDadosClima(climaComChuva);
             setMostrarCards(true);
-            console.log("Clima carregado:", climaComChuva);
         } catch (error) {
             console.error("Erro ao obter clima:", error);
         }
     };
 
+    const opcoesLugar = [
+        { value: "academia", label: "Academia" },
+        { value: "balada", label: "Balada" },
+        { value: "escola", label: "Escola" },
+        { value: "parque", label: "Parque" },
+        { value: "praia", label: "Praia" },
+        { value: "restaurante", label: "Restaurante" },
+        { value: "shopping", label: "Shopping" }
+    ];
+
     return (
         <div className={styles.filtroLugar}>
             <label htmlFor="lugar"><strong>Escolha o local:</strong></label>
-            <select
-                id="lugar"
-                value={lugarSelecionado}
-                onChange={(e) => setLugarSelecionado(e.target.value)}
-                className={styles.selectLugar}
-            >
-                <option value="">Selecione</option>
-                <option value="academia">Academia</option>
-                <option value="balada">Balada</option>
-                <option value="escola">Escola</option>
-                <option value="parque">Parque</option>
-                <option value="praia">Praia</option>
-                <option value="restaurante">Restaurante</option>
-                <option value="shopping">Shopping</option>
-            </select>
+
+            <div className={styles.selectContainer}>
+                <Select
+                    id="lugar"
+                    options={opcoesLugar}
+                    value={opcoesLugar.find(opt => opt.value === lugarSelecionado)}
+                    onChange={(selectedOption) => setLugarSelecionado(selectedOption?.value)}
+                    placeholder="Selecione"
+                    classNamePrefix="select"
+                />
+            </div>
 
             {isReadyToFetch && (
                 <button
-                    onClick={handleButtonClick} // Verifica login antes de atualizar o clima
+                    onClick={handleButtonClick}
                     className={styles.btnEscolherLook}
                 >
                     Escolher look
@@ -84,7 +86,7 @@ const FiltroLugar = () => {
 
             {mostrarCards && dadosClima && (
                 <div className={styles.cardsContainer}>
-                    <CardClima temChuva={dadosClima.temChuva} /> {/* Passando temChuva para o componente */}
+                    <CardClima temChuva={dadosClima.temChuva} />
                 </div>
             )}
         </div>
