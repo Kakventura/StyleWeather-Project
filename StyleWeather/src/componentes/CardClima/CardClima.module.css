@@ -1,59 +1,197 @@
 .cardClima {
-    background: #f0f4f8;
-    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    min-width: 400px !important;
+    margin: 30px auto;
     padding: 24px;
-    max-width: 480px;
+    border-radius: 16px;
+    background-color: var(--branco);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', sans-serif;
-    color: #333;
-    width: 400px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    background-color:  #f5ebff;
 }
-
-.titulo h2 {
-    margin-bottom: 10px;
-    font-size: 24px;
-    color: #2c3e50;
+.tituloContainer {
     display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.titulo {
+    font-size: 26px;
+    color: var(--cinza-escuro);
+    font-weight: 600;
     text-align: center;
-    margin: 10px;
 }
-
-.coord {
-    font-size: 14px;
-    color: #7f8c8d;
-}
-
 .topo {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 16px;  
+    margin-bottom: 20px;
+    position: relative;
 }
-
+.iconeContainer {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    margin-bottom: 10px;
+}
 .icone {
-    width: 64px;
-    height: 64px;
+    width: 90px;
+    height: 90px;
+    z-index: 2;
 }
-
+.iconeContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 120px;
+    background-color: var(--roxo-claro);
+    border-radius: 50%;
+    z-index: 0;
+}
+.descricaoContainer {
+    text-align: center;
+}
 .descricao {
     text-transform: capitalize;
-    color: #555;
-    
+    font-size: 18px;
+    color: var(--cinza-texto);
+    margin-bottom: 5px;
 }
-
-.dados p {
-    margin: 6px 0;
-    font-size: 16px;
-    display: flex;
-    align-items: end;
+.tempatual {
+    font-size: 19px;
+    font-weight: bold;
+    color: var(--cinza-escuro);
 }
-
+.coord {
+    font-size: 14px;
+    color: var(--roxo-claro);
+}
 .loading {
     text-align: center;
     padding: 20px;
     font-size: 18px;
-    color: #666;
+    color: var(--cinza-medio);
+}
+.dados {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+    border-top: 1px solid var(--cinza-borda);
+}
+.dados p {
+    margin: 12px 0;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    color: var(--cinza-texto);
+}
+.dados strong {
+    font-weight: 600;
+    margin-right: 8px;
+}
+.dados svg {
+    margin-right: 8px;
+}
+/* Hover */
+.dados p:hover {
+    background-color: var(--cinza-hover);
+    border-radius: 6px;
+    padding: 12px;
+    box-shadow: 0 2px 8px var(--sombra-hover);
+    transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out, padding 0.4s ease-in-out;
+}
+.dados .tempMinMax {
+    font-size: 18px;
+    color: var(--cinza-medio);
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.dados .tempMinMax span {
+    font-size: 18px;
+    font-weight: 500;
+}
+.dados .tempMinMax strong {
+    font-weight: 600;
+}
+.dados .umidade, .dados .pressao, .dados .visibilidade, .dados .vento {
+    font-size: 16px;
+    margin: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: var(--cinza-texto);
+}
+/* Ícones coloridos */
+.dados .umidade .faDroplet, .dados .pressao .faGaugeHigh, .dados .visibilidade .faEye, .dados .vento .faWind {
+    color: var(--azul-claro);
+}
+.dados .faGlobe {
+    color: var(--verde);
+    margin-right: 8px;
+}
+/* Responsividade */
+@media (max-width: 768px) {
+    .cardClima {
+        padding: 20px;
+        max-width: 90%;
+        min-width: 350px !important;
+   }
+    .titulo {
+        font-size: 22px;
+   }
+    .descricao {
+        font-size: 16px;
+   }
+    .dados p, .dados .tempMinMax span {
+        font-size: 15px;
+   }
+    .iconeContainer {
+        width: 100px;
+        height: 100px;
+   }
+    .icone {
+        width: 75px;
+        height: 75px;
+   }
+    .iconeContainer::before {
+        width: 100px;
+        height: 100px;
+   }
+}
+@media (max-width: 480px) {
+    .cardClima {
+        padding: 16px;
+        max-width: 100%;
+   }
+    .titulo {
+        font-size: 20px;
+   }
+    .descricao {
+        font-size: 14px;
+   }
+    .dados p, .dados .tempMinMax span {
+        font-size: 14px;
+   }
+    .iconeContainer {
+        width: 90px;
+        height: 90px;
+   }
+    .icone {
+        width: 65px;
+        height: 65px;
+   }
+    .iconeContainer::before {
+        width: 90px;
+        height: 90px;
+   }
 }

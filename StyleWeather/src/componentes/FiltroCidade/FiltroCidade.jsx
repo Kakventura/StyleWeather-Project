@@ -1,10 +1,10 @@
 // Esse componente é responsável por filtrar a cidade escolhida pelo usuário. Ele utiliza o componente CreatableSelect da biblioteca react-select para permitir que o usuário escolha uma cidade de uma lista pré-definida ou crie uma nova opção. O valor selecionado é armazenado no contexto do aplicativo.
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import CreatableSelect from "react-select/creatable";
 import { AppContext } from "../../context/AppContext";
 import styles from './FiltroCidade.module.css';
 
-const cidades = [
+const cidadesIniciais = [
     { label: "Aracaju", value: "Aracaju" },
     { label: "Belo Horizonte", value: "Belo Horizonte" },
     { label: "Belém", value: "Belém" },
@@ -23,34 +23,41 @@ const cidades = [
     { label: "Rio de Janeiro", value: "Rio de Janeiro" },
     { label: "São Luís", value: "São Luís" },
     { label: "São Paulo", value: "São Paulo" },
-    { label: "Teresina", value: "Teresina" }  
+    { label: "Teresina", value: "Teresina" }
 ];
 
 const FiltroCidade = () => {
     const { cidadeSelecionada, setCidadeSelecionada } = useContext(AppContext);
+    const [opcoes, setOpcoes] = useState(cidadesIniciais);
 
     const handleSelect = (opcaoSelecionada) => {
         setCidadeSelecionada(opcaoSelecionada ? opcaoSelecionada.value : "");
     };
 
+    const handleCreate = (inputValue) => {
+        const novaOpcao = { label: inputValue, value: inputValue };
+        setOpcoes((prev) => [...prev, novaOpcao]);
+        setCidadeSelecionada(inputValue);
+    };
+
     return (
         <div className={styles.filtroContainer}>
-        <label className={styles.filtroLabel} htmlFor="cidade-select">
-            Cidade
-        </label>
-        <div className={styles.selectContainer}>
-            <CreatableSelect
-                inputId="cidade-select"
-                options={cidades}
-                onChange={handleSelect}
-                value={cidadeSelecionada ? { label: cidadeSelecionada, value: cidadeSelecionada } : null}
-                placeholder="Escolha ou digite uma cidade"
-                isClearable
-                classNamePrefix="select"
-                menuPlacement="auto"
-                maxMenuHeight={200}
-            />
-       
+            <label className={styles.filtroLabel} htmlFor="cidade-select">
+                <strong>Cidade:</strong>
+            </label>
+            <div className={styles.selectContainer}>
+                <CreatableSelect
+                    inputId="cidade-select"
+                    options={opcoes}
+                    onChange={handleSelect}
+                    onCreateOption={handleCreate}
+                    value={cidadeSelecionada ? { label: cidadeSelecionada, value: cidadeSelecionada } : null}
+                    placeholder="Escolha ou digite uma cidade"
+                    isClearable
+                    classNamePrefix="select"
+                    menuPlacement="auto"
+                    maxMenuHeight={200}
+                />
             </div>
         </div>
     );

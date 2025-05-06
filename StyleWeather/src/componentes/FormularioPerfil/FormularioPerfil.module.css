@@ -1,5 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/winky-rough');
 
+
 .background {
   height: 100vh;
   display: flex;
@@ -12,14 +13,14 @@
   position: relative;
   z-index: 1;
   width: 800px;
-  background: white;
+  background: var(--branco);
   padding: 40px 30px;
   border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px var(--sombra-hover);
   display: flex;
   justify-content: space-between;
   text-align: left;
-  background-color: #ffffff;
+  background-color: var(--branco);
 }
 
 .label {
@@ -27,14 +28,14 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Alinha label à esquerda */
-  }
+}
   
-  .label label {
+.label label {
     font-size: 16px;
     font-weight: bold;
     font-family: 'Winky Rough', sans-serif;
-  }
-
+    color: var(--cinza-texto);
+}
 
 .ladoEsquerdo {
   display: flex;
@@ -48,6 +49,7 @@
 .titulo {
   position: relative;
   display: inline-block;
+  color: var(--roxo-base);
 }
 
 .titulo::after {
@@ -72,43 +74,40 @@
 }
 
 .imagemPerfil {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid black;
-    margin-bottom: 15px; /* Espaço entre a foto e o botão */
-    margin-top: 2px;
-    display: flex;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--preto);
+  margin-bottom: 15px; /* Espaço entre a foto e o botão */
+  margin-top: 2px;
+  display: flex;
 }
 
-  .uploadButton {
-    width: 55%;
-    padding: 8px;
-    background: black;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    font-size: 12px;
-    cursor: pointer;
-    font-family: 'Winky Rough', sans-serif;
-    transition: background 0.3s;
-    margin-top: 20px;
-    display: flex;
-      /* Centraliza horizontalmente */
+.uploadButton {
+  width: 55%;
+  padding: 8px;
+  background: var(--preto);
+  color: var(--branco);
+  border: none;
+  border-radius: 30px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: 'Winky Rough', sans-serif;
+  transition: background 0.3s;
+  margin-top: 20px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  }
+}
 
 .uploadInput {
-    display: none; /* Esconde o input de arquivo */
-  }
-  
-  .uploadButton:hover {
-    background-color: #333;
-  }
-  
+  display: none; /* Esconde o input de arquivo */
+}
+
+.uploadButton:hover {
+  background-color: var(--cinza-claro);
+}
 
 .inputs {
   display: flex;
@@ -122,12 +121,12 @@
   width: 100%;
   padding: 12px;
   margin: 10px 0;
-  border: 2px solid black;
+  border: 2px solid var(--cinza-borda);
   border-radius: 8px;
   font-size: 16px;
   font-family: 'Winky Rough', sans-serif;
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
+  background-color: var(--branco);
+  color: var(--cinza-texto);
 }
 
 .email:disabled {
@@ -135,8 +134,7 @@
   color: #000000;
   cursor: not-allowed;
   border: 1px solid #ccc;
-  border: 2px solid black;
-
+  border: 2px solid var(--cinza-borda);
 }
   
 .inputFotoPerfil {
@@ -144,31 +142,31 @@
   margin-top: 10px;
   padding: 8px;
   font-size: 14px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--cinza-borda);
   border-radius: 8px;
-  background-color: #fff;
+  background-color: var(--branco);
   cursor: pointer;
   width: 100%;
   max-width: 300px;
 }
 
 .inputs select {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 2px solid black;
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: 'Winky Rough', sans-serif;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-  }
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid var(--cinza-borda);
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Winky Rough', sans-serif;
+  background-color: var(--branco);
+  color: var(--cinza-texto);
+}
 
 .inputs button {
   width: 80%;
   padding: 12px;
-  background: black;
-  color: white;
+  background: var(--preto);
+  color: var(--branco);
   border: none;
   border-radius: 20px;
   font-size: 16px;
@@ -179,7 +177,7 @@
 }
 
 .inputs button:hover {
-  background: #333;
+  background: var(--cinza-claro);
 }
 
 .inputFotoPerfil {

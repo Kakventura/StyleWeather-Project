@@ -1,67 +1,82 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
 
-  .background {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Winky Rough', sans-serif;
-  }
+.background {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Winky Rough', sans-serif;
+}
 
-  .cardCadastro {
+.cardCadastro {
   position: relative;
   z-index: 1;
   width: 600px;
-  background: white;
-  padding: 40px 30px;
+  background: var(--branco); /* Cor branca definida no :root */
+  padding: 30px 100px; /* Ajustado para manter o padding consistente */
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  padding: 30px 100px;
 }
+
+h2 {
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-family: 'Winky Rough', sans-serif;
+}
+
+.opcao {
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  margin: 10px 0;
+  border: 2px solid var(--preto); /* Usando a cor preta definida */
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.opcao.selecionado {
+  border-color: var(--roxo-claro); /* Usando a cor roxo-claro */
+  background-color: #f0e6ff;
+}
+
+.botaoCadastrar {
+  width: 60%;
+  padding: 12px;
+  background: var(--preto); /* Usando a cor preta definida */
+  color: var(--branco); /* Usando a cor branca definida */
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Winky Rough', sans-serif;
+  transition: background 0.3s;
+  margin-top: 30px;
+}
+
+.botaoCadastrar:hover {
+  background: #333;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .cardCadastro {
+    width: 90%;
+    padding: 20px; /* Ajustando padding para telas menores */
+  }
   
   h2 {
-    margin-bottom: 30px;  
-    font-size: 30px;
-  }
-  
-  .opcao {
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-    margin: 10px 0;
-    border: 2px solid black;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 100%;
-    text-align: center;
-    
-  }
-  
-  .opcao.selecionado {
-    border-color: #6e4c97;
-    background-color: #f0e6ff;
+    font-size: 24px; /* Ajustando o tamanho da fonte para telas menores */
   }
   
   .botaoCadastrar {
-    width: 60%;
-    padding: 12px;
-    background: black;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    font-size: 16px;
-    cursor: pointer;
-    font-family: 'Winky Rough', sans-serif;
-    transition: background 0.3s;
-    margin-top: 30px;
-
+    width: 80%;
   }
-  
-  .botaoCadastrar:hover {
-    background: #333;
 }

@@ -6,36 +6,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffffff;
+  background: var(--branco);
   font-family: 'Winky Rough', sans-serif;
 }
 
-.user{
-width: 150px;
-margin-bottom: 30px;
+.user {
+  width: 150px;
+  margin-bottom: 30px;
 }
 
 .cardLogin {
   width: 600px;
-  background: white;
+  background: var(--branco);
   padding: 40px 30px;
   border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px var(--sombra-hover);
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   align-items: center;
-  
 }
-
 
 .titulo {
   font-size: 44px;
   font-family: 'Winky Rough', sans-serif;
   font-weight: 900;
   margin-bottom: 30px;
-
+  color: var(--roxo-base);
 }
 
 .inputs {
@@ -57,39 +55,56 @@ margin-bottom: 30px;
 .formGroup label {
   margin-bottom: 4px;
   font-size: 16px;
+  color: var(--cinza-texto);
 }
 
 .formGroup input {
   width: 100%;
   padding: 12px;
-  border: 2px solid black;
+  border: 2px solid var(--cinza-borda);
   border-radius: 8px;
   font-size: 16px;
-  background-color: #fff;
-  color: #000;
+  background-color: var(--branco);
+  color: var(--cinza-texto);
   font-family: 'Winky Rough', sans-serif;
 }
 
 .inputs button {
-    width: 60%;
-    padding: 12px;
-    background: black;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    font-size: 16px;
-    cursor: pointer;
-    font-family: 'Winky Rough', sans-serif;
-    transition: background 0.3s;
-    margin-top: 20px;
-  }
-  
-  .inputs button:hover {
-    background: #333;
-  }
+  width: 60%;
+  padding: 12px;
+  background: var(--preto);
+  color: var(--branco);
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Winky Rough', sans-serif;
+  transition: background 0.3s;
+  margin-top: 20px;
+}
+
+.inputs button:hover {
+  background: var(--cinza-claro);
+}
 
 .mensagem {
   margin-top: 10px;
   font-weight: bold;
-  color: red;
+  color: var(--roxo-base);
 }
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .cardLogin {
+    width: 90%; /* Ajusta a largura para dispositivos móveis */
+    padding: 20px; /* Ajusta o padding */
+  }
+  
+  .titulo {
+    font-size: 32px; /* Ajusta o tamanho do título para telas menores */
+  }
+
+  .inputs button {
+    width: 80%; /* Faz o botão ocupar mais espaço em telas menores */
+  }
+} 

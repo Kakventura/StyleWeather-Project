@@ -1,155 +1,155 @@
 .container {
-    margin-top: 2rem;
-    padding: 2.5rem;
-    background: white;
-    border-radius: 24px;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
-  }
-  
-  .titulo {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    color: #2D3436;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-  }
-  
-  .descricao {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #636E72;
-    margin-bottom: 2.5rem;
-    text-align: center;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
+  margin-top: 2rem;
+  padding: 2.5rem;
+  background: var(--branco); /* Usando a cor branca definida */
+  border-radius: 24px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--cinza-escuro); /* Usando a cor cinza-escuro */
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.descricao {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--cinza-medio); /* Usando a cor cinza-medio */
+  margin-bottom: 2.5rem;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gridRoupas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.itemRoupa {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  aspect-ratio: 3/4;
+  background: var(--cinza-claro); /* Usando a cor cinza-claro */
+  height: 320px; /* Altura fixa para uniformidade */
+}
+
+.itemRoupa .alertaChuva:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(108, 92, 231, 0.2);
+}
+
+.alertaChuva {
+  width: 100%;
+  height: 94%; /* ou experimente: max-height: 70% */
+  object-fit: contain;
+  display: block;
+  padding: 1.5rem;
+  transition: transform 0.5s ease;
+  background-color: var(--branco); /* Usando a cor branca */
+}
+
+.alertaChuvaTexto {
+  text-align: center;
+  font-weight: bold;
+  background-color: var(--branco); /* Cor de fundo ajustada para branco */
+  margin-top: -30px;
+  text-overflow: ellipsis;
+  width: 150px; /* Ou qualquer valor que você deseja */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imagemRoupa {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Alterado para 'contain' para mostrar a peça inteira */
+  display: block;
+  padding: 1.5rem; /* Espaço interno para a roupa respirar */
+  transition: transform 0.5s ease;
+  background-color: var(--branco); /* Usando a cor branca */
+}
+
+.imagemRoupa:hover {
+  transform: scale(1.05);
+}
+
+/* Efeito de overlay ao passar o mouse */
+.itemRoupa::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.itemRoupa:hover::after {
+  opacity: 1;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
   .gridRoupas {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
-  .itemRoupa {
-    position: relative;
-    overflow: hidden;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    aspect-ratio: 3/4;
-    background: #f8f9fa;
-    height: 320px; /* Altura fixa para uniformidade */
-  }
-  
-  .itemRoupa .alertaChuva :hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 32px rgba(108, 92, 231, 0.2);
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.5rem;
   }
 
-  .alertaChuva{
-    width: 100%;
-    height: 94%; /* ou experimente: max-height: 70% */
-    object-fit: contain;
-    display: block;
-    padding: 1.5rem;
-    transition: transform 0.5s ease;
-    background-color: white;
+  .itemRoupa {
+      height: 280px;
   }
-  
-  .alertaChuvaTexto{
-    text-align: center;
-    font-weight: bold;
-    background-color: white;
-    margin-top: -30px;
-    text-overflow: ellipsis;
-    width: 150px; /* Ou qualquer valor que você deseja */
-    margin-left: auto;
-    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+      padding: 2rem;
+  }
+
+  .gridRoupas {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1.2rem;
+  }
+
+  .itemRoupa {
+      height: 240px;
+  }
+
+  .titulo {
+      font-size: 1.8rem;
+  }
+
+  .descricao {
+      font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gridRoupas {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .itemRoupa {
+      height: 200px;
   }
 
   .imagemRoupa {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Alterado para 'contain' para mostrar a peça inteira */
-    display: block;
-    padding: 1.5rem; /* Espaço interno para a roupa respirar */
-    transition: transform 0.5s ease;
-    background-color: white;
-  }
-  
-  .imagemRoupa:hover {
-    transform: scale(1.05);
-  }
-  
-  /* Efeito de overlay ao passar o mouse */
-  .itemRoupa::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0) 60%,
-      rgba(255, 255, 255, 0.9) 100%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .itemRoupa:hover::after {
-    opacity: 1;
-  }
-  
-  /* Responsividade */
-  @media (max-width: 1024px) {
-    .gridRoupas {
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1.5rem;
-    }
-    
-    .itemRoupa {
-      height: 280px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .container {
-      padding: 2rem;
-    }
-    
-    .gridRoupas {
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 1.2rem;
-    }
-    
-    .itemRoupa {
-      height: 240px;
-    }
-    
-    .titulo {
-      font-size: 1.8rem;
-    }
-    
-    .descricao {
-      font-size: 1.1rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .gridRoupas {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .itemRoupa {
-      height: 200px;
-    }
-    
-    .imagemRoupa {
       padding: 1rem;
-    }
   }
+}

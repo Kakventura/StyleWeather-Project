@@ -34,7 +34,7 @@
 .customBtn {
   padding: 0.85rem 1.75rem;
   border-radius: 50px;
-  color: #fff;
+  color: var(--branco);
   text-transform: uppercase;
   font-size: 0.95rem;
   letter-spacing: 0.1rem;

@@ -9,6 +9,7 @@ import { Genero } from './pages/Genero';
 import { Login } from './pages/Login/Login';
 import { EditarPerfil } from './pages/EditarPerfil/EditarPerfil';
 import { SobreNos } from './pages/SobreNos/SobreNos';
+import './global.css';
 
 function App() {
   return (

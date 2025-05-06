@@ -12,7 +12,7 @@
     vertical-align: top;
     text-align: center; /* Garante que o texto dentro de cada item fique centralizado */
     transition: all 0.3s ease;
-    width: 500px;
+    max-width: 500px; /* Definido para ser responsivo */
 }
 
 .filtroLugar:hover {
@@ -35,20 +35,20 @@
     width: 100%;
     border-radius: 10px;
     border: 1px solid var(--cinza-claro);
-    background-color: var(--branco-semi);
+    background-color: var(--branco);
     font-size: 0.95rem;
     transition: border 0.3s ease;
 }
 
 .selectLugar:focus {
-    border-color: var(--roxo-principal);
+    border-color: var(--roxo-base);
     box-shadow: 0 0 5px rgba(108, 92, 231, 0.2);
 }
 
 .btnEscolherLook {
     margin-top: 1.5rem;
     padding: 12px 24px;
-    background: linear-gradient(135deg, var(--roxo-principal) 0%, var(--roxo-escuro) 100%);
+    background: linear-gradient(135deg, var(--roxo-base) 0%, var(--roxo-claro) 100%);
     color: white;
     border: none;
     border-radius: 10px;
@@ -59,7 +59,7 @@
 }
 
 .btnEscolherLook:hover {
-    background-color: var(--roxo-escuro);
+    background-color: var(--roxo-claro);
 }
 
 @media (max-width: 768px) {

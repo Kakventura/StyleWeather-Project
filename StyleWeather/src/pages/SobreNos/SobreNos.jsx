@@ -37,7 +37,6 @@ function SobreNos() {
           </div>
 
           <div className={style.signup}>
-            <p>Ainda não tem cadastro?</p>
             {usuarioLogado ? (
               <Link to="../editar-perfil" className={style.signupButton}>Perfil</Link>
             ) : (

@@ -1,173 +1,171 @@
+.container {
+  display: flex;
+  height: 100vh;
+  animation: fadeSlide 1s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
 
-  
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logoBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.logoImg {
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--sombra-hover);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logoImg:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.defaultLogo {
+  display: block;
+}
+
+.responsiveLogo {
+  display: none;
+}
+
+.leftPanel {
+  background-color: var(--preto);
+  color: var(--branco);
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.rightPanel {
+  width: 60%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  animation: fadeSlide 1.2s ease-in-out;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--cinza-texto);
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--cinza-claro);
+}
+
+.welcome h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.welcome p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: var(--cinza-texto);
+  animation: fadeSlide 1.3s ease-in-out;
+}
+
+.contact p {
+  margin: 0.2rem 0;
+}
+
+.signup {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.signup p {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.signupButton {
+  text-decoration: none;
+  background-color: var(--roxo-base);
+  color: var(--branco);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.signupButton:hover {
+  background-color: var(--cinza-claro);
+  transform: scale(1.05);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
   .container {
-    display: flex;
-    height: 100vh;
-    animation: fadeSlide 1s ease-in-out;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  @keyframes fadeSlide {
-    from {
-      opacity: 0;
-      transform: translateY(15px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .logoBox {
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    text-align: center;
-    transition: all 0.4s ease;
+    background-color: var(--branco);
+    gap: 0;
   }
-  
-  .logoImg {
+
+  .leftPanel,
+  .rightPanel {
+    width: 100%;
+    background-color: var(--branco);
+    color: var(--preto);
+    padding: 1.2rem;
+  }
+
+  .logoBox {
+    margin-bottom: 0rem;
+    margin-top: 2rem;
+  }
+
+  .responsiveLogo {
+    display: block;
     max-width: 300px;
     height: auto;
-    margin-bottom: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 0rem;
+    border-radius: 0;
+    box-shadow: none;
   }
-  
-  .logoImg:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-  }
-  
+
   .defaultLogo {
-    display: block;
-  }
-  
-  .responsiveLogo {
     display: none;
   }
-  
-  .leftPanel {
-    background-color: #000000;
-    color: white;
-    width: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
+
+  .welcome {
+    margin-top: 0rem;
   }
-  
-  .rightPanel {
-    width: 60%;
-      padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    animation: fadeSlide 1.2s ease-in-out;
+
+  .signupButton {
+    background-color: var(--preto);
   }
-  
-  .nav {
-    display: flex;
-    justify-content: flex-end;
-    gap: 2rem;
-    font-size: 0.9rem;
-    margin-bottom: 2rem;
-  }
-  
-  .nav a {
-    text-decoration: none;
-    color: black;
-    transition: color 0.3s ease;
-  }
-  
-  .nav a:hover {
-    color: #555;
-  }
-  
-  .welcome h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .welcome p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    color: #333;
-    animation: fadeSlide 1.3s ease-in-out;
-  }
-  
-  .contact p {
-    margin: 0.2rem 0;
-  }
-  
-  .signup {
-    margin-top: 2rem;
-    text-align: left;
-  }
-  
-  .signup p {
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-  }
-  
-  .signupButton{
-    text-decoration: none;
-    background-color: #181418;
-    color: white;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .signuButton:hover {
-    background-color: #333;
-    transform: scale(1.05);
-  }
-  
-  /* RESPONSIVO */
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      background-color: white;
-      gap: 0;
-    }
-  
-    .leftPanel,
-    .rightPanel {
-      width: 100%;
-      background-color: white;
-      color: #000;
-      padding: 1.2rem;
-    }
-  
-    .logoBox {
-      margin-bottom: 0rem;
-      margin-top: 2rem;
-    }
-  
-    .responsiveLogo {
-      display: block;
-      max-width: 300px;
-      height: auto;
-      margin-bottom: 0rem;
-      border-radius: 0;
-      box-shadow: none;
-    }
-  
-    .defaultLogo {
-      display: none;
-    }
-  
-    .welcome {
-      margin-top: 0rem;
-    }
-  
-    .signupButton {
-      background-color: #000;
-    }
-  }
+}

@@ -1,9 +1,18 @@
-:root{
-  --cinza: #EBEBEC;
-  --branco: #FFFFFF;
-  --preto: #000000;
-  --roxo_base: #6e4c97;
-  --roxo_claro: #9b7cbb;
+:root {
+    --cinza: #EBEBEC;
+    --cinza-claro: #555;
+    --cinza-texto: #333;
+    --cinza-hover: #f9f3fc;
+    --cinza-borda: #e0e0e0;
+    --branco: #FFFFFF;
+    --preto: #000000;
+    --roxo-base: #6e4c97;
+    --roxo-claro: #9b7cbb;
+    --azul-claro: #3498db;
+    --verde: #27ae60;
+    --cinza-escuro: #2c3e50;
+    --cinza-medio: #777;
+    --sombra-hover: rgba(0, 0, 0, 0.1);
 }
 
 /* Resete da margem padrão do arquivo */

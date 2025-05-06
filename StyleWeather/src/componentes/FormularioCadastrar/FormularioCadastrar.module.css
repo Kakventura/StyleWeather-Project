@@ -13,7 +13,7 @@
   position: relative;
   z-index: 1;
   width: 800px;
-  background: white;
+  background: var(--branco); /* Usando a cor branca definida */
   padding: 40px 30px;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -23,20 +23,18 @@
 }
 
 .inputs a {
-    text-decoration: none;
-    color: #6e4c97;
+  text-decoration: none;
+  color: var(--roxo-claro); /* Usando a cor roxo-claro */
 }
 
 .inputs a:hover {
-        color: #39284e;
-        transition: 0.2s ease;
-        }
+  color: var(--roxo-escuro); /* Usando a cor roxo-escuro */
+  transition: 0.2s ease;
+}
 
-        .man{
-            width: 220px;
-
-            }
-            
+.man {
+  width: 220px;
+}
 
 .ladoEsquerdo {
   display: flex;
@@ -46,7 +44,6 @@
   width: 45%;
   gap: 30px;
 }
-
 
 /* Substitua o .titulo::after atual por este código */
 .titulo {
@@ -75,7 +72,6 @@
   height: 5px;
 }
 
-
 .label {
   width: 100%;
   display: flex;
@@ -100,7 +96,7 @@
 .inputs {
   display: flex;
   flex-direction: column;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   width: 50%;
   padding-left: 20px;
@@ -110,19 +106,19 @@
   width: 100%;
   padding: 12px;
   margin: 10px 0;
-  border: 2px solid black;
+  border: 2px solid var(--preto); /* Usando a cor preta */
   border-radius: 8px;
   font-size: 16px;
   font-family: 'Winky Rough', sans-serif;
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
+  background-color: var(--branco); /* Usando a cor branca */
+  color: var(--preto); /* Usando a cor preta */
 }
 
 .inputs button {
   width: 80%;
   padding: 12px;
-  background: black;
-  color: white;
+  background: var(--preto); /* Usando a cor preta */
+  color: var(--branco); /* Usando a cor branca */
   border: none;
   border-radius: 20px;
   font-size: 16px;
@@ -136,7 +132,7 @@
   background: #333;
 }
 
-
+/* Responsividade */
 @media (max-width: 768px) {
   .cardCadastro {
     flex-direction: column; /* Alinha os itens em coluna */
