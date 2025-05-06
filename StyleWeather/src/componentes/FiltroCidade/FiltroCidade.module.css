@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
+
+
 .filtroContainer {
     display: flex;
     flex-direction: column; /* Organiza os elementos na coluna */
     justify-content: center; /* Centraliza verticalmente */
     align-items: center; /* Centraliza horizontalmente */
     width: 100%;
-    margin: 20px auto; /* Centraliza horizontalmente */
+    margin: 50px auto 20px auto; /* Aumenta a margem superior para empurrar o filtro para baixo */
     padding: 1.5rem;
     background: rgba(255, 255, 255, 0.97);
     border-radius: 14px;
@@ -16,9 +20,8 @@
     position: static; /* Removido o position relative */
     z-index: 9999; /* Garante que o filtro fique sobre os outros elementos */
     position: relative; /* Permite que o z-index funcione corretamente */
-    transition: all 0.3s ease;
-    text-align: center;
 }
+
 
 .filtroContainer:hover {
     transform: translateY(-5px);
@@ -118,7 +121,7 @@
     .filtroContainer {
         width: 90%;
         max-width: 500px;
-        margin: 20px auto;
+        margin: 50px auto 20px auto; 
     }
 
     .selectContainer :global(.select__control) {

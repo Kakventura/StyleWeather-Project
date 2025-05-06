@@ -1,4 +1,8 @@
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
   width: 100%;
   height: 80px;
   background-color: var(--preto);
@@ -7,13 +11,13 @@
   align-items: center;
   padding: 0 2.5rem;
   position: relative;
-  z-index: 100;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
   transition: all 0.4s ease;
 }
+
 
 .logo {
   height: 100px;
@@ -138,7 +142,7 @@
   display: flex;
   flex-direction: column;
   min-width: 180px;
-  z-index: 200;
+  z-index: 1100;
   transform-origin: top right;
   transform: scale(0.95);
   opacity: 0;

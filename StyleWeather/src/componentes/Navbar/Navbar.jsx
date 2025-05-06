@@ -10,7 +10,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={`${styles.navbar} ${menuAberto ? styles.openMenu : ''}`}>
       <img src={logo} alt="Logo" className={styles.logo} onClick={() => navigate('/')} />
 
       <div className={styles.menuIcon} onClick={alternarMenu}>

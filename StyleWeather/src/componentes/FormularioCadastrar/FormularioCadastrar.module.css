@@ -13,6 +13,9 @@
 /* ---------- LAYOUT BASE ---------- */
 .background {
   height: 100vh;
+  padding-top: 80px; /* Altura da navbar */
+  height: auto;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +26,8 @@
 
 .cardCadastro {
   position: relative;
-  z-index: 1;
+  z-index: 1; /* Mantém abaixo do menu mobile */
+  margin-top: 0;
   width: 800px;
   background: var(--branco);
   padding: 40px 30px;
@@ -87,6 +91,7 @@
   display: inline-block;
   color: var(--roxo-escuro);
   font-size: 2.2rem;
+  margin-bottom: 20px;
 }
 
 .titulo::after {
@@ -175,9 +180,41 @@
   box-shadow: 0 4px 12px rgba(110, 76, 151, 0.3);
 }
 
+@media (max-width: 768px) {
+  /* Garante que a navbar e menu fiquem acima */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  /* Ajuste do menu mobile */
+  .buttons {
+    z-index: 999;
+    position: fixed;
+    top: 75px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+  }
+  
+  /* Ajuste do card para não ser sobreposto */
+  .cardCadastro {
+    z-index: 1;
+  }
+  
+  /* Espaçamento extra para o avatar */
+  .avatar {
+    margin-top: 40px !important;
+  }
+} 
+
 /* ---------- RESPONSIVIDADE ---------- */
 @media (max-width: 992px) {
   .cardCadastro {
+    padding-top: 60px;
     width: 95%;
     padding: 30px 20px;
   }
@@ -236,5 +273,52 @@
   .inputs button {
     font-size: 14px;
     padding: 10px;
+  }
+}
+
+
+@media (max-width: 550px) {
+  .cardCadastro {
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    padding: 25px 15px;
+    width: 100%;
+  }
+
+  .ladoEsquerdo, 
+  .inputs {
+    width: 100% !important; /* Força ocupar 100% da largura */
+    padding: 0;
+  }
+
+  .ladoEsquerdo {
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .avatar {
+    width: 120px !important;
+    height: 120px !important;
+    margin-top: 80px;
+  }
+
+  .man {
+    width: 150px;
+  }
+
+  .inputs input,
+  .inputs select,
+  .inputs button {
+    width: 100% !important; /* Garante inputs largos */
+  }
+
+  .titulo {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .titulo::after {
+    width: 60% !important;
+    left: 50% !important;
+    transform: translateX(-50%) scaleX(0.9) !important;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AppContext } from "../../context/AppContext";
 import { buscarClimaPorCidade } from "../../services/weatherApi";
 import { useNavigate } from "react-router-dom";
@@ -18,6 +18,7 @@ const FiltroLugar = () => {
     } = useContext(AppContext);
 
     const [mostrarCards, setMostrarCards] = useState(false);
+    const [menuAberto, setMenuAberto] = useState(false); // Estado para controlar se o menu está aberto
     const isReadyToFetch = cidadeSelecionada && lugarSelecionado;
     const navigate = useNavigate();
 
@@ -64,8 +65,13 @@ const FiltroLugar = () => {
         { value: "shopping", label: "Shopping" }
     ];
 
+    // Função para gerenciar a mudança de abertura do menu
+    const handleMenuChange = (isOpen) => {
+        setMenuAberto(isOpen); // Atualiza o estado do menu
+    };
+
     return (
-        <div className={styles.filtroLugar}>
+        <div className={`${styles.filtroLugar} ${menuAberto ? styles.menuAberto : ""}`}>
             <label htmlFor="lugar"><strong>Escolha o local:</strong></label>
 
             <div className={styles.selectContainer}>
@@ -76,6 +82,8 @@ const FiltroLugar = () => {
                     onChange={(selectedOption) => setLugarSelecionado(selectedOption?.value)}
                     placeholder="Selecione"
                     classNamePrefix="select"
+                    onMenuOpen={() => handleMenuChange(true)} // Quando o menu abrir
+                    onMenuClose={() => handleMenuChange(false)} // Quando o menu fechar
                 />
             </div>
 
