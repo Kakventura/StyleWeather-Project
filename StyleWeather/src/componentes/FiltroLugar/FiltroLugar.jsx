@@ -80,7 +80,7 @@ const FiltroLugar = () => {
                     options={opcoesLugar}
                     value={opcoesLugar.find(opt => opt.value === lugarSelecionado)}
                     onChange={(selectedOption) => setLugarSelecionado(selectedOption?.value)}
-                    placeholder="Selecione"
+                    placeholder="Selecione o local"
                     classNamePrefix="select"
                     onMenuOpen={() => handleMenuChange(true)} // Quando o menu abrir
                     onMenuClose={() => handleMenuChange(false)} // Quando o menu fechar

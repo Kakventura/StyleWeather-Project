@@ -52,7 +52,7 @@ const FiltroCidade = () => {
                     onChange={handleSelect}
                     onCreateOption={handleCreate}
                     value={cidadeSelecionada ? { label: cidadeSelecionada, value: cidadeSelecionada } : null}
-                    placeholder="Escolha ou digite uma cidade"
+                    placeholder="Selecione ou digite uma cidade"
                     isClearable
                     classNamePrefix="select"
                     menuPlacement="auto"

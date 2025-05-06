@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
 
-
-
 .filtroContainer {
     display: flex;
     flex-direction: column; /* Organiza os elementos na coluna */
@@ -56,7 +54,7 @@
 .selectContainer :global(.select__control) {
     min-height: 48px;
     border-radius: 10px;
-    border: 1px solid var(--cinza-claro);
+    border: 1px solid var(--cinza-escuro);
     font-size: 0.95rem;
     background-color: var(--branco);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -109,7 +107,7 @@
 .selectContainer :global(.select__placeholder) {
     text-align: left;
     width: 100%;
-    color: var(--cinza-claro); /* Ou outra cor que combine */
+    color: var(--cinza-escuro);
     font-size: 0.95rem;
     align-self: flex-start;
     margin-top: auto;
