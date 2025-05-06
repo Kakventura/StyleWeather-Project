@@ -34,6 +34,8 @@
 /* Estilo do select sem alteração do z-index */
 .selectContainer {
     width: 100%; /* Garante que o select ocupe toda a largura disponível */
+    position: relative; /* Garante que o z-index do select funcione */
+    z-index: 2; /* Coloca o select acima do ícone */
 }
 
 .selectContainer :global(.select__control) {

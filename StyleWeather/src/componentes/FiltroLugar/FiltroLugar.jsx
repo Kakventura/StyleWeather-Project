@@ -36,11 +36,14 @@ const FiltroLugar = () => {
 
         try {
             const clima = await buscarClimaPorCidade(cidadeSelecionada);
-            const temChuva =
-                clima?.weather?.some(w =>
-                    w.main.toLowerCase().includes("rain") ||
-                    w.description.toLowerCase().includes("rain")
-                ) || clima?.rain !== undefined;
+            
+            const palavrasChaveChuva = ["rain", "drizzle", "thunderstorm", "shower"];
+            const temChuva = clima?.weather?.some(w =>
+                palavrasChaveChuva.some(chave =>
+                    w.main.toLowerCase().includes(chave) ||
+                    w.description.toLowerCase().includes(chave)
+                )
+            ) || clima?.rain !== undefined;
 
             const climaComChuva = { ...clima, temChuva };
             setDadosClima(climaComChuva);

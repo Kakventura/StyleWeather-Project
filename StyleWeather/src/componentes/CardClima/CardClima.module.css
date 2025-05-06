@@ -39,8 +39,11 @@
 .icone {
     width: 90px;
     height: 90px;
-    z-index: 2;
+    z-index: 1; /* A posição do ícone será abaixo do conteúdo interativo */
+    position: relative;
+    pointer-events: none; /* O ícone não vai capturar eventos */
 }
+
 .iconeContainer::before {
     content: '';
     position: absolute;
@@ -50,8 +53,10 @@
     height: 120px;
     background-color: var(--roxo-claro);
     border-radius: 50%;
-    z-index: 0;
+    z-index: -1; /* Garante que o ícone fique atrás de outros elementos */
+    pointer-events: none; /* Garante que o ícone não interfira com interações */
 }
+
 .descricaoContainer {
     text-align: center;
 }
