@@ -4,6 +4,7 @@ import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
 import { SwitchAlert } from "../SwitchAlert"; // Importando o SwitchAlert
 import style from "./FormularioPerfil.module.css";
 
+
 const FormularioPerfil = () => {
   const [userData, setUserData] = useState({
     nome: "",
@@ -90,10 +91,13 @@ const FormularioPerfil = () => {
   };
 
   return (
+    
     <div className={style.background}>
       <div className={style.cardPerfil}>
         <div className={style.ladoEsquerdo}>
           <h1 className={style.titulo}>PERFIL</h1>
+
+
 
           <div className={style.imagemPerfilContainer}>
             <img

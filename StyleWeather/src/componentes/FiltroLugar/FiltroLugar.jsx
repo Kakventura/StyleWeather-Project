@@ -1,10 +1,10 @@
-// Componente para escolher um lugar, exibir as informações climáticas de uma cidade selecionada, também exibe se há chuva ou não.
 import React, { useContext, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 import { buscarClimaPorCidade } from "../../services/weatherApi";
 import { useNavigate } from "react-router-dom";
 import styles from "./FiltroLugar.module.css";
 import { CardClima } from "../CardClima/CardClima";
+import { SwitchAlert } from "../SwitchAlert"; // Certifique-se que SwitchAlert está correto
 import Select from "react-select";
 
 const FiltroLugar = () => {
@@ -22,7 +22,8 @@ const FiltroLugar = () => {
     const navigate = useNavigate();
 
     const handleEscolherLook = () => {
-        alert("Você não tem um cadastro no site! Por favor, cadastre-se.");
+        // Aqui você pode usar o SwitchAlert de acordo com a sua implementação
+        SwitchAlert.error("Você não tem um cadastro no site! Por favor, cadastre-se.");
         navigate("/cadastrar");
     };
 
