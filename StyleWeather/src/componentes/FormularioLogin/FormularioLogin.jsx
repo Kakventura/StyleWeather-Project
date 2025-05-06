@@ -13,7 +13,6 @@ const FormularioLogin = () => {
   const [senha, setSenha] = useState("");
   const [mensagem, setMensagem] = useState("");
 
-  const { setTipoLook } = useContext(AppContext); // Atualiza o tipoLook no contexto
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {

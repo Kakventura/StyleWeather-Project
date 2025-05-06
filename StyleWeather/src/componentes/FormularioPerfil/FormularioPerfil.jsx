@@ -3,7 +3,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
 import { SwitchAlert } from "../SwitchAlert"; // Importando o SwitchAlert
 import style from "./FormularioPerfil.module.css";
-
+import usuario from "../../assets/usuario.png"; // Imagem padrão de usuário
 
 const FormularioPerfil = () => {
   const [userData, setUserData] = useState({
@@ -75,8 +75,11 @@ const FormularioPerfil = () => {
 
       if (userData.nome !== userData.originalNome) updatedData.nome = userData.nome;
       if (userData.tipoLook !== userData.originalTipoLook) updatedData.tipoLook = userData.tipoLook;
-      if (profileImage !== userData.originalProfileImage) updatedData.profileImage = profileImage;
-
+     
+      // Verifica se a imagem foi alterada, caso contrário, usa a imagem padrão
+      if (profileImage !== userData.originalProfileImage) {
+        updatedData.profileImage = profileImage || {usuario};
+}
       // Se houver alterações, realizar a atualização
       if (Object.keys(updatedData).length > 0) {
         await updateDoc(docRef, updatedData);
@@ -101,7 +104,7 @@ const FormularioPerfil = () => {
 
           <div className={style.imagemPerfilContainer}>
             <img
-              src={profileImage || "/logo.png"}
+              src={profileImage || usuario}
               alt=""
               className={style.imagemPerfil}
             />

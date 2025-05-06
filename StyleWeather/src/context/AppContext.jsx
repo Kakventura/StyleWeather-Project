@@ -1,5 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react';
 import logoImg from '../assets/logo.png';
+import usuario from '../assets/usuario.png';
+
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 
@@ -30,7 +32,7 @@ export const AppProvider = ({ children }) => {
           if (docSnap.exists()) {
             const userData = docSnap.data();
             setTipoLook(userData.tipoLook || ""); // Define o tipoLook do Firestore
-            setProfileImage(userData.profileImage || logoImg); // Define a imagem de perfil ou a padrão
+            setProfileImage(userData.profileImage || usuario); // Define a imagem de perfil ou a padrão
             setUsuarioLogado(true); // Define como logado
           } else {
             console.error("Documento do usuário não encontrado no Firestore.");

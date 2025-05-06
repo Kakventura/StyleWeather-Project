@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth'; 
 import { useAppContext } from "../../hooks/useAppContext";
 import helpImg from "../../assets/help.png";
+import usuario from "../../assets/usuario.png"; // Imagem padrão de usuário
 import { Menu, X } from 'react-feather';
 import styles from "./NavbarLogin.module.css";
 const NavbarLogin = () => {
+  
   const {
     logo,
     menuAberto,
@@ -19,6 +21,7 @@ const NavbarLogin = () => {
 
   const handleUserMenuToggle = () => setUserMenuOpen(prev => !prev);
 
+  
   const handleEditProfile = () => {
     navigate('/editar-perfil');
     setUserMenuOpen(false);
@@ -28,6 +31,7 @@ const NavbarLogin = () => {
     setUserMenuOpen(false);
     const auth = getAuth();
     try {
+      
       await signOut(auth);
       localStorage.removeItem("userId");
       setUsuarioLogado(false);
@@ -41,6 +45,7 @@ const NavbarLogin = () => {
   const toggleMenu = () => {
     alternarMenu(!menuAberto);
   };
+  
 
   return (
     <nav className={`${styles.navbar} ${menuAberto ? styles.openMenu : ''}`}>
@@ -53,7 +58,7 @@ const NavbarLogin = () => {
       <div className={`${styles.buttons} ${menuAberto ? styles.showMenu : ''}`}>
         <div className={styles.userSection}>
           <img
-            src={profileImage}
+            src={profileImage || usuario}            
             alt="Foto de Perfil"
             className={styles.userIcon}
             onClick={handleUserMenuToggle}
@@ -70,7 +75,7 @@ const NavbarLogin = () => {
           )}
         </div>
 
-        <button onClick={() => navigate('/sobre-nos')} className={styles.iconOnlyBtn}>
+        <button className={styles.iconOnlyBtn} onClick={() => {navigate('/sobre-nos');  window.location.reload();}} >
           <img src={helpImg} alt="SobreNos" className={styles.icon} />
         </button>
       </div>

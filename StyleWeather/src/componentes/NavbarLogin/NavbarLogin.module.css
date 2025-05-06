@@ -116,6 +116,9 @@
   position: relative;
   display: flex;
   align-items: center;
+  background-color: var(--branco);
+  border-radius: 50%;
+  border: 2px solid var(--roxo-base);
 }
 
 .userIcon {
