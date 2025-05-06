@@ -27,7 +27,7 @@
 .cardCadastro {
   position: relative;
   z-index: 1; /* Mantém abaixo do menu mobile */
-  margin-top: 0;
+  margin: 50px auto 20px auto; 
   width: 800px;
   background: var(--branco);
   padding: 40px 30px;
