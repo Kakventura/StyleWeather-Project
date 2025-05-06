@@ -712,16 +712,18 @@ const CardRoupas = ({ temperatura, lugar, tipoLook }) => {
                     </div>
                 ))}
 
-            {temChuva && (
+                {temChuva && (
                 <div className={`${styles.itemRoupa} ${styles.alertaChuva}`}>
-                <img
+                    <div className={styles.conteudoAlerta}>
+                    <img
                         src={guarda_chuva}
                         alt="Guarda-chuva"
                         className={styles.imagemRoupa}
                     />
-            <p className={styles.alertaChuvaTexto}>Não esqueça guarda-chuva!</p>
-            </div>
-            )}
+                    <p className={styles.alertaChuvaTexto}>Não esqueça o guarda-chuva!</p>
+                    </div>
+                </div>
+                )}
             </div>
 
         </div>
