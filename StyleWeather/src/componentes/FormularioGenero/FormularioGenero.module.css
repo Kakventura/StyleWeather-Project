@@ -16,10 +16,11 @@
 .cardCadastro {
   position: relative;
   z-index: 1;
-  width: 600px;
-  background: var(--branco); /* Cor branca definida no :root */
-  padding: 30px 100px; /* Ajustado para manter o padding consistente */
+  width: 800px;
+  background: var(--branco);
+  padding: 30px 100px;
   border-radius: 15px;
+  margin: 10px auto;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
@@ -29,29 +30,52 @@ h2 {
   font-family: 'Winky Rough', sans-serif;
 }
 
+.opcoesContainer {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
 .opcao {
+  display: flex;
+  flex-direction: column-reverse; /* Texto em cima, ícone embaixo */
   align-items: center;
   justify-content: center;
-  padding: 15px;
-  margin: 10px 0;
-  border: 2px solid var(--preto); /* Usando a cor preta definida */
+  padding: 15px 20px;
+  border: 2px solid var(--preto);
   border-radius: 10px;
   cursor: pointer;
-  width: 100%;
-  text-align: center;
+  width: 170px;
+  height: 200px;
   transition: all 0.3s ease;
+  text-align: center;
+  background-color: white;
+}
+
+.opcao:hover {
+  transform: scale(1.05);
+  box-shadow: 0 3px 12px var(--roxo-claro);
 }
 
 .opcao.selecionado {
-  border-color: var(--roxo-claro); /* Usando a cor roxo-claro */
+  border-color: var(--roxo-claro);
   background-color: #f0e6ff;
+}
+
+.icone {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-top: 10px;
 }
 
 .botaoCadastrar {
   width: 60%;
   padding: 12px;
-  background: var(--preto); /* Usando a cor preta definida */
-  color: var(--branco); /* Usando a cor branca definida */
+  background: var(--preto);
+  color: var(--branco);
   border: none;
   border-radius: 20px;
   font-size: 16px;
@@ -65,18 +89,22 @@ h2 {
   background: #333;
 }
 
-/* Responsividade */
+/* Responsivo */
 @media (max-width: 768px) {
   .cardCadastro {
-    width: 90%;
-    padding: 20px; /* Ajustando padding para telas menores */
+    width: 70%;
+    padding: 20px;
   }
-  
+
   h2 {
-    font-size: 24px; /* Ajustando o tamanho da fonte para telas menores */
+    font-size: 24px;
   }
-  
+
   .botaoCadastrar {
     width: 80%;
+  }
+
+  .opcao {
+    width: 100%;
   }
 }

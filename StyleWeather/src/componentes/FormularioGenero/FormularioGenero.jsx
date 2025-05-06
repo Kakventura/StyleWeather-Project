@@ -7,14 +7,19 @@ import style from "./FormularioGenero.module.css";
 import { criptografarSenha } from "../../services/Auth";
 import { SwitchAlert } from "../../componentes/SwitchAlert";
 
+// Icones de tipo de looks
+import femininoImg from "../../assets/icones/icone_femininas.png";
+import masculinoImg from "../../assets/icones/icone_masculinas.png";
+import neutroImg from "../../assets/icones/icone_neutras.png";
+
 const FormularioGenero = () => {
   const [tipoLook, setTipoLook] = useState("");
   const navigate = useNavigate();
 
   const opcoesLook = [
-    { id: "feminino", rotulo: "Roupas Femininas", emoji: "👩" },
-    { id: "masculino", rotulo: "Roupas Masculinas", emoji: "👨" },
-    { id: "neutro", rotulo: "Roupas Neutras", emoji: "⚧️" },
+    { id: "feminino", rotulo: "Roupas Femininas", imagem: femininoImg },
+    { id: "masculino", rotulo: "Roupas Masculinas", imagem: masculinoImg },
+    { id: "neutro", rotulo: "Roupas Neutras", imagem: neutroImg },
   ];
 
   const handleCadastrar = async () => {
@@ -24,7 +29,7 @@ const FormularioGenero = () => {
 
     if (!tipoLook) {
       SwitchAlert.error("Por favor, selecione um estilo de roupa.", {
-        iconColor: '#800080'
+        iconColor: "#800080",
       });
       return;
     }
@@ -44,18 +49,18 @@ const FormularioGenero = () => {
       });
 
       SwitchAlert.success("Cadastro realizado com sucesso!", {
-        iconColor: '#800080'
+        iconColor: "#800080",
       });
       navigate("/editar-perfil");
     } catch (error) {
       console.error("Erro ao cadastrar:", error.message);
       if (error.code === "auth/email-already-in-use") {
         SwitchAlert.error("Este e-mail já está em uso. Por favor, use outro e-mail.", {
-          iconColor: '#800080'
+          iconColor: "#800080",
         });
       } else {
         SwitchAlert.error(`Erro ao cadastrar: ${error.message}`, {
-          iconColor: '#800080'
+          iconColor: "#800080",
         });
       }
     }
@@ -65,18 +70,19 @@ const FormularioGenero = () => {
     <div className={style.background}>
       <div className={style.cardCadastro}>
         <div className={style.container}>
-          <h2>Selecione uma opção</h2>
-
-          {opcoesLook.map((opcao) => (
-            <div
-              key={opcao.id}
-              className={`${style.opcao} ${tipoLook === opcao.id ? style.selecionado : ""}`}
-              onClick={() => setTipoLook(opcao.id)}
-            >
-              <span>{opcao.emoji}</span> {opcao.rotulo}
-            </div>
-          ))}
-
+          <h2>Qual estilo de roupa você prefere?</h2>
+          <div className={style.opcoesContainer}>
+            {opcoesLook.map((opcao) => (
+              <div
+                key={opcao.id}
+                className={`${style.opcao} ${tipoLook === opcao.id ? style.selecionado : ""}`}
+                onClick={() => setTipoLook(opcao.id)}
+              >
+                <img src={opcao.imagem} alt={opcao.rotulo} className={style.icone} />
+                <span>{opcao.rotulo}</span>
+              </div>
+            ))}
+          </div>
           <button onClick={handleCadastrar} className={style.botaoCadastrar}>
             Cadastrar
           </button>
