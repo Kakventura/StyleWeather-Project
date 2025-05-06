@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import style from './FormularioCadastrar.module.css';
 import manequim from '../../assets/manequim.png';
 import { SwitchAlert } from '../../componentes/SwitchAlert';
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // ÍCONES ADICIONADOS
 
 const FormularioCadastrar = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,8 @@ const FormularioCadastrar = () => {
     email: "",
     senha: "",
   });
+
+  const [mostrarSenha, setMostrarSenha] = useState(false); // CONTROLE DE VISIBILIDADE
 
   const navigate = useNavigate();
 
@@ -28,7 +31,6 @@ const FormularioCadastrar = () => {
   const handleNext = (e) => {
     e.preventDefault();
     
-    // Validação
     const errors = [];
     
     if (!formData.nome.trim()) {
@@ -43,17 +45,15 @@ const FormularioCadastrar = () => {
     if (!formData.senha) {
       errors.push("• Por favor, insira sua <b>Senha</b>");
     } else {
-      // Verifica se tem pelo menos 6 caracteres
       if (formData.senha.length < 6) {
         errors.push("• A <b>Senha</b> deve ter 6+ caracteres");
       }
-      
-      // Verifica se tem letra e número
+
       const temLetra = /[a-zA-Z]/.test(formData.senha);
       const temNumero = /[0-9]/.test(formData.senha);
-      
+
       if (!temLetra || !temNumero) {
-        errors.push("• A <b>Senha</b> deve conter letras e números");
+        errors.push("Para uma maior segurança, a <b>Senha</b> deve conter letras e números!");
       }
     }
     
@@ -61,8 +61,7 @@ const FormularioCadastrar = () => {
       SwitchAlert.error(errors);
       return;
     }
-  
-    // Se válido, prossegue
+
     localStorage.setItem("cadastroNome", formData.nome);
     localStorage.setItem("cadastroEmail", formData.email);
     localStorage.setItem("cadastroSenha", formData.senha);
@@ -78,7 +77,7 @@ const FormularioCadastrar = () => {
         </div>
 
         <form onSubmit={handleNext} className={style.inputs} noValidate>
-        <label className={style.label}>Nome:</label>
+          <label className={style.label}>Nome:</label>
           <input
             type="text"
             name="nome"
@@ -97,14 +96,24 @@ const FormularioCadastrar = () => {
           />
 
           <label className={style.label}>Senha:</label>
+          <div className={style.senhaContainer}>
           <input
-            type="password"
+            type={mostrarSenha ? "text" : "password"}
             name="senha"
             placeholder="Mínimo 6 caracteres"
             value={formData.senha}
             onChange={handleChange}
+            className={style.inputSenha}
           />
-          
+          <span
+            onClick={() => setMostrarSenha(prev => !prev)}
+            className={style.iconeSenha}
+            title={mostrarSenha ? "Ocultar senha" : "Mostrar senha"}
+          >
+            {mostrarSenha ? <FaEyeSlash /> : <FaEye />}
+          </span>
+        </div>
+
           <p>Já possui cadastro? <Link to="/login">Entrar</Link></p>
           <button type="submit">Avançar</button>
         </form>

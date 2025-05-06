@@ -180,6 +180,46 @@
   box-shadow: 0 4px 12px rgba(110, 76, 151, 0.3);
 }
 
+/* ---------- INPUT COM ÍCONE DE MOSTRAR SENHA ---------- */
+.senhaContainer {
+  position: relative;
+  width: 100%;
+}
+
+.inputSenha {
+  width: 100%;
+  padding: 12px 40px 12px 12px; /* Espaço à direita pro ícone */
+  margin: 8px 0;
+  border: 2px solid rgba(110, 76, 151, 0.3);
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--branco);
+  color: var(--preto);
+  transition: border-color 0.3s ease;
+}
+
+.inputSenha:focus {
+  outline: none;
+  border-color: var(--roxo-base);
+}
+
+.iconeSenha {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--roxo-base);
+  font-size: 18px;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.iconeSenha:hover {
+  color: var(--roxo-escuro);
+}
+
 @media (max-width: 768px) {
   /* Garante que a navbar e menu fiquem acima */
   .navbar {
