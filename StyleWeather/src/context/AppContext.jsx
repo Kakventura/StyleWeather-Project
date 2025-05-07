@@ -21,6 +21,16 @@ export const AppProvider = ({ children }) => {
 
   const alternarMenu = () => setMenuAberto(prev => !prev);
 
+  // Função para resetar o contexto do app
+  const resetAppContext = () => {
+    setUsuarioLogado(false);
+    setTipoLook("");
+    setCidadeSelecionada("");
+    setLugarSelecionado("");
+    setDadosClima(null);
+    setProfileImage(logoImg); // Reseta para a imagem padrão
+  };
+
   // Carrega os dados do usuário do Firebase
   useEffect(() => {
     const carregarDadosUsuario = async (user) => {
@@ -41,8 +51,7 @@ export const AppProvider = ({ children }) => {
           console.error("Erro ao carregar dados do usuário:", error.message);
         }
       } else {
-        setUsuarioLogado(false); // Define como não logado
-        setProfileImage(logoImg); // Reseta para a imagem padrão
+        resetAppContext(); // Reseta os dados quando o usuário não está logado
       }
     };
 
@@ -71,7 +80,8 @@ export const AppProvider = ({ children }) => {
         usuarioLogado,
         setUsuarioLogado,
         profileImage,
-        setProfileImage, // Adicionado para atualizar a foto de perfil
+        setProfileImage,
+        resetAppContext, // Agora o reset está disponível no contexto
       }}
     >
       {children}
