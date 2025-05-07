@@ -11,9 +11,9 @@ import styles from "./NavbarLogin.module.css";
 const NavbarLogin = () => {
   const {
     logo,
-    sUsuarioLogado,
+    setUsuarioLogado, // Pegando o setUsuarioLogado do contexto
     profileImage
-  } = useAppContext();
+  } = useAppContext();  // Garantindo o uso do contexto
 
   const navigate = useNavigate();
   const [isUserMenuOpen, setUserMenuOpen] = useState(false);
@@ -39,10 +39,10 @@ const NavbarLogin = () => {
   const handleLogout = async () => {
     const auth = getAuth();
     try {
-      await signOut(auth);
-      localStorage.removeItem("userId");
-      sUsuarioLogado(false);
-      navigate('/');
+      await signOut(auth);  // Fazendo o logout do Firebase
+      localStorage.removeItem("userId");  // Removendo o ID do usuário do localStorage
+      setUsuarioLogado(false);  // Alterando o estado de login via contexto
+      navigate('/');  // Redirecionando para a página inicial
     } catch (error) {
       console.error("Erro ao sair:", error.message);
       alert("Erro ao sair. Tente novamente.");

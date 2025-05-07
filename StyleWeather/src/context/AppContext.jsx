@@ -23,7 +23,7 @@ export const AppProvider = ({ children }) => {
 
   // Função para resetar o contexto do app
   const resetAppContext = () => {
-    setUsuarioLogado(false);
+    setUsuarioLogado(false); // Resetando o estado de login
     setTipoLook("");
     setCidadeSelecionada("");
     setLugarSelecionado("");
@@ -78,7 +78,7 @@ export const AppProvider = ({ children }) => {
         dadosClima,
         setDadosClima,
         usuarioLogado,
-        setUsuarioLogado,
+        setUsuarioLogado, // A função setUsuarioLogado agora está disponível no contexto
         profileImage,
         setProfileImage,
         resetAppContext, // Agora o reset está disponível no contexto

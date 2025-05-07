@@ -99,7 +99,7 @@ const FormularioLogin = () => {
               <input
                 type={senhaVisivel ? "text" : "password"} // Muda o tipo de input dependendo do estado
                 value={senha}
-                placeholder="sua senha cadastrada"
+                placeholder="Insira a sua senha"
 
                 onChange={(e) => setSenha(e.target.value)}
                 required

@@ -70,7 +70,7 @@ successPerfil: (messagePerfil) => {
   }).then((result) => {
     if (result.isConfirmed) {
       // Quando o botão OK for pressionado, a página será recarregada
-      window.location.href = '/editar-perfil';
+      window.location.href = '/';
 
     }
   });
