@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import helpImg from '../../assets/help.png';
 import { useAppContext } from '../../hooks/useAppContext';
 import styles from './Navbar.module.css';
+import homeIcon from "../../assets/inicial.png";
 
 const Navbar = () => {
   const { logo, menuAberto, alternarMenu } = useAppContext(); // nomes em português
@@ -20,6 +21,13 @@ const Navbar = () => {
       <div className={`${styles.buttons} ${menuAberto ? styles.showMenu : ''}`}>
         <button onClick={() => navigate('/cadastrar')} className={styles.customBtn}>
           Cadastre-se
+        </button>
+        <button
+          className={styles.iconOnlyBtn}
+          onClick={() => { navigate('/'); window.location.reload(); }}
+          title='Página inicial'
+        >
+          <img src={homeIcon} alt="Início" className={styles.icon} />
         </button>
         <button onClick={() => navigate('/sobre-nos')} className={styles.iconOnlyBtn}>
           <img src={helpImg} alt="Sobre nós" className={styles.icon} />
