@@ -93,6 +93,41 @@
   color: var(--roxo-base);
 }
 
+.passwordWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.eyeIcon svg {
+  color: var(--cinza-texto);
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--cinza-borda);
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: var(--branco);
+  color: var(--cinza-texto);
+  font-family: 'Winky Rough', sans-serif;
+}
+
+.formGroup label {
+  margin-bottom: 4px;
+  font-size: 16px;
+  color: var(--cinza-texto);
+}
+
+
 /* Responsividade */
 @media (max-width: 768px) {
   .cardLogin {

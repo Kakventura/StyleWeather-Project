@@ -62,7 +62,9 @@ const FiltroLugar = () => {
         { value: "parque", label: "Parque" },
         { value: "praia", label: "Praia" },
         { value: "restaurante", label: "Restaurante" },
-        { value: "shopping", label: "Shopping" }
+        { value: "shopping", label: "Shopping" },
+        { value: "trabalho", label: "Trabalho" }
+
     ];
 
     // Função para gerenciar a mudança de abertura do menu

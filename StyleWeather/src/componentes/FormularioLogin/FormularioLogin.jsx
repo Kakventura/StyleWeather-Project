@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import style from './FormularioLogin.module.css';
 import usuario from '../../assets/usuario.png';
@@ -7,11 +7,13 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { verificarSenha } from '../../services/Auth'; // Função para verificar senha
 import { SwitchAlert } from "../SwitchAlert"; // Importa o SwitchAlert
 import { AppContext } from "../../context/AppContext"; // Importa o contexto global
+import { Eye, EyeOff } from 'react-feather'; // Ícones para mostrar/ocultar senha
 
 const FormularioLogin = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [mensagem, setMensagem] = useState("");
+  const [senhaVisivel, setSenhaVisivel] = useState(false); // Estado para controlar a visibilidade da senha
 
   const navigate = useNavigate();
 
@@ -48,8 +50,6 @@ const FormularioLogin = () => {
         if (senhaCorreta) {
           setMensagem("Login bem-sucedido!");
           SwitchAlert.successPerfil("Login bem-sucedido!"); // Aumenta a duração para 5 segundos
-      
-       
         } else {
           setMensagem("Senha incorreta.");
           SwitchAlert.error("Senha incorreta.", { duration: 5000 }); // 5 segundos para o erro
@@ -68,6 +68,9 @@ const FormularioLogin = () => {
     setEmail("");
     setSenha("");
   };
+
+  // Função para alternar a visibilidade da senha
+  const togglePasswordVisibility = () => setSenhaVisivel(!senhaVisivel);
 
   return (
     <div className={style.background}>
@@ -90,12 +93,17 @@ const FormularioLogin = () => {
 
           <div className={style.formGroup}>
             <label>Senha:</label>
-            <input
-              type="password"
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
-              required
-            />
+            <div className={style.passwordWrapper}>
+              <input
+                type={senhaVisivel ? "text" : "password"} // Muda o tipo de input dependendo do estado
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
+                required
+              />
+              <div className={style.eyeIcon} onClick={togglePasswordVisibility}>
+                {senhaVisivel ? <EyeOff size={20} /> : <Eye size={20} />}
+              </div>
+            </div>
           </div>
 
           <button type="submit">Entrar</button>

@@ -280,6 +280,36 @@ import LookFrio76 from '../../assets/looks/frio/neutras/shopping/blusa_preta.png
 import LookFrio77 from '../../assets/looks/frio/neutras/shopping/calca_branca.png';
 import LookFrio78 from '../../assets/looks/frio/neutras/shopping/tenis_branco.png';
 
+
+//trabalho masculino
+import LookFrio79 from '../../assets/looks/frio/masculinas/trabalho/blusa.png';
+import LookFrio80 from '../../assets/looks/frio/masculinas/trabalho/camisa.png';
+import LookFrio81 from '../../assets/looks/frio/masculinas/trabalho/calca_social.png';
+import LookFrio82 from '../../assets/looks/frio/masculinas/trabalho/tenis.png';
+import LookFrio83 from '../../assets/looks/frio/masculinas/trabalho/sapato_social.png';
+import LookFrio84 from '../../assets/looks/frio/masculinas/trabalho/cinto.png';
+import LookFrio85 from '../../assets/looks/frio/masculinas/trabalho/tenis.png';
+
+
+//trabalho neutras
+import LookFrio86 from '../../assets/looks/frio/neutras/trabalho/blusa.png';
+import LookFrio87 from '../../assets/looks/frio/neutras/trabalho/calca_social.png';
+import LookFrio88 from '../../assets/looks/frio/neutras/trabalho/cinto.png';
+import LookFrio89 from '../../assets/looks/frio/neutras/trabalho/tenis_preto.png';
+import LookFrio90 from '../../assets/looks/frio/neutras/trabalho/tenis_marrom.png';
+import LookFrio91 from '../../assets/looks/frio/neutras/trabalho/corrente.png';
+import LookFrio92 from '../../assets/looks/frio/neutras/trabalho/relogio.png';
+import LookFrio93 from '../../assets/looks/frio/neutras/trabalho/bolsa.png';
+
+
+//trabalho feminino
+import LookFrio94 from '../../assets/looks/frio/femininas/trabalho/blusa_social.png';
+import LookFrio95 from '../../assets/looks/frio/femininas/trabalho/calca_social.png';
+import LookFrio96 from '../../assets/looks/frio/femininas/trabalho/bota_ugg_preta.png';
+import LookFrio97 from '../../assets/looks/frio/femininas/trabalho/cinto.png';
+import LookFrio98 from '../../assets/looks/frio/femininas/trabalho/colar.png';
+
+
 // Academia - Ameno
 import LookAmeno37 from '../../assets/looks/ameno/neutras/academia/camisa_azul.png';
 import LookAmeno38 from '../../assets/looks/ameno/neutras/academia/calça_leve.png';
@@ -315,12 +345,38 @@ import LookAmeno62 from '../../assets/looks/ameno/neutras/praia/chapeu_palha.png
 import LookAmeno64 from '../../assets/looks/ameno/neutras/restaurante/camisa_social_verde.png';
 import LookAmeno65 from '../../assets/looks/ameno/neutras/restaurante/short_alfaiataria_bege.png';
 import LookAmeno67 from '../../assets/looks/ameno/neutras/restaurante/tenis_vans.png';
+
+
 // Shopping - Ameno
 import LookAmeno68 from '../../assets/looks/ameno/neutras/shopping/camisa_preta.png';
 import LookAmeno69 from '../../assets/looks/ameno/neutras/shopping/moletom_preto.png';
 import LookAmeno70 from '../../assets/looks/ameno/neutras/shopping/calca_preta_larga.png';
 import LookAmeno71 from '../../assets/looks/ameno/neutras/shopping/calça_cargo.png';
 import LookAmeno72 from '../../assets/looks/ameno/neutras/shopping/all_star_baixo.png';
+
+//trbalho masculino ameno
+import LookAmeno73 from '../../assets/looks/ameno/masculinas/trabalho/camisa_preta.png';
+import LookAmeno74 from '../../assets/looks/ameno/masculinas/trabalho/calca_preta.png';
+import LookAmeno75 from '../../assets/looks/ameno/masculinas/trabalho/sapato_preto.png';
+import LookAmeno76 from '../../assets/looks/ameno/masculinas/trabalho/cinto_preto.png';
+import LookAmeno77 from '../../assets/looks/ameno/masculinas/trabalho/pasta_preta.png';
+
+
+//trabalho feminino
+import LookAmeno78 from '../../assets/looks/ameno/femininas/Trabalho/camisa_preta.png';
+import LookAmeno79 from '../../assets/looks/ameno/femininas/Trabalho/calca_branca.png';
+import LookAmeno80 from '../../assets/looks/ameno/femininas/Trabalho/salto_preto.png';
+import LookAmeno81 from '../../assets/looks/ameno/femininas/Trabalho/cinto_preto.png';
+import LookAmeno82 from '../../assets/looks/ameno/femininas/Trabalho/bolsa_preta.png';
+
+
+//trabalho neutro
+import LookAmeno83 from '../../assets/looks/ameno/neutras/trabalho/polo_preta.png';
+import LookAmeno84 from '../../assets/looks/ameno/neutras/trabalho/calca_social_preta.png';
+import LookAmeno85 from '../../assets/looks/ameno/neutras/trabalho/sapato_preto.png';
+import LookAmeno86 from '../../assets/looks/ameno/neutras/Trabalho/cinto_preto.png';
+
+
 
 // Academia - Calor
 import LookCalor39 from '../../assets/looks/calor/neutras/academia/regata_branca.png';
@@ -357,6 +413,35 @@ import LookCalor64 from '../../assets/looks/calor/neutras/restaurante/tenis_pret
 import LookCalor65 from '../../assets/looks/calor/neutras/shopping/blusa_polo_branca.png';
 import LookCalor66 from '../../assets/looks/calor/neutras/shopping/short_preto.png';
 import LookCalor67 from '../../assets/looks/calor/neutras/shopping/tenis_preto.png';
+
+
+//feminino trabalho
+import LookCalor68 from '../../assets/looks/calor/femininas/trabalho/blusa_social.png';
+import LookCalor69 from '../../assets/looks/calor/femininas/trabalho/calca_social.png';
+import LookCalor70 from '../../assets/looks/calor/femininas/trabalho/salto.png';
+import LookCalor71 from '../../assets/looks/calor/femininas/trabalho/pulseira.png';
+import LookCalor72 from '../../assets/looks/calor/femininas/trabalho/relogio.png';
+import LookCalor73 from '../../assets/looks/calor/femininas/trabalho/bolsa.png';
+
+
+//masculino trabalho
+import LookCalor74 from '../../assets/looks/calor/masculinas/trabalho/blusa_social.png';
+import LookCalor75 from '../../assets/looks/calor/masculinas/trabalho/calca_social.png';
+import LookCalor76 from '../../assets/looks/calor/masculinas/trabalho/tenis_social.png';
+import LookCalor77 from '../../assets/looks/calor/masculinas/trabalho/relogio.png';
+
+
+
+//neutro trabalho
+import LookCalor78 from '../../assets/looks/calor/neutras/trabalho/blusa_social.png';
+import LookCalor79 from '../../assets/looks/calor/neutras/trabalho/calca_social.png';
+import LookCalor80 from '../../assets/looks/calor/neutras/trabalho/tenis_social.png';
+import LookCalor81 from '../../assets/looks/calor/neutras/trabalho/relogio.png';
+
+
+
+
+
 
 // Função para classificar temperatura
 const classificarTemperatura = (temperatura) => {
@@ -587,6 +672,8 @@ const sugestoesDeRoupa = {
             }
         }
     },
+
+
     restaurante: {
         masculino: {
             frio: {
@@ -631,6 +718,8 @@ const sugestoesDeRoupa = {
             }
         }
     },
+
+
     shopping: {
         masculino: {
             frio: {
@@ -674,8 +763,55 @@ const sugestoesDeRoupa = {
                 imagens: [LookCalor65, LookCalor66, LookCalor67],
             }
         }
-    }
-};
+    },
+
+
+    trabalho: {
+        masculino: {
+            frio: {
+                texto: "Use uma roupa elegante e aquecida, como camisa social com blazer e calça de tecido mais grosso.",
+                imagens: [LookFrio79, LookFrio80, LookFrio81, LookFrio82, LookFrio83, LookFrio84, LookFrio85],
+            },
+            ameno: {
+                texto: "Escolha peças leves e formais, como camisa e calça social para um dia confortável.",
+                imagens: [LookAmeno73, LookAmeno74, LookAmeno75, LookAmeno76, LookAmeno77],
+            },
+            calor: {
+                texto: "Prefira roupas frescas e alinhadas, como camisa e calça de tecido leve para o calor.",
+                imagens: [LookCalor74, LookCalor75, LookCalor76, LookCalor77],
+            }
+        },
+        feminino: {
+            frio: {
+                texto: "Combine elegância e conforto com um casaco estruturado, blusa de gola alta e calça ou saia midi.",
+                imagens: [LookFrio30, LookFrio31, LookFrio32, LookFrio33, LookFrio34],
+            },
+            ameno: {
+                texto: "Opte por um visual leve e profissional, como blazer com blusa fluida e calça de alfaiataria.",
+                imagens: [LookAmeno78, LookAmeno79, LookAmeno80, LookAmeno81, LookAmeno82],
+            },
+            calor: {
+                texto: "Use roupas frescas e sofisticadas, como vestido midi ou blusa leve com saia ou calça reta.",
+                imagens: [LookCalor68, LookCalor69, LookCalor70, LookCalor71, LookCalor72, LookCalor73],
+            }
+        },
+        neutro: {
+            frio: {
+                texto: "Vista um look discreto e profissional com suéter, camisa por baixo e calça de tecido encorpado.",
+                imagens: [LookFrio94, LookFrio95, LookFrio96, LookFrio97, LookFrio98],
+            },
+            ameno: {
+                texto: "Use peças versáteis e elegantes, como camisa de algodão e calça reta para o clima ameno.",
+                imagens: [LookAmeno83, LookAmeno84, LookAmeno85, LookAmeno86],
+            },
+            calor: {
+                texto: "Escolha roupas leves e neutras como polo ou camisa de linho e calça fresca para o calor.",
+                imagens: [LookCalor78, LookCalor79, LookCalor80, LookCalor81],
+            }
+        }}
+    };
+    
+    
 
 // Função para gerar recomendação com base nos parâmetros
 const gerarRecomendacao = (temperatura, lugar, tipoLook) => {
