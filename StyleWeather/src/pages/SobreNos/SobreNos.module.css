@@ -61,6 +61,7 @@
   margin-bottom: 1.5rem;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: float 4s ease-in-out infinite;
 }
 
 .logoImg:hover {
@@ -73,6 +74,13 @@
 
 .responsiveLogo {
   display: none;
+  animation: float 4s ease-in-out infinite;
+}
+
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 .paragrafo{
   margin-top:10px ;
