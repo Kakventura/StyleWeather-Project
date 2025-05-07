@@ -1,96 +1,203 @@
 @import url('https://fonts.cdnfonts.com/css/winky-rough');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --roxo-claro: #a076cb;
+  --roxo-base: #9b7cbb;
+  --roxo-escuro: #2e1647;
+  --branco: #ffffff;
+  --preto: #121212;
+  --cinza-borda: rgba(110, 76, 151, 0.15);
+  --cinza-texto: #4a4a4a;
+  --sombra-hover: rgba(110, 76, 151, 0.25);
+  --degrade-roxo: linear-gradient(135deg, var(--roxo-base), var(--roxo-escuro));
+}
 
 .background {
-  height: 100vh;
-  width: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--branco);
-  font-family: 'Winky Rough', sans-serif;
-}
-
-.user {
-  width: 150px;
-  margin-bottom: 30px;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f9f6ff 0%, #ffffff 100%);
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
 .cardLogin {
-  width: 600px;
-  background: var(--branco);
-  padding: 40px 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px var(--sombra-hover);
+  position: relative;
+  z-index: 1;
+  width: 800px;
+  max-width: 90%;
+  background: rgba(255, 255, 255, 0.98);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1), 
+              0 8px 20px rgba(155, 124, 187, 0.2);
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start; /* Alterado para flex-start */
+  border: 1px solid rgba(160, 118, 203, 0.2);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  margin: 50px auto 20px auto;
+}
+
+/* Removido o efeito de chuva com pseudo-elemento */
+
+/* Adicione mais elementos conforme necessário usando classes adicionais */
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.cardLogin:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), 
+              0 12px 25px rgba(155, 124, 187, 0.3);
+}
+
+.user-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
   align-items: center;
+  margin-top: 2rem; /* Adicionado espaço acima da foto */
+}
+
+.user {
+  width: 210px;
+  height: 210px;
+
+  animation: float 4s ease-in-out infinite;
+
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(110, 76, 151, 0.3),
+              inset 0 0 20px rgba(255, 255, 255, 0.6);
+  margin: 0;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 5px 15px rgba(110, 76, 151, 0.2));
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+
+.inputs button:hover {
+  background: var(--roxo-escuro);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(110, 76, 151, 0.3);
+}
+.user:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(110, 76, 151, 0.4),
+              inset 0 0 25px rgba(255, 255, 255, 0.7);
 }
 
 .titulo {
-  font-size: 44px;
-  font-family: 'Winky Rough', sans-serif;
-  font-weight: 900;
-  margin-bottom: 30px;
-  color: var(--roxo-base);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: var(--roxo-escuro);
+  font-size: 2.6rem;
+  margin-bottom: 2.5rem; /* Reduzido o espaço abaixo do título */
+  text-align: center;
+  position: relative;
+  letter-spacing: -0.5px;
+  background: linear-gradient(to right, var(--roxo-escuro), var(--roxo-base));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 10px rgba(160, 118, 203, 0.2);
+}
+
+.titulo::after {
+  content: '';
+  position: absolute;
+  width: 70%;
+  height: 4px;
+  bottom: -12px;
+  left: 15%;
+  background: var(--degrade-roxo);
+  border-radius: 4px;
+  transform: scaleX(0.8);
+  transform-origin: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0.8;
+}
+
+.cardLogin:hover .titulo::after {
+  transform: scaleX(1);
+  opacity: 1;
 }
 
 .inputs {
-  width: 80%;
+  width: 45%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  gap: 1.5rem;
+  margin-top: 3rem; /* Adicionado espaço acima dos inputs */
 }
 
+/* Estilos do login com inputs de cadastro */
 .formGroup {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 10px;
+  position: relative;
 }
 
 .formGroup label {
-  margin-bottom: 4px;
-  font-size: 16px;
-  color: var(--cinza-texto);
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--roxo-escuro);
+  font-family: 'Winky Rough', sans-serif;
+  letter-spacing: 0.5px;
+  padding-left: 0.5rem;
 }
 
 .formGroup input {
   width: 100%;
-  padding: 12px;
-  border: 2px solid var(--cinza-borda);
+  padding: 12px 40px 12px 12px; /* Espaço à direita pro ícone */
+  margin: 8px 0;
+  border: 2px solid rgba(88, 52, 133, 0.3);
   border-radius: 8px;
   font-size: 16px;
+  font-family: 'Poppins', sans-serif;
   background-color: var(--branco);
-  color: var(--cinza-texto);
-  font-family: 'Winky Rough', sans-serif;
+  color: var(--preto);
+  transition: border-color 0.3s ease;
 }
 
+.formGroup input:focus {
+  outline: none;
+  border-color: var(--roxo-base);
+}
+
+/* Botão do formulário */
 .inputs button {
-  width: 60%;
-  padding: 12px;
-  background: var(--preto);
+  width: 90%;
+  padding: 1rem;
+  background: var(--degrade-roxo);
   color: var(--branco);
   border: none;
-  border-radius: 20px;
-  font-size: 16px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  font-family: 'Winky Rough', sans-serif;
-  transition: background 0.3s;
-  margin-top: 20px;
-}
-
-.inputs button:hover {
-  background: var(--cinza-claro);
-}
-
-.mensagem {
-  margin-top: 10px;
-  font-weight: bold;
-  color: var(--roxo-base);
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-top: 1.5rem; /* Aumentado o espaço acima do botão */
+  box-shadow: 0 5px 20px rgba(155, 124, 187, 0.3);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .passwordWrapper {
@@ -121,6 +228,13 @@
   font-family: 'Winky Rough', sans-serif;
 }
 
+.mensagem {
+  color: red;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+
 .formGroup label {
   margin-bottom: 4px;
   font-size: 16px;
@@ -128,18 +242,64 @@
 }
 
 
+
+.inputs input,
+.inputs select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 2px solid rgba(110, 76, 151, 0.3); /* Borda roxa suave */
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--branco);
+  color: var(--preto);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(110, 76, 151, 0.05);
+}
+
+.inputs input:focus,
+.inputs select:focus {
+  outline: none;
+  border-color: var(--roxo-base); /* Roxo base ao focar */
+  box-shadow: 0 0 0 3px rgba(160, 118, 203, 0.2); /* Glow roxo */
+}
+
+.inputs input:hover,
+.inputs select:hover {
+  border-color: var(--roxo-base);
+  box-shadow: 0 0 6px var(--sombra-hover);
+}
+
+
+
 /* Responsividade */
 @media (max-width: 768px) {
   .cardLogin {
-    width: 90%; /* Ajusta a largura para dispositivos móveis */
-    padding: 20px; /* Ajusta o padding */
+    flex-direction: column;
+    padding: 2.5rem;
+    width: 90%;
+    align-items: center;
   }
-  
-  .titulo {
-    font-size: 32px; /* Ajusta o tamanho do título para telas menores */
+
+  .inputs {
+    width: 100%;
+    margin-top: 2rem;
   }
 
   .inputs button {
-    width: 80%; /* Faz o botão ocupar mais espaço em telas menores */
+    width: 80%;
   }
-} 
+}
+
+@media (max-width: 480px) {
+  .cardLogin {
+    padding: 2rem 1.5rem;
+    border-radius: 18px;
+  }
+
+  .inputs button {
+    width: 100%;
+    padding: 0.9rem;
+  }
+}

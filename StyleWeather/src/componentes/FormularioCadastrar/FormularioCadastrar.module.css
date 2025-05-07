@@ -45,15 +45,34 @@
   border-color: var(--roxo-base);
 }
 
-.inputs a {
-  text-decoration: none;
-  color: var(--roxo-claro);
-  transition: color 0.2s ease;
+.inputs input,
+.inputs select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 2px solid var(--cinza-borda);
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--branco);
+  color: var(--cinza-texto);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(110, 76, 151, 0.05);
 }
 
-.inputs a:hover {
-  color: var(--roxo-escuro);
+.inputs input:focus,
+.inputs select:focus {
+  outline: none;
+  border-color: var(--roxo-base);
+  box-shadow: 0 0 0 3px rgba(160, 118, 203, 0.2);
 }
+
+.inputs input:hover,
+.inputs select:hover {
+  border-color: var(--roxo-base);
+  box-shadow: 0 0 6px var(--sombra-hover);
+}
+
 
 /* ---------- LADO ESQUERDO ---------- */
 .ladoEsquerdo {
@@ -163,8 +182,9 @@
 .inputs button {
   width: 80%;
   padding: 12px;
-  background: var(--roxo-base);
   color: var(--branco);
+  background: linear-gradient(to right, var(--roxo-escuro), var(--roxo-base));
+
   border: none;
   border-radius: 20px;
   font-size: 16px;

@@ -19,8 +19,9 @@ function SobreNos() {
 
       <div className={style.rightPanel}>
         <div className={style.welcome}>
-          <h2>Sobre Nós</h2>
-          <p>
+          <h2 className={style.titulo}>Sobre Nós</h2>
+          <h3 className={style.frase}>Com a nossa ajuda, o clima nunca te pega desprevenido!</h3>
+          <p className={style.paragrafo}>
             No Style Weather, transformamos a forma como você se prepara para o seu dia.
             Nossa plataforma une tecnologia, estilo e praticidade para ajudar você a escolher o
             look ideal com base no clima da sua região e nos compromissos que tem pela frente.

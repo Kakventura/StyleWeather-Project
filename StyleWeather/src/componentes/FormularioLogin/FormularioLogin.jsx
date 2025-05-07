@@ -86,6 +86,8 @@ const FormularioLogin = () => {
             <input
               type="email"
               value={email}
+              placeholder="exemplo@dominio.com"
+
               onChange={(e) => setEmail(e.target.value)}
               required
             />
@@ -97,6 +99,8 @@ const FormularioLogin = () => {
               <input
                 type={senhaVisivel ? "text" : "password"} // Muda o tipo de input dependendo do estado
                 value={senha}
+                placeholder="sua senha cadastrada"
+
                 onChange={(e) => setSenha(e.target.value)}
                 required
               />
