@@ -68,6 +68,9 @@
 .user {
   width: 210px;
   height: 210px;
+
+  animation: float 4s ease-in-out infinite;
+
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid rgba(255, 255, 255, 0.9);
@@ -78,6 +81,17 @@
   filter: drop-shadow(0 5px 15px rgba(110, 76, 151, 0.2));
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+
+.inputs button:hover {
+  background: var(--roxo-escuro);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(110, 76, 151, 0.3);
+}
 .user:hover {
   transform: scale(1.05);
   box-shadow: 0 12px 35px rgba(110, 76, 151, 0.4),
@@ -152,7 +166,7 @@
   width: 100%;
   padding: 12px 40px 12px 12px; /* Espaço à direita pro ícone */
   margin: 8px 0;
-  border: 2px solid rgba(110, 76, 151, 0.3);
+  border: 2px solid rgba(88, 52, 133, 0.3);
   border-radius: 8px;
   font-size: 16px;
   font-family: 'Poppins', sans-serif;
@@ -168,7 +182,7 @@
 
 /* Botão do formulário */
 .inputs button {
-  width: 70%;
+  width: 90%;
   padding: 1rem;
   background: var(--degrade-roxo);
   color: var(--branco);
@@ -226,6 +240,37 @@
   font-size: 16px;
   color: var(--cinza-texto);
 }
+
+
+
+.inputs input,
+.inputs select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 2px solid rgba(110, 76, 151, 0.3); /* Borda roxa suave */
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--branco);
+  color: var(--preto);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(110, 76, 151, 0.05);
+}
+
+.inputs input:focus,
+.inputs select:focus {
+  outline: none;
+  border-color: var(--roxo-base); /* Roxo base ao focar */
+  box-shadow: 0 0 0 3px rgba(160, 118, 203, 0.2); /* Glow roxo */
+}
+
+.inputs input:hover,
+.inputs select:hover {
+  border-color: var(--roxo-base);
+  box-shadow: 0 0 6px var(--sombra-hover);
+}
+
 
 
 /* Responsividade */
