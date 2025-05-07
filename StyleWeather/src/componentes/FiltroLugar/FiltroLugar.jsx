@@ -74,7 +74,7 @@ const FiltroLugar = () => {
 
     return (
         <div className={`${styles.filtroLugar} ${menuAberto ? styles.menuAberto : ""}`}>
-            <label htmlFor="lugar"><strong>Escolha o local:</strong></label>
+            <label className={styles.filtroLabel}><strong>Escolha o local:</strong></label>
 
             <div className={styles.selectContainer}>
                 <Select
