@@ -37,6 +37,7 @@
 .buttons {
   display: flex;
   gap: 1rem;
+  cursor: pointer;
 }
 
 .customBtn {
@@ -48,23 +49,13 @@
   text-transform: uppercase;
   font-size: 1rem;
   letter-spacing: 0.15rem;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   z-index: 1;
   border: none;
-  background: transparent;
-}
-
-.customBtn::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 10rem;
-  z-index: -2;
+  background-color: var(--roxo-clarissimo); /* cor padrão roxa clara */
+  cursor: pointer; /* cursor tipo ponteiro */
 }
 
 .customBtn::before {
@@ -74,10 +65,15 @@
   left: 0;
   width: 0%;
   height: 100%;
-  background-color: var(--roxo_base);
+  background-color: var(--roxo-base); /* roxo escuro no hover/click */
   transition: all 0.3s ease;
   border-radius: 10rem;
   z-index: -1;
+}
+
+.customBtn:hover::before,
+.customBtn:active::before {
+  width: 100%;
 }
 
 .customBtn:hover::before {
