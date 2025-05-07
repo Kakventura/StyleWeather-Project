@@ -16,7 +16,6 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* Quando o menu estiver aberto, empurra o conteúdo abaixo */
 .navbar.openMenu ~ * {
   transform: translateY(80px);
   transition: transform 0.3s ease;
@@ -43,9 +42,8 @@
   display: flex;
   gap: 1rem;
   cursor: pointer;
-  opacity: 0;
-  animation: fadeInNavbar 0.6s ease forwards;
-  animation-delay: 0.7s;
+  justify-content: flex-end; /* Alinha os botões à direita */
+  width: 100%;
 }
 
 .customBtn {
@@ -117,7 +115,7 @@
     width: 100%;
     padding: 1rem 2rem;
     gap: 1rem;
-    align-items: flex-start;
+    align-items: flex-end; /* Alinha os itens do menu à direita */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-30px);
     opacity: 0;
