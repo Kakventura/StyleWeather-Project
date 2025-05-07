@@ -4,7 +4,7 @@ import { buscarClimaPorCidade } from "../../services/weatherApi";
 import { useNavigate } from "react-router-dom";
 import styles from "./FiltroLugar.module.css";
 import { CardClima } from "../CardClima/CardClima";
-import { SwitchAlert } from "../SwitchAlert"; // Certifique-se que SwitchAlert está correto
+import { SweetAlert } from "../SweetAlert"; 
 import Select from "react-select";
 
 const FiltroLugar = () => {
@@ -23,8 +23,7 @@ const FiltroLugar = () => {
     const navigate = useNavigate();
 
     const handleEscolherLook = () => {
-        // Aqui você pode usar o SwitchAlert de acordo com a sua implementação
-        SwitchAlert.error("Você não tem um cadastro no site! Por favor, cadastre-se.");
+        SweetAlert.error("Você não tem um cadastro no site! Por favor, cadastre-se.");
         navigate("/cadastrar");
     };
 

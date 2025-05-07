@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getAuth } from "firebase/auth";
 import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
-import { SwitchAlert } from "../SwitchAlert"; // Importando o SwitchAlert
+import { SweetAlert } from "../SweetAlert"; 
 import style from "./FormularioPerfil.module.css";
 import usuario from "../../assets/usuario.png"; // Imagem padrão de usuário
 
@@ -83,13 +83,13 @@ const FormularioPerfil = () => {
       // Se houver alterações, realizar a atualização
       if (Object.keys(updatedData).length > 0) {
         await updateDoc(docRef, updatedData);
-        SwitchAlert.success("Perfil atualizado com sucesso!"); 
+        SweetAlert.success("Perfil atualizado com sucesso!"); 
       } else {
-        SwitchAlert.error("Nenhuma alteração foi feita.");
+        SweetAlert.error("Nenhuma alteração foi feita.");
       }
     } catch (error) {
       console.error("Erro ao atualizar o perfil:", error.message);
-      SwitchAlert.error("Erro ao atualizar o perfil.");
+      SweetAlert.error("Erro ao atualizar o perfil.");
     }
   };
 

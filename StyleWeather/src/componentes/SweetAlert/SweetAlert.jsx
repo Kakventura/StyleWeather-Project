@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
-import style from './SwitchAlert.module.css';
+import style from './SweetAlert.module.css';
 
-const SwitchAlert = {
+const SweetAlert = {
   error: (messages) => {
     const formattedMessages = Array.isArray(messages) 
       ? messages.join('<br>') 
@@ -80,4 +80,4 @@ successPerfil: (messagePerfil) => {
 };
 
 
-export { SwitchAlert };
+export { SweetAlert };

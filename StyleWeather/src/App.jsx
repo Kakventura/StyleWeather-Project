@@ -4,11 +4,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import { LayoutPrincipal } from './layout/LayoutPrincipal/LayoutPrincipal';
 import { Inicial } from './pages/Inicial';
-import { FormularioCadastrar} from './componentes';
+import { FormularioCadastrar } from './componentes';
 import { Genero } from './pages/Genero';
 import { Login } from './pages/Login/Login';
 import { EditarPerfil } from './pages/EditarPerfil/EditarPerfil';
 import { SobreNos } from './pages/SobreNos/SobreNos';
+import {Error404} from './componentes/Error404'; // Importando o componente de erro 404
 import './global.css';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/genero" element={<Genero />} />
             <Route path="/editar-perfil" element={<EditarPerfil />} />
             <Route path="/sobre-nos" element={<SobreNos />} />
+            <Route path="*" element={<Error404 />} />
           </Routes>
         </LayoutPrincipal>
       </Router>
@@ -32,4 +34,4 @@ function App() {
   );
 }
 
-export {App};
+export { App };

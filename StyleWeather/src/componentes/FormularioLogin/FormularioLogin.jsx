@@ -5,7 +5,7 @@ import usuario from '../../assets/usuario.png';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { verificarSenha } from '../../services/Auth'; // Função para verificar senha
-import { SwitchAlert } from "../SwitchAlert"; // Importa o SwitchAlert
+import { SweetAlert } from '../SweetAlert'; // Importa o componente de alerta
 import { AppContext } from "../../context/AppContext"; // Importa o contexto global
 import { Eye, EyeOff } from 'react-feather'; // Ícones para mostrar/ocultar senha
 
@@ -49,19 +49,19 @@ const FormularioLogin = () => {
         const senhaCorreta = await verificarSenha(senha, dadosUsuario.senha);
         if (senhaCorreta) {
           setMensagem("Login bem-sucedido!");
-          SwitchAlert.successPerfil("Login bem-sucedido!"); // Aumenta a duração para 5 segundos
+          SweetAlert.successPerfil("Login bem-sucedido!"); // Aumenta a duração para 5 segundos
         } else {
           setMensagem("Senha incorreta.");
-          SwitchAlert.error("Senha incorreta.", { duration: 5000 }); // 5 segundos para o erro
+          SweetAlert.error("Senha incorreta.", { duration: 5000 }); // 5 segundos para o erro
         }
       } else {
         setMensagem("Usuário não encontrado no banco de dados.");
-        SwitchAlert.error("Usuário não encontrado no banco de dados.", { duration: 5000 }); // 5 segundos para o erro
+        SweetAlert.error("Usuário não encontrado no banco de dados.", { duration: 5000 }); // 5 segundos para o erro
       }
     } catch (error) {
       console.error("Erro no login:", error.message);
       setMensagem("Email ou senha inválidos.");
-      SwitchAlert.error("Email ou senha inválidos.", { duration: 5000 }); // 5 segundos para o erro
+      SweetAlert.error("Email ou senha inválidos.", { duration: 5000 }); // 5 segundos para o erro
     }
 
     // Limpa os campos de email e senha

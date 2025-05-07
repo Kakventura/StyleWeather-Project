@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import style from './FormularioCadastrar.module.css';
 import manequim from '../../assets/manequim.png';
-import { SwitchAlert } from '../../componentes/SwitchAlert';
+import { SweetAlert } from '../SweetAlert';
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // ÍCONES ADICIONADOS
 
 const FormularioCadastrar = () => {
@@ -58,7 +58,7 @@ const FormularioCadastrar = () => {
     }
     
     if (errors.length > 0) {
-      SwitchAlert.error(errors);
+      SweetAlert.error(errors);
       return;
     }
 

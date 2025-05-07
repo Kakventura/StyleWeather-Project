@@ -5,7 +5,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../services/firebaseConfig";
 import style from "./FormularioGenero.module.css";
 import { criptografarSenha } from "../../services/Auth";
-import { SwitchAlert } from "../../componentes/SwitchAlert";
+import { SweetAlert } from "../SweetAlert";
 
 // Icones de tipo de looks
 import femininoImg from "../../assets/icones/icone_femininas.png";
@@ -28,7 +28,7 @@ const FormularioGenero = () => {
     const senha = localStorage.getItem("cadastroSenha");
 
     if (!tipoLook) {
-      SwitchAlert.error("Por favor, selecione um estilo de roupa.", {
+      SweetAlert.error("Por favor, selecione um estilo de roupa.", {
         iconColor: "#800080",
       });
       return;
@@ -48,18 +48,18 @@ const FormularioGenero = () => {
         tipoLook,
       });
 
-      SwitchAlert.success("Cadastro realizado com sucesso!", {
+      SweetAlert.success("Cadastro realizado com sucesso!", {
         iconColor: "#800080",
       });
       navigate("/editar-perfil");
     } catch (error) {
       console.error("Erro ao cadastrar:", error.message);
       if (error.code === "auth/email-already-in-use") {
-        SwitchAlert.error("Este e-mail já está em uso. Por favor, use outro e-mail.", {
+        SweetAlert.error("Este e-mail já está em uso. Por favor, use outro e-mail.", {
           iconColor: "#800080",
         });
       } else {
-        SwitchAlert.error(`Erro ao cadastrar: ${error.message}`, {
+        SweetAlert.error(`Erro ao cadastrar: ${error.message}`, {
           iconColor: "#800080",
         });
       }
