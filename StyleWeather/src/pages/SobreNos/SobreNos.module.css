@@ -35,17 +35,6 @@
   height: 3px;
 }
 
-@keyframes fadeSlide {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .logoBox {
   display: flex;
   flex-direction: column;

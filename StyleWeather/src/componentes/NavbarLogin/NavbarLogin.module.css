@@ -24,20 +24,36 @@
   transition: transform 0.3s ease;
 }
 
+/* Estilo da logo */
 .logo {
   height: 110px;
   cursor: pointer;
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: fadeInNavbar 0.3s ease forwards; /* Animação de entrada */
+  animation-delay: 0.3s; /* Atraso da animação */
 }
 
+/* Efeito de hover */
 .logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Aumenta a escala da logo ao passar o mouse */
 }
+
+/* Animação para a logo */
+@keyframes fadeInNavbar {
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Fica na posição original */
+  }
+}
+
 
 .buttons {
   display: flex;
   gap: 1.5rem;
   align-items: center;
+  opacity: 0;
+  animation: fadeInNavbar 0.3s ease forwards;
+  animation-delay: 0.3s;
 }
 
 .customBtn {
