@@ -25,67 +25,59 @@ Oferecemos uma aplicação web que recomenda looks personalizados, combinando:
 
 ## ✨ Desenvolvedoras do Projeto
 
+<table align="center">
+  <tr>
+    <td align="center">
+      <a href="https://github.com/J0vana23">
+        <img src="https://github.com/user-attachments/assets/ca606409-68d7-4456-9bdb-9fceb913fcdb" width="135px;" alt="Jovana - Github"/><br>
+        <sub><b>Jovana Oliveira</b></sub><br>
+      </a>
+      <sub>
+        <a href="mailto:jovana.silva01@etec.sp.gov.br">jovana.silva01@etec.sp.gov.br</a>
+      </sub><br>
+      <sub>
+        <a href="mailto:jovanaoliveira230807@gmail.com">jovanaoliveira230807@gmail.com</a>
+      </sub>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Kakventura">
+        <img src="https://avatars.githubusercontent.com/u/125403596?v=4" width="135px;" alt="Karinne Angelo - Github"/><br>
+        <sub><b>Karinne Angelo</b></sub><br>
+      </a>
+      <sub>
+        <a href="mailto:kakaangelo25@gmail.com">kakaangelo25@gmail.com</a>
+      </sub><br>
+      <sub>
+        <a href="mailto:karinne.ventura@etec.sp.gov.br">karinne.ventura@etec.sp.gov.br</a>
+      </sub>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Lehguanaes">
+        <img src="https://avatars.githubusercontent.com/u/125403978?v=4" width="135px;" alt="Letícia - Github"/><br>
+        <sub><b>Letícia Guanaes</b></sub><br>
+      </a>
+      <sub>
+        <a href="mailto:lehguanaes@gmail.com">lehguanaes@gmail.com</a>
+      </sub><br>
+      <sub>
+        <a href="mailto:leticia.moreira66@etec.sp.gov.br">leticia.moreira66@etec.sp.gov.br</a>
+      </sub>
+    </td>
+    <td align="center">
+      <a href="https://github.com/dudinhxzs">
+        <img src="https://avatars.githubusercontent.com/u/125403489?v=4" width="135px;" alt="Maria - Github"/><br>
+        <sub><b>Maria Eduarda</b></sub><br>
+      </a>
+      <sub>
+        <a href="mailto:monteiroviana2@gmail.com">monteiroviana2@gmail.com</a>
+      </sub><br>
+      <sub>
+        <a href="mailto:maria.viana57@etec.sp.gov.br">maria.viana57@etec.sp.gov.br</a>
+      </sub>
+    </td>
+  </tr>
+</table>
 
-  <table align="center">
-    <tr>
-      <td align="center">
-         <a href="https://github.com/J0vana23">
-          <img src="https://github.com/user-attachments/assets/ca606409-68d7-4456-9bdb-9fceb913fcdb" width="135px;" alt="Jovana - Github"/><br>
-          <sub>
-            <b>Jovana Oliveira</b>
-          </sub> <br>
-        </a>
-        <sub>
-            <a href="jovana.silva01@etec.sp.gov.br">jovana.silva01@etec.sp.gov.br</a>  
-          </sub> <br>
-        <sub>
-        <a href="jovanaoliveira230807@gmail.com">jovanaoliveira230807@gmail.com</a>
-        </sub>
-      </td>
-      <td align="center">
-         <a href="https://github.com/Kakventura">
-          <img src="https://avatars.githubusercontent.com/u/125403596?v=4" width="135px;" alt="Karinne Angelo - Github"/><br>
-          <sub>
-            <b>Karinne Angelo</b>
-          </sub> <br>
-        </a>
-       <sub>
-          <a href="kakaangelo25@gmail.com">kakaangelo25@gmail.com</a>
-          </sub> <br>
-        <sub>
-        <a href="karinne.ventura@etec.sp.gov.br">karinne.ventura@etec.sp.gov.br</a>
-        </sub>
-      </td>
-      <td align="center">
-        <a href="https://github.com/Lehguanaes">
-          <img src="https://avatars.githubusercontent.com/u/125403978?v=4"  width="135px;"  alt="Letícia - Github"/><br>
-          <sub>
-            <b>Letícia Guanaes</b>
-          </sub> <br> 
-        </a>
-        <sub>
-            <a href="lehguanaes@gmail.com">lehguanaes@gmail.com</a>
-          </sub> <br>
-        <sub>
-            <a href="leticia.moreira66@etec.sp.gov.br">leticia.moreira66@etec.sp.gov.br</a>
-        </sub>
-      </td>
-      <td align="center">
-         <a href="https://github.com/dudinhxzs">
-          <img src="https://avatars.githubusercontent.com/u/125403489?v=4" width="135px;" alt="Maria - Github"/><br>
-          <sub>
-            <b>Maria Eduarda</b>
-            </sub> <br>
-        </a>
-        <sub>
-            <a href="monteiroviana2@gmail.com">monteiroviana2@gmail.com</a>
-          </sub> <br>
-        <sub>
-          <a href="maria.viana57@etec.sp.gov.br">maria.viana57@etec.sp.gov.br</a>
-          </sub>
-      </td>
-    </tr>
-  </table>
 
 <h3 align="center">
  "𝑽𝒊𝒔𝒕𝒂-𝒔𝒆 𝒄𝒐𝒎 𝒐 𝒕𝒆𝒎𝒑𝒐 𝒂 𝒔𝒆𝒖 𝒇𝒂𝒗𝒐𝒓!"
