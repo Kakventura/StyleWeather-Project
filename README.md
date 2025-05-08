@@ -35,6 +35,12 @@ Oferecemos uma aplicação web que recomenda looks personalizados, combinando:
             <b>Jovana Oliveira</b>
           </sub> <br>
         </a>
+        <sub>
+            <a href="jovana.silva01@etec.sp.gov.br">jovana.silva01@etec.sp.gov.br</a>  
+          </sub> <br>
+        <sub>
+        <a href="jovanaoliveira230807@gmail.com">jovanaoliveira230807@gmail.com</a>
+        </sub>
       </td>
       <td align="center">
          <a href="https://github.com/Kakventura">
@@ -43,6 +49,12 @@ Oferecemos uma aplicação web que recomenda looks personalizados, combinando:
             <b>Karinne Angelo</b>
           </sub> <br>
         </a>
+       <sub>
+          <a href="kakaangelo25@gmail.com">kakaangelo25@gmail.com</a>
+          </sub> <br>
+        <sub>
+        <a href="karinne.ventura@etec.sp.gov.br">karinne.ventura@etec.sp.gov.br</a>
+        </sub>
       </td>
       <td align="center">
         <a href="https://github.com/Lehguanaes">
@@ -51,6 +63,12 @@ Oferecemos uma aplicação web que recomenda looks personalizados, combinando:
             <b>Letícia Guanaes</b>
           </sub> <br> 
         </a>
+        <sub>
+            <a href="lehguanaes@gmail.com">lehguanaes@gmail.com</a>
+          </sub> <br>
+        <sub>
+            <a href="leticia.moreira66@etec.sp.gov.br">leticia.moreira66@etec.sp.gov.br</a>
+        </sub>
       </td>
       <td align="center">
          <a href="https://github.com/dudinhxzs">
@@ -59,6 +77,12 @@ Oferecemos uma aplicação web que recomenda looks personalizados, combinando:
             <b>Maria Eduarda</b>
             </sub> <br>
         </a>
+        <sub>
+            <a href="monteiroviana2@gmail.com">monteiroviana2@gmail.com</a>
+          </sub> <br>
+        <sub>
+          <a href="maria.viana57@etec.sp.gov.br">maria.viana57@etec.sp.gov.br</a>
+          </sub>
       </td>
     </tr>
   </table>
