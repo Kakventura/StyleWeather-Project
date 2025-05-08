@@ -280,7 +280,6 @@ import LookFrio76 from '../../assets/looks/frio/neutras/shopping/blusa_preta.png
 import LookFrio77 from '../../assets/looks/frio/neutras/shopping/calca_branca.png';
 import LookFrio78 from '../../assets/looks/frio/neutras/shopping/tenis_branco.png';
 
-
 //trabalho masculino
 import LookFrio79 from '../../assets/looks/frio/masculinas/trabalho/blusa.png';
 import LookFrio80 from '../../assets/looks/frio/masculinas/trabalho/camisa.png';
@@ -288,8 +287,7 @@ import LookFrio81 from '../../assets/looks/frio/masculinas/trabalho/calca_social
 import LookFrio82 from '../../assets/looks/frio/masculinas/trabalho/tenis.png';
 import LookFrio83 from '../../assets/looks/frio/masculinas/trabalho/sapato_social.png';
 import LookFrio84 from '../../assets/looks/frio/masculinas/trabalho/cinto.png';
-import LookFrio85 from '../../assets/looks/frio/masculinas/trabalho/tenis.png';
-
+import LookFrio85 from '../../assets/looks/frio/masculinas/trabalho/tenis.png'
 
 //trabalho neutras
 import LookFrio86 from '../../assets/looks/frio/neutras/trabalho/blusa.png';
@@ -301,14 +299,12 @@ import LookFrio91 from '../../assets/looks/frio/neutras/trabalho/corrente.png';
 import LookFrio92 from '../../assets/looks/frio/neutras/trabalho/relogio.png';
 import LookFrio93 from '../../assets/looks/frio/neutras/trabalho/bolsa.png';
 
-
 //trabalho feminino
 import LookFrio94 from '../../assets/looks/frio/femininas/trabalho/blusa_social.png';
 import LookFrio95 from '../../assets/looks/frio/femininas/trabalho/calca_social.png';
 import LookFrio96 from '../../assets/looks/frio/femininas/trabalho/bota_ugg_preta.png';
 import LookFrio97 from '../../assets/looks/frio/femininas/trabalho/cinto.png';
 import LookFrio98 from '../../assets/looks/frio/femininas/trabalho/colar.png';
-
 
 // Academia - Ameno
 import LookAmeno37 from '../../assets/looks/ameno/neutras/academia/camisa_azul.png';
@@ -346,7 +342,6 @@ import LookAmeno64 from '../../assets/looks/ameno/neutras/restaurante/camisa_soc
 import LookAmeno65 from '../../assets/looks/ameno/neutras/restaurante/short_alfaiataria_bege.png';
 import LookAmeno67 from '../../assets/looks/ameno/neutras/restaurante/tenis_vans.png';
 
-
 // Shopping - Ameno
 import LookAmeno68 from '../../assets/looks/ameno/neutras/shopping/camisa_preta.png';
 import LookAmeno69 from '../../assets/looks/ameno/neutras/shopping/moletom_preto.png';
@@ -361,22 +356,18 @@ import LookAmeno75 from '../../assets/looks/ameno/masculinas/trabalho/sapato_pre
 import LookAmeno76 from '../../assets/looks/ameno/masculinas/trabalho/cinto_preto.png';
 import LookAmeno77 from '../../assets/looks/ameno/masculinas/trabalho/pasta_preta.png';
 
-
 //trabalho feminino
-import LookAmeno78 from '../../assets/looks/ameno/femininas/Trabalho/camisa_preta.png';
-import LookAmeno79 from '../../assets/looks/ameno/femininas/Trabalho/calca_branca.png';
-import LookAmeno80 from '../../assets/looks/ameno/femininas/Trabalho/salto_preto.png';
-import LookAmeno81 from '../../assets/looks/ameno/femininas/Trabalho/cinto_preto.png';
-import LookAmeno82 from '../../assets/looks/ameno/femininas/Trabalho/bolsa_preta.png';
+import LookAmeno78 from '../../assets/looks/ameno/femininas/trabalho/camisa_preta.png';
+import LookAmeno79 from '../../assets/looks/ameno/femininas/trabalho/calca_branca.png';
+import LookAmeno80 from '../../assets/looks/ameno/femininas/trabalho/salto_preto.png';
+import LookAmeno81 from '../../assets/looks/ameno/femininas/trabalho/cinto_preto.png';
+import LookAmeno82 from '../../assets/looks/ameno/femininas/trabalho/bolsa_preta.png';
 
-
-//trabalho neutro
+//trabalho neutro 
 import LookAmeno83 from '../../assets/looks/ameno/neutras/trabalho/polo_preta.png';
 import LookAmeno84 from '../../assets/looks/ameno/neutras/trabalho/calca_social_preta.png';
 import LookAmeno85 from '../../assets/looks/ameno/neutras/trabalho/sapato_preto.png';
-import LookAmeno86 from '../../assets/looks/ameno/neutras/Trabalho/cinto_preto.png';
-
-
+import LookAmeno86 from '../../assets/looks/ameno/neutras/trabalho/cinto_preto.png';
 
 // Academia - Calor
 import LookCalor39 from '../../assets/looks/calor/neutras/academia/regata_branca.png';
@@ -414,8 +405,7 @@ import LookCalor65 from '../../assets/looks/calor/neutras/shopping/blusa_polo_br
 import LookCalor66 from '../../assets/looks/calor/neutras/shopping/short_preto.png';
 import LookCalor67 from '../../assets/looks/calor/neutras/shopping/tenis_preto.png';
 
-
-//feminino trabalho
+//feminino trabalho - Calor
 import LookCalor68 from '../../assets/looks/calor/femininas/trabalho/blusa_social.png';
 import LookCalor69 from '../../assets/looks/calor/femininas/trabalho/calca_social.png';
 import LookCalor70 from '../../assets/looks/calor/femininas/trabalho/salto.png';
@@ -423,25 +413,17 @@ import LookCalor71 from '../../assets/looks/calor/femininas/trabalho/pulseira.pn
 import LookCalor72 from '../../assets/looks/calor/femininas/trabalho/relogio.png';
 import LookCalor73 from '../../assets/looks/calor/femininas/trabalho/bolsa.png';
 
-
-//masculino trabalho
+//masculino trabalho - Calor
 import LookCalor74 from '../../assets/looks/calor/masculinas/trabalho/blusa_social.png';
 import LookCalor75 from '../../assets/looks/calor/masculinas/trabalho/calca_social.png';
 import LookCalor76 from '../../assets/looks/calor/masculinas/trabalho/tenis_social.png';
 import LookCalor77 from '../../assets/looks/calor/masculinas/trabalho/relogio.png';
 
-
-
-//neutro trabalho
+//neutro trabalho - Calor
 import LookCalor78 from '../../assets/looks/calor/neutras/trabalho/blusa_social.png';
 import LookCalor79 from '../../assets/looks/calor/neutras/trabalho/calca_social.png';
 import LookCalor80 from '../../assets/looks/calor/neutras/trabalho/tenis_social.png';
 import LookCalor81 from '../../assets/looks/calor/neutras/trabalho/relogio.png';
-
-
-
-
-
 
 // Função para classificar temperatura
 const classificarTemperatura = (temperatura) => {
@@ -672,8 +654,6 @@ const sugestoesDeRoupa = {
             }
         }
     },
-
-
     restaurante: {
         masculino: {
             frio: {
@@ -718,8 +698,6 @@ const sugestoesDeRoupa = {
             }
         }
     },
-
-
     shopping: {
         masculino: {
             frio: {
@@ -764,8 +742,6 @@ const sugestoesDeRoupa = {
             }
         }
     },
-
-
     trabalho: {
         masculino: {
             frio: {

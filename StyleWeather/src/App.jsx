@@ -1,5 +1,5 @@
 import React from 'react';
-import VLibras from './componentes/Vlibras';
+import VLibras from './componentes/VLibras';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import { LayoutPrincipal } from './layout/LayoutPrincipal/LayoutPrincipal';
