@@ -30,7 +30,7 @@ Oferecemos uma aplicação web que recomenda looks personalizados, combinando:
     <tr>
       <td align="center">
          <a href="https://github.com/J0vana23">
-          <img src="https://avatars.githubusercontent.com/u/125403554?v=4" width="135px;" alt="Jovana - Github"/><br>
+          <img src="https://github.com/user-attachments/assets/ca606409-68d7-4456-9bdb-9fceb913fcdb" width="135px;" alt="Jovana - Github"/><br>
           <sub>
             <b>Jovana Oliveira</b>
           </sub> <br>
